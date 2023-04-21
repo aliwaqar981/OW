@@ -199,7 +199,7 @@ const Profile = ({navigation}) => {
             <ProfileAction
               LeftIcon={<Logout />}
               label="Sign Out"
-              containerStyle={{marginTop: 7}}
+              containerStyle={{marginTop: 7, marginBottom: 40}}
               onPress={toggleLogoutModal}
             />
           </View>
@@ -223,7 +223,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.white,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
-    paddingBottom: 20,
   },
   profileContainer: {
     width: 97,

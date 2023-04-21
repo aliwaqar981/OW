@@ -24,15 +24,16 @@ const BottomTabNavigator = () => {
         },
       }}>
       <BottomTab.Screen
-        name={routes.HOME}
+        name={routes.VIDEOARENA}
         component={VideoArena}
         options={{
-          tabBarLabel: 'Video',
           tabBarIcon: ({focused}) => (focused ? <VideoIcon1 /> : <VideoIcon />),
+          headerShown: true,
+          headerTitle: 'Video Arena',
         }}
       />
       <BottomTab.Screen
-        name={routes.VIDEOARENA}
+        name={routes.HOME}
         component={Home}
         options={{
           tabBarLabel: 'Home',

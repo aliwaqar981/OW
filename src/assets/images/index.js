@@ -11,6 +11,14 @@ import MaleBack from './MaleBack.png';
 import BackgroundImage1 from './BackgroundImage1.png';
 import ProfileImage from './ProfileImage.png';
 import AboutUsBG from './AboutUsBG.png';
+import Hip from './Hip.png';
+import Shoulder from './Shoulder.png';
+import PlayIcon from './PlayIcon.png';
+import ShoulderEx1 from './ShoulderEx1.png';
+import ShoulderEx2 from './ShoulderEx2.png';
+import ShoulderEx3 from './ShoulderEx3.png';
+import Video1 from './Video1.png';
+import Blog from './Blog.png';
 
 export {
   Logo,
@@ -26,4 +34,12 @@ export {
   BackgroundImage1,
   ProfileImage,
   AboutUsBG,
+  Hip,
+  Shoulder,
+  PlayIcon,
+  ShoulderEx1,
+  ShoulderEx2,
+  ShoulderEx3,
+  Video1,
+  Blog,
 };

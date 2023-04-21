@@ -45,6 +45,11 @@ import Whatsapp from './Whatsapp.svg';
 import Gmail from './Gmail.svg';
 import Message from './Message.svg';
 import Instagram from './Instagram.svg';
+import Plus from './Plus.svg';
+import Video1 from './Video1.svg';
+import Time from './Time.svg';
+import Play from './Play.svg';
+import Thumbnail from './Thumbnail.svg';
 
 export {
   Call,
@@ -94,4 +99,9 @@ export {
   Message,
   Whatsapp,
   Facebook,
+  Plus,
+  Video1,
+  Time,
+  Play,
+  Thumbnail,
 };
