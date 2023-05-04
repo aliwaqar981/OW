@@ -7,11 +7,19 @@ import NotificationCard from './NotificationCard';
 import ProfileAction from './ProfileAction';
 import Body_Parts from './Body_Parts';
 import Program from './Program';
-import ProgramDetails from './ProgramDetails';
+import ProgramDetail from './ProgramDetail';
 import BlogCard from './BlogCard';
 import Video from './Video';
-
-// import SearchBar from './SearchBar';
+import SettingAction from './SettingAction';
+import LanguageCard from './LanguageCard';
+import CommunityCard from './CommunityCard';
+import ChatCard from './ChatCard';
+import SubscriptionPackage from './SubscriptionPackage';
+import Tabs from './Tabs';
+import Appointment from './Appointment';
+import Rating from './Rating';
+import Review from './Review';
+import EmptyState from './EmptyState';
 
 export {
   Video,
@@ -24,6 +32,16 @@ export {
   ProfileAction,
   Body_Parts,
   Program,
-  ProgramDetails,
+  ProgramDetail,
   BlogCard,
+  SettingAction,
+  LanguageCard,
+  CommunityCard,
+  ChatCard,
+  SubscriptionPackage,
+  Tabs,
+  Appointment,
+  Review,
+  Rating,
+  EmptyState,
 };

@@ -24,7 +24,7 @@ import {
 import {
   Body_Parts,
   Program,
-  ProgramDetails,
+  ProgramDetail,
   BlogCard,
   Video,
 } from '../../../components';
@@ -51,6 +51,8 @@ const VideoArena = () => {
               item={item}
               containerStyle={{marginBottom: 16}}
               onBadgePress={() => setSelectedBodyPart(item.key)}
+              showButton={true}
+              showLoading={false}
             />
           );
         })}
@@ -70,7 +72,7 @@ const VideoArena = () => {
         /> */}
         {ShoulderExercise.map(item => {
           return (
-            <ProgramDetails
+            <ProgramDetail
               key={item.key}
               item={item}
               containerStyle={{marginBottom: 16}}
@@ -85,7 +87,7 @@ const VideoArena = () => {
       <View style={{marginTop: 24}}>
         {HipExercise.map(item => {
           return (
-            <ProgramDetails
+            <ProgramDetail
               key={item.key}
               item={item}
               containerStyle={{marginBottom: 16}}

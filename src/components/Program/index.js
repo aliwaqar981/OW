@@ -7,23 +7,38 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {Shoulder} from '../../assets/images';
 import {COLORS} from '../../themes';
 import TextButtonwithIcon from '../TextButtonwithIcon';
 import {Plus, Time, Video1} from '../../assets/svgicons';
 import ButtonwithIcon from '../ButtonwithIcon';
 
-const Program = ({item, containerStyle, onBadgePress}) => {
+const Program = ({
+  item,
+  containerStyle,
+  onBadgePress,
+  showButton,
+  showLoading,
+  onPress,
+}) => {
   return (
-    <TouchableOpacity style={[styles.container, {...containerStyle}]}>
+    <TouchableOpacity
+      style={[styles.container, {...containerStyle}]}
+      onPress={onPress}>
       {/* BACKGROUND_IMAGE */}
       <ImageBackground
         source={item.image}
         style={{width: '100%', height: 122, borderRadius: 8}}>
-        {/* BADGE */}
-        <TouchableOpacity style={styles.badge} onPress={onBadgePress}>
-          <Text style={styles.badgelabel}>{item.bodyPart}</Text>
-        </TouchableOpacity>
+        <View style={styles.innerContainer1}>
+          {/* BADGE */}
+          <TouchableOpacity style={styles.badge} onPress={onBadgePress}>
+            <Text style={styles.badgelabel}>{item.bodyPart}</Text>
+          </TouchableOpacity>
+          {showLoading ? (
+            <View style={styles.loadingContainer}>
+              <Text style={{fontSize: 8, color: COLORS.black}}>62%</Text>
+            </View>
+          ) : null}
+        </View>
       </ImageBackground>
       <View style={{paddingHorizontal: 13, paddingVertical: 14}}>
         {/* TITLE */}
@@ -45,10 +60,14 @@ const Program = ({item, containerStyle, onBadgePress}) => {
             containerStyle={{marginRight: 60}}
           />
           {/* ADD */}
-          <ButtonwithIcon
-            icon={<Plus />}
-            containerStyle={styles.iconContainer}
-          />
+          <View>
+            {showButton ? (
+              <ButtonwithIcon
+                icon={<Plus />}
+                containerStyle={styles.iconContainer}
+              />
+            ) : null}
+          </View>
         </View>
       </View>
     </TouchableOpacity>
@@ -78,8 +97,6 @@ const styles = StyleSheet.create({
     borderRadius: 30 / 2,
   },
   badge: {
-    alignSelf: 'flex-start',
-    margin: 9,
     backgroundColor: COLORS.red,
     height: 26,
     borderRadius: 26 / 2,
@@ -101,5 +118,21 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
     color: COLORS.black,
+  },
+  innerContainer1: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  loadingContainer: {
+    width: 40,
+    height: 40,
+    backgroundColor: 's#FFE5DD',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 40 / 2,
+    borderWidth: 2.5,
+    borderTopColor: '#FFE5DD',
   },
 });

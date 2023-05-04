@@ -12,9 +12,9 @@ export const AuthContext = React.createContext({
   setUserId: () => null,
 });
 const App = () => {
-  const [userId, setUserId] = useState('a');
+  const [userId, setUserId] = useState('');
 
-  console.log('user________', userId);
+  //console.log('user________', userId);
 
   useEffect(() => {
     retrieveData();

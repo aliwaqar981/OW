@@ -13,6 +13,7 @@ import React, {useContext} from 'react';
 import {COLORS} from '../../../themes';
 import {ProfileImage} from '../../../assets/images';
 import {
+  ButtonwithIcon,
   ProfileAction,
   TextButton,
   TextButtonwithIcon,
@@ -28,6 +29,7 @@ import {
   Support,
   Share,
   Logout,
+  Settings1,
 } from '../../../assets/svgicons';
 import {routes, SocialMediaButton} from '../../../constants';
 import {AuthContext} from '../../../../App';
@@ -54,6 +56,7 @@ const Profile = ({navigation}) => {
           <FlatList
             data={SocialMediaButton}
             ItemSeparatorComponent={<View style={{height: 38}} />}
+            columnWrapperStyle={{justifyContent: 'flex-start'}}
             numColumns={4}
             renderItem={({item, index}) => {
               return (
@@ -124,12 +127,18 @@ const Profile = ({navigation}) => {
       <View style={styles.innerContainer}>
         {/* PROFILE_IMAGE */}
         <Image source={ProfileImage} style={styles.profileContainer} />
+        {/* SETTINGS_BUTTON */}
+        <ButtonwithIcon
+          icon={<Settings1 />}
+          containerStyle={styles.settingsIconStyles}
+          onPress={() => navigation.navigate(routes.SETTINGS)}
+        />
         {/* NAME */}
         <TextButtonwithIcon
           label={'Jhon Doe'}
           rightIcon={<CrowCircle1 />}
           labelStyle={{fontSize: 16, marginRight: 7}}
-          containerStyle={{marginTop: 64, alignSelf: 'center'}}
+          containerStyle={{marginTop: 23, alignSelf: 'center'}}
           disabled
         />
         {/* PROFILE_ACTONS_LIST */}
@@ -141,6 +150,7 @@ const Profile = ({navigation}) => {
               label="Manage Subscription"
               iconBackgroundColor={COLORS.red}
               containerStyle={{height: 60, backgroundColor: COLORS.red}}
+              onPress={() => navigation.navigate(routes.SUBSCRIPTION)}
             />
             {/* MY_PROGRAM */}
             <ProfileAction
@@ -149,6 +159,7 @@ const Profile = ({navigation}) => {
               label="My Programs"
               iconBackgroundColor={COLORS.red}
               containerStyle={{marginTop: 16}}
+              onPress={() => navigation.navigate(routes.MYPROGRAM)}
             />
             {/* CALENDAR */}
             <ProfileAction
@@ -157,6 +168,7 @@ const Profile = ({navigation}) => {
               label="Calendar"
               containerStyle={{marginTop: 7}}
               iconBackgroundColor={COLORS.red}
+              onPress={() => navigation.navigate(routes.CALENDAR)}
             />
             {/*TITLE */}
             <Text style={styles.title}>Support</Text>
@@ -169,11 +181,13 @@ const Profile = ({navigation}) => {
               LeftIcon={<About />}
               label="Community"
               containerStyle={{marginTop: 7}}
+              onPress={() => navigation.navigate(routes.COMMUNITY)}
             />
             <ProfileAction
               LeftIcon={<Support />}
               label="Contact Support"
               containerStyle={{marginTop: 7}}
+              onPress={() => navigation.navigate(routes.CONTACTSUPPORT)}
             />
             <ProfileAction
               LeftIcon={<Privacy />}
@@ -230,6 +244,11 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'absolute',
     top: -47,
+  },
+  settingsIconStyles: {
+    marginTop: 23,
+    alignSelf: 'flex-end',
+    marginRight: 28,
   },
   title: {
     fontSize: 16,

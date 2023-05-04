@@ -44,12 +44,32 @@ import Slack from './Slack.svg';
 import Whatsapp from './Whatsapp.svg';
 import Gmail from './Gmail.svg';
 import Message from './Message.svg';
+import Message1 from './Message1.svg';
 import Instagram from './Instagram.svg';
 import Plus from './Plus.svg';
 import Video1 from './Video1.svg';
 import Time from './Time.svg';
 import Play from './Play.svg';
 import Thumbnail from './Thumbnail.svg';
+import CircleFilled from './CircleFilled.svg';
+import Settings1 from './Settings1.svg';
+import DelProfile from './DelProfile.svg';
+import User1 from './User1.svg';
+import User2 from './User2.svg';
+import Bell1 from './Bell1.svg';
+import Language from './Language.svg';
+import USAflag from './USAflag.svg';
+import SPAINISHflag from './SPAINISHflag.svg';
+import ActiveRadio from './ActiveRadio.svg';
+import InActiveRadio from './InActiveRadio.svg';
+import SendFill from './SendFill.svg';
+import VideoCall from './VideoCall.svg';
+import Call1 from './Call1.svg';
+import NotoStar from './NotoStar.svg';
+import StarList from './StarList.svg';
+import GoogleVoice from './GoogleVoice.svg';
+import Video3 from './Video3.svg';
+import Call2 from './Call2.svg';
 
 export {
   Call,
@@ -97,6 +117,7 @@ export {
   Gmail,
   Instagram,
   Message,
+  Message1,
   Whatsapp,
   Facebook,
   Plus,
@@ -104,4 +125,23 @@ export {
   Time,
   Play,
   Thumbnail,
+  CircleFilled,
+  Settings1,
+  DelProfile,
+  User1,
+  User2,
+  Bell1,
+  Language,
+  USAflag,
+  SPAINISHflag,
+  ActiveRadio,
+  InActiveRadio,
+  SendFill,
+  VideoCall,
+  Call1,
+  NotoStar,
+  StarList,
+  GoogleVoice,
+  Video3,
+  Call2,
 };

@@ -1,7 +1,14 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
-import {Circle, MasterCard, NotoCard, Paypal} from '../../../assets/svgicons';
+import {
+  Circle,
+  CircleFilled,
+  MasterCard,
+  NotoCard,
+  Paypal,
+} from '../../../assets/svgicons';
 import {PaymentCard, TextButton} from '../../../components';
 import {routes} from '../../../constants';
 const PaymentMethod = ({navigation}) => {
@@ -12,20 +19,22 @@ const PaymentMethod = ({navigation}) => {
       <PaymentCard
         label="Stripe"
         logo={<MasterCard />}
-        selectedCard={<Circle />}
+        selectedCard={selectedCard == 'Stripe' ? <CircleFilled /> : <Circle />}
         onPress={() => setSelectedCard('Stripe')}
       />
       <PaymentCard
         label="Credit card"
         logo={<NotoCard />}
-        selectedCard={<Circle />}
+        selectedCard={
+          selectedCard == 'Credit card' ? <CircleFilled /> : <Circle />
+        }
         containerStyle={{marginTop: 14}}
         onPress={() => setSelectedCard('Credit card')}
       />
       <PaymentCard
         label="PayPal"
         logo={<Paypal />}
-        selectedCard={<Circle />}
+        selectedCard={selectedCard == 'PayPal' ? <CircleFilled /> : <Circle />}
         containerStyle={{marginTop: 14}}
         onPress={() => setSelectedCard('PayPal')}
       />

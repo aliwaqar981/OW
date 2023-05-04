@@ -10,6 +10,8 @@ import {
   BackExercise,
   NeckExercise,
 } from './AllProgramAndExercise';
+import {CommunityList} from './CommunityList';
+import {AllContacts} from './AllContacts';
 
 export {
   routes,
@@ -22,4 +24,6 @@ export {
   KneeExercise,
   BackExercise,
   NeckExercise,
+  CommunityList,
+  AllContacts,
 };
