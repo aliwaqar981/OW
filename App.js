@@ -6,15 +6,19 @@ import SystemNavigationBar from 'react-native-system-navigation-bar';
 import {StatusBar} from 'react-native';
 import Navigation from './src/navigation';
 import {COLORS} from './src/themes';
+import {ProfessionalBookingList} from './src/screens/appflow';
 
 export const AuthContext = React.createContext({
   userId: null,
   setUserId: () => null,
+  isProfessional: null,
+  setIsProfessional: () => null,
 });
 const App = () => {
   const [userId, setUserId] = useState('');
+  const [isProfessional, setIsProfessional] = useState('');
 
-  //console.log('user________', userId);
+  console.log('isProfessional_____', isProfessional);
 
   useEffect(() => {
     retrieveData();
@@ -23,6 +27,15 @@ const App = () => {
   useEffect(() => {
     setDataLocally(userId);
   }, [userId]);
+
+  useEffect(() => {
+    retrieveProfessionalData();
+  }, []);
+
+  useEffect(() => {
+    setProfessionalDataLocally(isProfessional);
+  }, [isProfessional]);
+
   useEffect(() => {
     SystemNavigationBar.setNavigationColor(COLORS.white);
   }, []);
@@ -41,11 +54,26 @@ const App = () => {
       setUserId(userId);
     }
   };
+  const retrieveProfessionalData = async () => {
+    const isProfessional = await AsyncStorage.getItem('IsProfessional');
+    if (isProfessional) {
+      setIsProfessional(isProfessional);
+    }
+  };
+  const setProfessionalDataLocally = isProfessional => {
+    if (isProfessional == null || isProfessional == undefined) {
+      AsyncStorage.removeItem('IsProfessional');
+    } else {
+      AsyncStorage.setItem('IsProfessional', isProfessional);
+      setIsProfessional(isProfessional);
+    }
+  };
 
   return (
-    <AuthContext.Provider value={{userId, setUserId}}>
+    <AuthContext.Provider
+      value={{userId, setUserId, isProfessional, setIsProfessional}}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
-      <Navigation />
+      <ProfessionalBookingList />
     </AuthContext.Provider>
   );
 };

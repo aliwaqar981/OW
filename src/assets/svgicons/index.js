@@ -29,8 +29,11 @@ import Star1 from './Star1.svg';
 import Cross from './Cross.svg';
 import CrowCircle1 from './CrowCircle1.svg';
 import Calendar1 from './Calendar1.svg';
+import Calendar3 from './Calendar3.svg';
+
 import Book from './Book.svg';
 import ArrowRight from './ArrowRight.svg';
+import ArrowRight1 from './ArrowRight1.svg';
 import Terms from './Terms.svg';
 import Support from './Support.svg';
 import Privacy from './Privacy.svg';
@@ -70,7 +73,29 @@ import StarList from './StarList.svg';
 import GoogleVoice from './GoogleVoice.svg';
 import Video3 from './Video3.svg';
 import Call2 from './Call2.svg';
-
+import ArrowLeft1 from './ArrowLeft1.svg';
+import BlueCircle from './BlueCircle.svg';
+import ShoulderLine from './ShoulderLine.svg';
+import NeckLine from './NeckLine.svg';
+import CircleWhite from './CircleWhite.svg';
+import Line from './Line.svg';
+import Line1 from './Line1.svg';
+import CircleRed from './CircleRed.svg';
+import CircleRed1 from './CircleRed1.svg';
+import ForwardArrow from './ForwardArrow.svg';
+import Apple from './Apple.svg';
+import FB from './FB.svg';
+import Camera from './Camera.svg';
+import WhiteCheck from './WhiteCheck.svg';
+import Location from './Location.svg';
+import PHome from './PHome.svg';
+import PChat from './PChat.svg';
+import Bookings from './Bookings.svg';
+import PUser from './PUser.svg';
+import Location1 from './Location1.svg';
+import Dollar from './Dollar.svg';
+import Edit3 from './Edit3.svg';
+import Danger from './Danger.svg';
 export {
   Call,
   DropDown,
@@ -103,8 +128,10 @@ export {
   Cross,
   CrowCircle1,
   Calendar1,
+  Calendar3,
   Book,
   ArrowRight,
+  ArrowRight1,
   Terms,
   Support,
   Privacy,
@@ -144,4 +171,27 @@ export {
   GoogleVoice,
   Video3,
   Call2,
+  ArrowLeft1,
+  BlueCircle,
+  ShoulderLine,
+  NeckLine,
+  CircleWhite,
+  Line,
+  Line1,
+  CircleRed,
+  CircleRed1,
+  ForwardArrow,
+  Apple,
+  FB,
+  Camera,
+  WhiteCheck,
+  Location,
+  PHome,
+  PChat,
+  Bookings,
+  PUser,
+  Location1,
+  Dollar,
+  Edit3,
+  Danger,
 };

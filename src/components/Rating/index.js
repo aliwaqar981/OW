@@ -2,6 +2,7 @@
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
 import {StarList} from '../../assets/svgicons';
+import {FONTS} from '../../themes';
 
 const Rating = () => {
   return (
@@ -31,6 +32,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 11,
     color: '#263238',
+    fontFamily: FONTS.Nunito_Regular,
   },
   inputContainer: {
     height: 50,

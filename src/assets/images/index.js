@@ -23,6 +23,21 @@ import Blog from './Blog.png';
 import Language from './Language.png';
 import Image5 from './Image5.png';
 import Calendar from './Calendar.png';
+import Dr from './Dr.jpg';
+import Dr2 from './Dr2.jpg';
+import Dr3 from './Dr3.jpg';
+import OnBoard1 from './OnBoard1.jpg';
+import OnBoard2 from './OnBoard2.jpg';
+import OnBoard3 from './OnBoard3.jpg';
+import Line from './Line.png';
+import WelcomePlant from './WelcomePlant.png';
+import Profile3 from './Profile3.png';
+import Community from './Community.png';
+import Dollar from './Dollar.png';
+import Contact from './Contact.png';
+import Term from './Term.png';
+import About1 from './About1.png';
+import Image6 from './Image6.png';
 
 export {
   Logo,
@@ -50,4 +65,19 @@ export {
   Language,
   Image5,
   Calendar,
+  Dr,
+  Dr2,
+  Dr3,
+  OnBoard1,
+  OnBoard2,
+  OnBoard3,
+  Line,
+  WelcomePlant,
+  Profile3,
+  Community,
+  Dollar,
+  Contact,
+  Term,
+  About1,
+  Image6,
 };

@@ -19,19 +19,23 @@ import {
   Subscription,
   MyProgram,
   ProgramDetails,
-  Calendar,
+  AgendaView,
   BookingList,
   BookingDetails,
   Session,
+  DoctorDetails,
+  EditBookingDetails,
 } from '../../screens/appflow';
 import {ButtonwithIcon} from '../../components';
 import {ArrowLeft, Cross} from '../../assets/svgicons';
 import {COLORS} from '../../themes';
 import Language from '../../screens/appflow/Language';
+import {useNavigation} from '@react-navigation/native';
 
 const HomeStack = createNativeStackNavigator();
 
 const HomeStackNavigator = ({navigation}) => {
+  const {goBack} = useNavigation();
   return (
     <HomeStack.Navigator
       screenOptions={{headerShown: false, headerShadowVisible: false}}>
@@ -42,10 +46,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Notifications',
@@ -57,10 +58,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerRight: () => (
-            <ButtonwithIcon
-              icon={<Cross />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<Cross />} onPress={() => goBack()} />
           ),
           headerLeft: () => <View></View>,
           headerTitleAlign: 'center',
@@ -77,10 +75,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Terms & Conditions',
@@ -92,10 +87,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Privacy Policy',
@@ -107,10 +99,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'About Us',
@@ -122,10 +111,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Setting',
@@ -137,10 +123,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Language',
@@ -152,10 +135,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Contact Support',
@@ -167,10 +147,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Contact Support',
@@ -194,10 +171,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Subscription',
@@ -209,10 +183,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'My Programs',
@@ -224,25 +195,19 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Program Details',
         }}
       />
       <HomeStack.Screen
-        name={routes.CALENDAR}
-        component={Calendar}
+        name={routes.AGENDA}
+        component={AgendaView}
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Your Bookings Calendar',
@@ -254,10 +219,7 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Bookings',
@@ -271,10 +233,7 @@ const HomeStackNavigator = ({navigation}) => {
           headerShown: true,
           headerTitleAlign: 'center',
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
         })}
       />
@@ -283,6 +242,23 @@ const HomeStackNavigator = ({navigation}) => {
         component={Session}
         options={{
           headerShown: false,
+        }}
+      />
+      <HomeStack.Screen
+        name={routes.DOCTORDETAILS}
+        component={DoctorDetails}
+        options={{headerShown: false}}
+      />
+      <HomeStack.Screen
+        name={routes.EDITBOOKINGDETAILS}
+        component={EditBookingDetails}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Edit Your Appointment',
         }}
       />
     </HomeStack.Navigator>

@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {CommunityCard} from '../../../components';
 import {CommunityList, routes} from '../../../constants';
 
@@ -58,16 +58,17 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 20,
-    fontWeight: '700',
     color: COLORS.white,
+    fontFamily: FONTS.Nunito_ExtraBold,
   },
   headerParagraph: {
     fontSize: 12,
     color: COLORS.white,
+    fontFamily: FONTS.Nunito_Regular,
   },
   title: {
     fontSize: 16,
     color: COLORS.black,
-    fontWeight: '700',
+    fontFamily: FONTS.Nunito_Bold,
   },
 });

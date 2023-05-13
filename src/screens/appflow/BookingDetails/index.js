@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect} from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {Profile} from '../../../assets/images';
 import {ButtonwithIcon, Rating, Review, TextButton} from '../../../components';
 import {Call1, Message1, VideoCall} from '../../../assets/svgicons';
@@ -119,11 +119,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 11,
     color: '#263238',
+    fontFamily: FONTS.Nunito_Regular,
   },
   title: {
     fontSize: 15,
-    fontWeight: '700',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   dot: {
     width: 7,
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#EB4E1F',
     marginTop: 10,
-    fontWeight: '600',
+    fontFamily: FONTS.Nunito_Bold,
   },
   startSessionButton: {
     height: 48,

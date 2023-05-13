@@ -7,7 +7,7 @@ import React from 'react';
 import {Image5} from '../../../assets/images';
 import {ButtonwithIcon, TextButton} from '../../../components';
 import {Call2, GoogleVoice, StarList, Video3} from '../../../assets/svgicons';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import Modal from 'react-native-modal';
 import {routes} from '../../../constants';
 
@@ -20,7 +20,10 @@ const Session = ({navigation}) => {
   const RenderModal = () => {
     return (
       <View>
-        <Modal isVisible={isModalVisible}>
+        <Modal
+          isVisible={isModalVisible}
+          backdropOpacity={0.3}
+          onBackdropPress={() => toggleModal()}>
           <View style={styles.modalContainer}>
             {/* TITLE */}
             <Text style={styles.modalTitle}>
@@ -44,9 +47,11 @@ const Session = ({navigation}) => {
               containerStyle={styles.submitButton}
               onPress={() => {
                 toggleModal();
-                navigation.replace(routes.BOOKINGDETAILS, {
-                  params: 'Requested Bookings',
-                });
+                setTimeout(() => {
+                  navigation.replace(routes.BOOKINGDETAILS, {
+                    params: 'Requested Bookings',
+                  });
+                }, 1000);
               }}
             />
           </View>
@@ -114,6 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: COLORS.white,
     marginLeft: 10,
+    fontFamily: FONTS.Nunito_Regular,
   },
   modalContainer: {
     backgroundColor: COLORS.white,
@@ -123,15 +129,16 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     fontSize: 16,
-    fontWeight: '700',
     color: COLORS.black,
     textAlign: 'center',
+    fontFamily: FONTS.Nunito_Bold,
   },
   paragrap: {
     fontSize: 11,
     color: '#263238',
     textAlign: 'center',
     marginTop: 10,
+    fontFamily: FONTS.Nunito_Regular,
   },
   inputContainer: {
     height: 50,

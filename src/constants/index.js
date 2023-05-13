@@ -12,6 +12,11 @@ import {
 } from './AllProgramAndExercise';
 import {CommunityList} from './CommunityList';
 import {AllContacts} from './AllContacts';
+import {Doctors} from './Doctors';
+import {BackBodyParts, FrontBodyParts} from './BodyParts';
+import {BodyParts2} from './BodyParts2';
+import {time} from './time';
+import {afternoon, evening, morning} from './appointTime';
 
 export {
   routes,
@@ -26,4 +31,12 @@ export {
   NeckExercise,
   CommunityList,
   AllContacts,
+  Doctors,
+  BodyParts2,
+  BackBodyParts,
+  FrontBodyParts,
+  time,
+  morning,
+  afternoon,
+  evening,
 };

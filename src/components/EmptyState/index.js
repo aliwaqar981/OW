@@ -2,22 +2,24 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Calendar} from '../../assets/images';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 
-const EmptyState = ({title, paragraph, image}) => {
+const EmptyState = ({title, paragraph, image, labelStyle, paragraphStyle}) => {
   return (
     <View style={styles.container}>
       <Image source={image} style={{width: '100%', height: 250}} />
       {/* TITLE */}
-      <Text style={styles.title}>{title}</Text>
+      {title && <Text style={[styles.title, labelStyle]}>{title}</Text>}
       {/* PARAGRAPH */}
-      <Text style={styles.paragraph}>{paragraph}</Text>
+      <Text style={[styles.paragraph, paragraphStyle]}>{paragraph}</Text>
       {/* BROESE_THERPIST */}
-      <TextButton
-        label={'Browse therapists'}
-        containerStyle={styles.broseButton}
-      />
+      {title && (
+        <TextButton
+          label={'Browse therapists'}
+          containerStyle={styles.broseButton}
+        />
+      )}
     </View>
   );
 };
@@ -31,15 +33,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25,
     color: '#030F1C',
-    fontWeight: '700',
     textAlign: 'center',
     marginHorizontal: 30,
+    fontFamily: FONTS.Nunito_ExtraBold,
   },
   paragraph: {
     fontSize: 12,
     color: COLORS.black,
     textAlign: 'center',
     marginTop: 8,
+    fontFamily: FONTS.Nunito_Regular,
   },
   broseButton: {
     height: 50,

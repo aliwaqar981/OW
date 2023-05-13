@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import TextButtonwithIcon from '../TextButtonwithIcon';
 import {Time} from '../../assets/svgicons';
 import {PlayIcon} from '../../assets/images';
@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
   },
   badgelabel: {
     fontSize: 10,
-    fontWeight: '700',
     color: COLORS.white,
+    fontFamily: FONTS.Nunito_Medium,
   },
   innerContainer: {
     marginTop: 5,
@@ -93,8 +93,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: '700',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   playButton: {
     backgroundColor: COLORS.red,
@@ -106,8 +106,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 11,
-    fontWeight: '700',
     marginLeft: 4,
     color: COLORS.white,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
 });

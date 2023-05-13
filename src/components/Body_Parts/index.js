@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {FONTS} from '../../themes';
 const Body_Parts = ({backgroundColor, label, labelColor, onPress}) => {
   return (
     <TouchableOpacity
@@ -15,6 +16,7 @@ const Body_Parts = ({backgroundColor, label, labelColor, onPress}) => {
         style={{
           fontSize: 15,
           color: labelColor,
+          fontFamily: FONTS.Nunito_Regular,
         }}>
         {label}
       </Text>

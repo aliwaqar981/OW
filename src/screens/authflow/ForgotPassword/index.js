@@ -2,12 +2,12 @@
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Forgotpassword} from '../../../assets/images';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {Forminput, TextButton} from '../../../components';
 import {Email} from '../../../assets/svgicons';
 import {routes} from '../../../constants/routes';
 
-const ForgotPassword = ({navigation}) => {
+const ForgotPassword = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* BACKGROUND_IMAGE */}
@@ -32,7 +32,10 @@ const ForgotPassword = ({navigation}) => {
         <TextButton
           label={'Continue'}
           containerStyle={styles.button}
-          onPress={() => navigation.navigate(routes.VERIFYOTP)}
+          onPress={() =>
+            navigation.navigate(routes.VERIFYOTP, {key: route.params.key})
+          }
+          labelStyle={{fontSize: 15}}
         />
       </View>
     </SafeAreaView>
@@ -55,8 +58,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: COLORS.black,
-    fontWeight: '500',
     textAlign: 'center',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   paragraph: {
     fontSize: 14,
@@ -64,6 +67,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     textAlign: 'center',
     marginTop: 4,
+    fontFamily: FONTS.Nunito_Regular,
   },
   footer: {
     marginHorizontal: 20,

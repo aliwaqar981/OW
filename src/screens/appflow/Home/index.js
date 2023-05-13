@@ -1,21 +1,51 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
-import {
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import React, {useContext, useState} from 'react';
-import {AuthContext} from '../../../../App';
-import {COLORS} from '../../../themes';
+import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {COLORS, FONTS} from '../../../themes';
 import {Bell, OW1} from '../../../assets/svgicons';
-import {Logo, MaleBack, MaleFront, Profile} from '../../../assets/images';
-import {ButtonwithIcon, TextButton} from '../../../components';
-import {routes} from '../../../constants';
+import {MaleBack, MaleFront, Profile} from '../../../assets/images';
+import {ButtonwithIcon, Point, TextButton} from '../../../components';
+import {FrontBodyParts, routes, BackBodyParts} from '../../../constants';
+
 const Home = ({navigation}) => {
   const [selectedImage, setSelectedImage] = useState('front');
+
+  const [frontParts, setFrontParts] = useState(FrontBodyParts);
+  const [backParts, setbackParts] = useState(BackBodyParts);
+
+  const handleOpenedPointFront = key => {
+    var tempObject = [...FrontBodyParts];
+    tempObject.map(item => {
+      if (item.notSelected.key === key) {
+        if (item.isOpened) {
+          item.isOpened = false;
+        } else {
+          item.isOpened = true;
+        }
+      } else {
+        item.isOpened = false;
+      }
+    });
+    setFrontParts(tempObject);
+  };
+  const handleOpenedPointBack = key => {
+    var tempObject = [...BackBodyParts];
+    tempObject.map(item => {
+      if (item.notSelected.key === key) {
+        if (item.isOpened) {
+          item.isOpened = false;
+        } else {
+          item.isOpened = true;
+        }
+      } else {
+        item.isOpened = false;
+      }
+    });
+    setbackParts(tempObject);
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       {/* HEADER */}
@@ -77,7 +107,34 @@ const Home = ({navigation}) => {
         </View>
       </View>
       {/* FRONT_&_BACK_IMAGE */}
-      <View>
+
+      <View style={{height: 470}}>
+        {selectedImage == 'front' ? (
+          <View style={{zIndex: 3}}>
+            {frontParts.map((item, index) => {
+              return (
+                <Point
+                  handleOpenedPoint={handleOpenedPointFront}
+                  key={`itemss-${index}`}
+                  item={item}
+                />
+              );
+            })}
+          </View>
+        ) : (
+          <View style={{zIndex: 5}}>
+            {backParts.map((item, index) => {
+              return (
+                <Point
+                  handleOpenedPoint={handleOpenedPointBack}
+                  key={`itemss-${index}`}
+                  item={item}
+                />
+              );
+            })}
+          </View>
+        )}
+
         <Image
           resizeMode="contain"
           source={selectedImage === 'front' ? MaleFront : MaleBack}
@@ -119,11 +176,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     color: '#263238',
-    fontWeight: '700',
+    fontFamily: FONTS.Nunito_Bold,
   },
   paragraph: {
     fontSize: 12,
     color: '#525252',
+    fontFamily: FONTS.Nunito_Regular,
   },
   frontButton: {
     width: 56,
@@ -133,8 +191,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: '100%',
-    height: 500,
-    marginTop: 27,
+    height: 470,
+    marginTop: 35,
     alignSelf: 'center',
   },
   button: {

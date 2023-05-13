@@ -51,6 +51,8 @@ const BottomTabNavigator = () => {
         options={{
           tabBarLabel: 'Talk to Doc',
           tabBarIcon: ({focused}) => (focused ? <Doc2 /> : <Doc1 />),
+          headerShown: true,
+          headerTitle: 'Talk To Doc',
         }}
       />
     </BottomTab.Navigator>

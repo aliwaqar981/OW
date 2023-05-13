@@ -10,7 +10,7 @@ import {
 import React, {useContext, useState} from 'react';
 import Carousel from 'react-native-snap-carousel';
 
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {Gold, Platinum} from '../../../assets/images';
 import {TextButton, TextButtonwithIcon} from '../../../components';
 import {CrownCircle, GlowingStar} from '../../../assets/svgicons';
@@ -89,7 +89,11 @@ const Subscribe = ({navigation}) => {
                     <Text style={styles.categoryText}>{item.category}</Text>
                     <Text style={styles.priceText}>
                       {item.price}
-                      <Text style={{fontSize: 10}}> /month</Text>
+                      <Text
+                        style={{fontSize: 10, fontFamily: FONTS.Nunito_Light}}>
+                        {'  '}
+                        /month
+                      </Text>
                     </Text>
                   </View>
                 </View>
@@ -217,12 +221,13 @@ const styles = StyleSheet.create({
   priceText: {
     fontSize: 15,
     color: COLORS.white,
-    fontWeight: '600',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   label: {
     fontSize: 14,
     color: COLORS.white,
     marginLeft: 13,
+    fontFamily: FONTS.Nunito_Regular,
   },
   getStartedButton: {
     height: 45,
@@ -264,14 +269,15 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: '700',
     color: COLORS.black,
     marginHorizontal: 20,
+    fontFamily: FONTS.Nunito_Bold,
   },
   paragraph1: {
     fontSize: 13,
     color: COLORS.black,
     marginBottom: 20,
     marginHorizontal: 20,
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

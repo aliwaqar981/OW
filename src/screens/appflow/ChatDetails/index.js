@@ -9,7 +9,7 @@ import {
   Send,
   Time,
 } from 'react-native-gifted-chat';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {ArrowLeft, SendFill} from '../../../assets/svgicons';
 import {ButtonwithIcon} from '../../../components';
 import {Profile2} from '../../../assets/images';
@@ -130,15 +130,17 @@ const ChatDetails = ({navigation}) => {
                 fontSize: 10,
                 textAlign: 'right', // or position: 'right',
                 position: 'absolute',
-                bottom: -22,
+                bottom: -24,
+                fontFamily: FONTS.Nunito_Light,
               },
               right: {
                 color: 'rgba(0, 0, 0, 0.46)',
                 fontSize: 10,
                 textAlign: 'left', // or position: 'right',
                 position: 'absolute',
-                bottom: -22,
+                bottom: -24,
                 right: 0,
+                fontFamily: FONTS.Nunito_Light,
               },
             }}
           />
@@ -175,5 +177,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 9,
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

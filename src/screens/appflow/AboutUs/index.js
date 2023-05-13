@@ -2,7 +2,7 @@
 import {ImageBackground, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {AboutUsBG} from '../../../assets/images';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 
 const AboutUs = () => {
   return (
@@ -36,5 +36,6 @@ const styles = StyleSheet.create({
     marginTop: 200,
     paddingHorizontal: 20,
     textAlign: 'center',
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

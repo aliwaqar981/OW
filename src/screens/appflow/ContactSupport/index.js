@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import FormInput from '../../../components/FormInput';
 import {Email, User, User2} from '../../../assets/svgicons';
 import {TextInput} from 'react-native';
@@ -27,7 +27,11 @@ const ContactSupport = () => {
         />
         {/* MESSAGE_INPUT_FIELDS */}
         <View style={styles.messageInputContainer}>
-          <TextInput placeholder="Message" placeholderTextColor={'#292D32'} />
+          <TextInput
+            placeholder="Message"
+            placeholderTextColor={'#292D32'}
+            style={{fontFamily: FONTS.Nunito_Regular}}
+          />
         </View>
         {/* SUBMIT_BUTTON */}
         <TextButton label={'Submit'} containerStyle={styles.submitButton} />
@@ -70,5 +74,6 @@ const styles = StyleSheet.create({
     color: '#AAAAAA',
     marginTop: 24,
     textAlign: 'center',
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

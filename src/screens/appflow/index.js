@@ -14,10 +14,17 @@ import TalktoDoctor from './TalktoDoctor';
 import TermsAndConditions from './TermsAndConditions';
 import VideoArena from './VideoArena';
 import ProgramDetails from './ProgramDetails';
-import Calendar from './Calendar';
+import AgendaView from './AgendaView';
 import BookingList from './BookingList';
 import BookingDetails from './BookingDetails';
 import Session from './Session';
+import DoctorDetails from './DoctorDetails';
+import ProfessionalBookingsStatus from './ProfessionalBookingsStatus';
+import ProfessionalHome from './ProfessionalHome';
+import ProfessionalProfile from './ProfessionalProfile';
+import EditBookingDetails from './EditBookingDetails';
+import EditDoctorDetails from './EditDoctorDetails';
+import ProfessionalBookingList from './ProfessionalBookingList';
 
 export {
   Home,
@@ -36,8 +43,15 @@ export {
   Subscription,
   MyProgram,
   ProgramDetails,
-  Calendar,
+  AgendaView,
   BookingList,
   BookingDetails,
   Session,
+  DoctorDetails,
+  ProfessionalBookingsStatus,
+  ProfessionalHome,
+  ProfessionalProfile,
+  EditBookingDetails,
+  EditDoctorDetails,
+  ProfessionalBookingList,
 };

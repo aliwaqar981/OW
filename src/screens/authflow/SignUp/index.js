@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react-native/no-inline-styles */
 import {
@@ -10,21 +11,35 @@ import {
   ScrollView,
 } from 'react-native';
 import React from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {Logo} from '../../../assets/images';
 import RNPickerSelect from 'react-native-picker-select';
 import {
+  Apple,
   Call,
   DropDown,
   Email,
+  Facebook,
+  FB,
   Gender,
   GoogleLogo,
   Lock,
   User,
 } from '../../../assets/svgicons';
-import {Forminput, TextButton, TextButtonwithIcon} from '../../../components';
+import {
+  ButtonwithIcon,
+  Forminput,
+  TextButton,
+  TextButtonwithIcon,
+} from '../../../components';
 import {routes} from '../../../constants/routes';
-const SignUp = ({navigation}) => {
+const SignUp = ({navigation, route}) => {
+  // console.log('______)_)__', route.params.key);
+  const onSignUpPress = () => {
+    route.params.key == 'therapist'
+      ? navigation.navigate(routes.WELCOME)
+      : navigation.navigate(routes.SUBSCRIBE);
+  };
   return (
     <SafeAreaView style={styles.container}>
       {/* LOGO */}
@@ -83,9 +98,11 @@ const SignUp = ({navigation}) => {
                 },
                 inputAndroid: {
                   color: '#898B8E',
+                  fontFamily: FONTS.Nunito_SemiBold,
                 },
                 inputIOS: {
                   color: '#898B8E',
+                  fontFamily: FONTS.Nunito_SemiBold,
                 },
               }}
             />
@@ -104,7 +121,7 @@ const SignUp = ({navigation}) => {
           label={'Sign Up'}
           labelStyle={{color: COLORS.white}}
           containerStyle={styles.loginButton}
-          onPress={() => navigation.navigate(routes.SUBSCRIBE)}
+          onPress={onSignUpPress}
         />
         {/* LINE_DIVIDER */}
         <View style={styles.dividerContainer}>
@@ -112,23 +129,42 @@ const SignUp = ({navigation}) => {
           <Text style={styles.text}>Or</Text>
           <View style={styles.lineStyles} />
         </View>
-        {/* GOOGLE_BUTTON */}
-        <TextButtonwithIcon
-          label={'Continue with Google'}
-          leftIcon={<GoogleLogo />}
-          labelStyle={{color: '#353535', marginLeft: 15}}
-          containerStyle={styles.googleButton}
-        />
+
+        {route.params.key == 'therapist' ? (
+          <View style={styles.socialMediaButtonContainer}>
+            <ButtonwithIcon
+              icon={<GoogleLogo />}
+              containerStyle={styles.button}
+            />
+            <ButtonwithIcon
+              icon={<FB />}
+              containerStyle={[styles.button, {marginHorizontal: 20}]}
+            />
+            <ButtonwithIcon icon={<Apple />} containerStyle={styles.button} />
+          </View>
+        ) : (
+          <View>
+            {/* GOOGLE_BUTTON */}
+
+            <TextButtonwithIcon
+              label={'Continue with Google'}
+              leftIcon={<GoogleLogo />}
+              labelStyle={styles.googleButtonLabel}
+              containerStyle={styles.googleButton}
+            />
+          </View>
+        )}
+
         {/* FOOTER */}
         <View style={styles.footer}>
           <View style={{flexDirection: 'row'}}>
-            <Text style={{color: '#8D8D8D', fontSize: 15}}>
-              Already have an account?
-            </Text>
+            <Text style={styles.accountText}>Already have an account? </Text>
             <TextButton
               label={'Log In here'}
-              labelStyle={{color: COLORS.primary, marginLeft: 7}}
-              onPress={() => navigation.navigate(routes.LOGIN)}
+              labelStyle={styles.signUpButtonLabel}
+              onPress={() =>
+                navigation.navigate(routes.LOGIN, {key: route.params.key})
+              }
             />
           </View>
         </View>
@@ -153,15 +189,16 @@ const styles = StyleSheet.create({
   title: {
     marginTop: 35,
     fontSize: 24,
-    fontWeight: '700',
     color: '#030F1C',
     marginHorizontal: 20,
+    fontFamily: FONTS.Nunito_Bold,
   },
   paragraph: {
     marginTop: 7,
     fontSize: 14,
     color: '#8D8D8D',
     marginHorizontal: 20,
+    fontFamily: FONTS.Nunito_Regular,
   },
   forgotPasswordButton: {
     alignSelf: 'flex-end',
@@ -202,6 +239,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 3,
     fontSize: 14,
     color: '#585C60',
+    fontFamily: FONTS.Nunito_Regular,
   },
   googleButton: {
     backgroundColor: '#F2F2F2',
@@ -215,5 +253,32 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     justifyContent: 'flex-end',
     alignItems: 'center',
+  },
+  socialMediaButtonContainer: {
+    marginTop: 40,
+    alignSelf: 'center',
+    flexDirection: 'row',
+  },
+  button: {
+    width: 52,
+    height: 52,
+    borderWidth: 1,
+    borderColor: COLORS.red,
+    borderRadius: 8,
+  },
+  googleButtonLabel: {
+    color: '#353535',
+    marginLeft: 15,
+    fontFamily: FONTS.Nunito_Light,
+  },
+  accountText: {
+    color: '#8D8D8D',
+    fontSize: 15,
+    fontFamily: FONTS.Nunito_Light,
+  },
+  signUpButtonLabel: {
+    color: COLORS.primary,
+    marginLeft: 7,
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

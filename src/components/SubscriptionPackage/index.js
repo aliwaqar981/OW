@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {GlowingStar} from '../../assets/svgicons';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const SubscriptionPackage = ({label, containerStyle}) => {
   return (
@@ -24,5 +24,6 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     flex: 1,
     marginLeft: 12,
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const CommunityCard = ({containerStyle, title, subTitle, onPress}) => {
   return (
@@ -40,17 +40,18 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontWeight: '700',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   subTitle: {
     fontSize: 10,
     color: '#606060',
     marginTop: 4,
+    fontFamily: FONTS.Nunito_Regular,
   },
   joinText: {
     fontSize: 16,
-    fontWeight: '500',
     color: COLORS.red,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
 });

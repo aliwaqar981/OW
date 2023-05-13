@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {LanguageCard} from '../../../components';
 import {
   ActiveRadio,
@@ -64,12 +64,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 12,
     color: '#292D32',
-    fontWeight: '500',
+    fontFamily: FONTS.Nunito_Bold,
   },
   subTitle: {
     fontSize: 16,
     color: '#292D32',
-    fontWeight: '500',
     marginTop: 10,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
 });

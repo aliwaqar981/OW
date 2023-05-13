@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 import TextButtonwithIcon from '../TextButtonwithIcon';
 import {NotoCard, NotoStar, Star1} from '../../assets/svgicons';
@@ -33,7 +33,12 @@ const Appointment = ({
           <TextButtonwithIcon
             leftIcon={<NotoStar width={16} height={16} />}
             label={'4.5'}
-            labelStyle={{fontSize: 14, color: '#4C4C4C', marginLeft: 5}}
+            labelStyle={{
+              fontSize: 14,
+              color: '#4C4C4C',
+              marginLeft: 5,
+              fontFamily: FONTS.Nunito_Regular,
+            }}
             disabled
           />
         ) : null}
@@ -53,7 +58,7 @@ const Appointment = ({
           <TextButton
             label={'Cancel?'}
             containerStyle={styles.cancleButton}
-            labelStyle={{color: COLORS.red}}
+            labelStyle={{color: COLORS.red, fontFamily: FONTS.Nunito_Light}}
             onPress={onCancelPress}
           />
         </View>
@@ -102,12 +107,13 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
-    fontWeight: '600',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   docType: {
     fontSize: 12,
     color: '#404040',
+    fontFamily: FONTS.Nunito_Regular,
   },
   horizontalLine: {
     marginVertical: 20,
@@ -121,6 +127,7 @@ const styles = StyleSheet.create({
     color: '#333333',
     fontWeight: '600',
     marginBottom: 4,
+    fontFamily: FONTS.Nunito_Light,
   },
   text: {
     fontSize: 12,

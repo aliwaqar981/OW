@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {Video1} from '../../assets/images';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import {Thumbnail} from '../../assets/svgicons';
 
 const Video = () => {
@@ -38,15 +38,16 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     color: COLORS.black,
-    fontWeight: '700',
     marginTop: 11,
     paddingHorizontal: 14,
+    fontFamily: FONTS.Nunito_Bold,
   },
   time: {
     fontSize: 10,
     color: COLORS.black,
     marginTop: 5,
     paddingHorizontal: 14,
+    fontFamily: FONTS.Nunito_Regular,
   },
   imageContainer: {
     width: '100%',

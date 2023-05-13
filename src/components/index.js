@@ -20,6 +20,15 @@ import Appointment from './Appointment';
 import Rating from './Rating';
 import Review from './Review';
 import EmptyState from './EmptyState';
+import DoctorsCard from './DoctorsCard';
+import DoctorsCard1 from './DoctorsCard1';
+import Point from './Point';
+import ChooseTime from './ChooseTime';
+import ChooseAppointment from './ChooseAppointment';
+import TextInputCmp from './TextInputCmp';
+import BookingCard from './BookingCard';
+import AppointmentSchdule from './AppointmentSchdule';
+import ApprovedAppointment from './ApprovedAppointment';
 
 export {
   Video,
@@ -34,14 +43,23 @@ export {
   Program,
   ProgramDetail,
   BlogCard,
-  SettingAction,
   LanguageCard,
   CommunityCard,
   ChatCard,
-  SubscriptionPackage,
+  SettingAction,
   Tabs,
   Appointment,
   Review,
   Rating,
+  SubscriptionPackage,
   EmptyState,
+  DoctorsCard,
+  DoctorsCard1,
+  Point,
+  ChooseTime,
+  ChooseAppointment,
+  TextInputCmp,
+  BookingCard,
+  AppointmentSchdule,
+  ApprovedAppointment,
 };

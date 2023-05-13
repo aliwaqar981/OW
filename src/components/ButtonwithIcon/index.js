@@ -6,7 +6,7 @@ const ButtonwithIcon = ({onPress, icon, containerStyle, hitSlop}) => {
     <TouchableOpacity
       hitSlop={hitSlop ? hitSlop : {left: 10, right: 10, bottom: 10, top: 10}}
       onPress={onPress}
-      style={{...styles.container, ...containerStyle}}>
+      style={[styles.container, containerStyle]}>
       {icon}
     </TouchableOpacity>
   );

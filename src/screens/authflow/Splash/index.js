@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {Logo} from '../../../assets/images';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {TextButton} from '../../../components';
 import {routes} from '../../../constants/routes';
 
@@ -27,17 +27,24 @@ const Splash = ({navigation}) => {
         <Text style={styles.subTitle}>Select who you are</Text>
         <View style={{flexDirection: 'row', marginTop: 24}}>
           {/* THERAPIST */}
-          <TouchableOpacity style={styles.therapistrd}>
+          <TouchableOpacity
+            style={styles.therapistrd}
+            onPress={() =>
+              navigation.navigate(routes.SIGNUP, {key: 'therapist'})
+            }>
             <Text style={styles.text}>Therapist</Text>
           </TouchableOpacity>
           {/* PATIENT */}
+
           <TouchableOpacity
             style={styles.patient}
-            onPress={() => navigation.navigate(routes.LOGIN)}>
+            onPress={() =>
+              navigation.navigate(routes.SIGNUP, {key: 'patient'})
+            }>
             <Text style={{...styles.text, marginTop: 30}}>Patient</Text>
             <TextButton
               label={'Client'}
-              labelStyle={{fontSize: 13}}
+              labelStyle={{fontSize: 13, fontFamily: FONTS.Nunito_Light}}
               containerStyle={styles.cancleButton}
             />
           </TouchableOpacity>
@@ -68,13 +75,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: '700',
     color: COLORS.black,
     marginTop: 25,
+    fontFamily: FONTS.Nunito_Bold,
   },
   subTitle: {
     fontSize: 14,
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Regular,
   },
   therapistrd: {
     borderRadius: 12,
@@ -96,7 +104,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: COLORS.white,
-    fontWeight: '700',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   cancleButton: {
     backgroundColor: '#FF6436',

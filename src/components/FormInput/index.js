@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const FormInput = ({
   placeholder,
@@ -36,8 +36,8 @@ const FormInput = ({
         style={{
           color: COLORS.black,
           flex: 1,
-          fontSize: 12,
-          fontWeight: '400',
+          fontSize: 14,
+          fontFamily: FONTS.Nunito_Regular,
         }}
         onBlur={onBlur}
       />

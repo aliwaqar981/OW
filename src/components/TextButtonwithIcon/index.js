@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const TextButtonwithIcon = ({
   label,
@@ -20,7 +20,7 @@ const TextButtonwithIcon = ({
       disabled={disabled}
       style={{...styles.container, ...containerStyle}}
       onPress={onPress}>
-      <View style={rightIconContainer}>{leftIcon}</View>
+      <View style={[styles.icon, leftIconContainer]}>{leftIcon}</View>
       <Text
         style={{
           ...styles.label,
@@ -28,7 +28,7 @@ const TextButtonwithIcon = ({
         }}>
         {label}
       </Text>
-      <View style={leftIconContainer}>{rightIcon}</View>
+      <View style={[styles.icon, rightIconContainer]}>{rightIcon}</View>
     </TouchableOpacity>
   );
 };
@@ -43,5 +43,10 @@ const styles = StyleSheet.create({
   label: {
     color: COLORS.black,
     fontSize: 14,
+    fontFamily: FONTS.Nunito_Regular,
+  },
+  icon: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

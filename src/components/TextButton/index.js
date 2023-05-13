@@ -1,15 +1,15 @@
 /* eslint-disable prettier/prettier */
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const TextButton = ({containerStyle, label, labelStyle, onPress, disabled}) => {
   return (
     <TouchableOpacity
       disabled={disabled}
-      style={{...styles.container, ...containerStyle}}
+      style={[styles.container, containerStyle]}
       onPress={onPress}>
-      <Text style={{...styles.label, ...labelStyle}}>{label}</Text>
+      <Text style={[styles.label, labelStyle]}>{label}</Text>
     </TouchableOpacity>
   );
 };
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   label: {
     lineHeight: 17,
     color: COLORS.white,
-    fontSize: 14,
-    fontWeight: '500',
+    fontSize: 15,
+    fontFamily: FONTS.Nunito_Bold,
   },
 });

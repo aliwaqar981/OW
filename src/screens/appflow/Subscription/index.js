@@ -2,7 +2,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {SubscriptionPackage, TextButton} from '../../../components';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {CrownCircle, GlowingStar} from '../../../assets/svgicons';
 
 const Subscription = () => {
@@ -92,19 +92,23 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#616161',
     marginBottom: 3,
+    fontFamily: FONTS.Nunito_Regular,
   },
   priemium: {
     fontSize: 16,
     color: '#222222',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   validMonthText: {
     fontSize: 10,
     color: COLORS.black,
     marginBottom: 3,
+    fontFamily: FONTS.Nunito_Medium,
   },
   price: {
     fontSize: 20,
     color: COLORS.red,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   innerContainer: {
     flexDirection: 'row',
@@ -141,16 +145,19 @@ const styles = StyleSheet.create({
   leftTimeText: {
     fontSize: 11,
     color: COLORS.red,
+    fontFamily: FONTS.Nunito_Regular,
   },
   title: {
     fontSize: 14,
     color: COLORS.black,
     marginTop: 43,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   paragraph: {
     fontSize: 11,
     color: COLORS.black,
     marginTop: 3,
+    fontFamily: FONTS.Nunito_Regular,
   },
   cancleButton: {
     height: 34,

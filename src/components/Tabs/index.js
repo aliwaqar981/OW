@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {FONTS} from '../../themes';
 
 const Tabs = ({ActiveTabColor, label, onPress, labelColor}) => {
   return (
@@ -19,5 +20,6 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     textAlign: 'center',
     marginBottom: 11,
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

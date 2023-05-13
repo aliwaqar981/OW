@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const ChatHome = ({onPress, item}) => {
   return (
@@ -36,9 +36,11 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 14,
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   message: {
     fontSize: 12,
     color: '#8A8A8A',
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

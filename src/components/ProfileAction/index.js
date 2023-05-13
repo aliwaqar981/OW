@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const ProfileAction = ({
   containerStyle,
@@ -28,6 +28,7 @@ const ProfileAction = ({
         {LeftIcon}
       </View>
       <Text style={[styles.label, {...labelStyle}]}>{label}</Text>
+
       {RightIcon}
     </TouchableOpacity>
   );
@@ -47,10 +48,10 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    fontWeight: '500',
     marginLeft: 8,
     color: COLORS.black,
     flex: 1,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   iconContainer: {
     width: 24,

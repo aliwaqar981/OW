@@ -12,6 +12,15 @@ import {
   VerifyOTP,
   PaymentMethod,
   CheckOut,
+  OnBoard,
+  Welcome,
+  ProfileImage,
+  Description,
+  AddImage,
+  UpdateSchedule,
+  AddServices,
+  ServiceDetails,
+  Eligibility,
 } from '../../screens/authflow';
 import {routes} from '../../constants/routes';
 import {ButtonwithIcon} from '../../components';
@@ -30,6 +39,7 @@ const AuthStackNavigator = ({navigation}) => {
           color: COLORS.black,
         },
       }}>
+      {/* <AuthStack.Screen name={routes.ONBOARD} component={OnBoard} /> */}
       <AuthStack.Screen name={routes.SPLASH} component={Splash} />
       <AuthStack.Screen name={routes.LOGIN} component={Login} />
       <AuthStack.Screen name={routes.SIGNUP} component={SignUp} />
@@ -73,6 +83,20 @@ const AuthStackNavigator = ({navigation}) => {
           headerTitle: 'Payment Methods',
         }}
       />
+      <AuthStack.Screen name={routes.WELCOME} component={Welcome} />
+      <AuthStack.Screen name={routes.PROFILEIMAGE} component={ProfileImage} />
+      <AuthStack.Screen name={routes.ADDPROFILE} component={AddImage} />
+      <AuthStack.Screen name={routes.DISCRIPTION} component={Description} />
+      <AuthStack.Screen
+        name={routes.UPDATESCHEDULE}
+        component={UpdateSchedule}
+      />
+      <AuthStack.Screen name={routes.ADDSERVICES} component={AddServices} />
+      <AuthStack.Screen
+        name={routes.SERVICEDETAILS}
+        component={ServiceDetails}
+      />
+      <AuthStack.Screen name={routes.ELIGIBILITY} component={Eligibility} />
     </AuthStack.Navigator>
   );
 };

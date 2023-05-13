@@ -1,6 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const PaymentCard = ({label, containerStyle, selectedCard, logo, onPress}) => {
   return (
@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 16,
-    fontWeight: '700',
     color: COLORS.black,
     marginLeft: 12,
     flex: 1,
+    fontFamily: FONTS.Nunito_Bold,
   },
 });

@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import ToggleSwitch from 'toggle-switch-react-native';
 
 const SettingAction = ({containerStyle, icon, label, showSwitch, onPress}) => {
@@ -13,7 +13,13 @@ const SettingAction = ({containerStyle, icon, label, showSwitch, onPress}) => {
       onPress={onPress}>
       {icon}
       <Text
-        style={{fontSize: 14, color: COLORS.black, marginLeft: 14, flex: 1}}>
+        style={{
+          fontSize: 14,
+          color: COLORS.black,
+          marginLeft: 14,
+          flex: 1,
+          fontFamily: FONTS.Nunito_SemiBold,
+        }}>
         {label}
       </Text>
       {showSwitch ? (

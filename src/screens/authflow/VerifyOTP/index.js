@@ -2,12 +2,12 @@
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {OTP} from '../../../assets/images';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {TextButton} from '../../../components';
 import {routes} from '../../../constants/routes';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 
-const VerifyOTP = ({navigation}) => {
+const VerifyOTP = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* BACKGROUND_IMAGE */}
@@ -39,17 +39,15 @@ const VerifyOTP = ({navigation}) => {
           <TextButton
             label={'Submit'}
             containerStyle={styles.button}
-            onPress={() => navigation.navigate(routes.CREATEPASSWORD)}
+            onPress={() =>
+              navigation.navigate(routes.CREATEPASSWORD, {
+                key: route.params.key,
+              })
+            }
           />
           <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-            <Text style={{color: '#8D8D8D', fontSize: 15}}>
-              Don’t receive code?
-            </Text>
-            <TextButton
-              label={'Sign up here'}
-              labelStyle={{color: COLORS.primary, marginLeft: 7}}
-              onPress={() => navigation.navigate(routes.SIGNUP)}
-            />
+            <Text style={styles.codeText}>Don’t receive code?</Text>
+            <TextButton label={'Re-send'} labelStyle={styles.resendBtnText} />
           </View>
         </View>
       </View>
@@ -73,8 +71,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: COLORS.black,
-    fontWeight: '500',
     textAlign: 'center',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   paragraph: {
     fontSize: 14,
@@ -82,6 +80,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     textAlign: 'center',
     marginTop: 4,
+    fontFamily: FONTS.Nunito_Regular,
   },
   footer: {
     marginHorizontal: 20,
@@ -106,5 +105,15 @@ const styles = StyleSheet.create({
   btnCotainer: {
     height: 52,
     marginTop: 20,
+  },
+  codeText: {
+    color: '#8D8D8D',
+    fontSize: 15,
+    fontFamily: FONTS.Nunito_Regular,
+  },
+  resendBtnText: {
+    color: COLORS.primary,
+    marginLeft: 7,
+    fontFamily: FONTS.Nunito_Bold,
   },
 });

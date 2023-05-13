@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const NotificationCard = ({label, time, containerStyle, color, icon}) => {
   return (
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
     lineHeight: 14,
     color: '#252525',
     marginLeft: 10,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   timeText: {
     fontSize: 8,
@@ -53,5 +54,6 @@ const styles = StyleSheet.create({
     color: '#737373',
     marginLeft: 15,
     marginTop: 7,
+    fontFamily: FONTS.Nunito_Light,
   },
 });

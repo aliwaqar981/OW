@@ -10,8 +10,8 @@ import {
   FlatList,
 } from 'react-native';
 import React, {useContext} from 'react';
-import {COLORS} from '../../../themes';
-import {ProfileImage} from '../../../assets/images';
+import {COLORS, FONTS} from '../../../themes';
+import {Community, ProfileImage} from '../../../assets/images';
 import {
   ButtonwithIcon,
   ProfileAction,
@@ -34,6 +34,7 @@ import {
 import {routes, SocialMediaButton} from '../../../constants';
 import {AuthContext} from '../../../../App';
 import Modal from 'react-native-modal';
+
 const Profile = ({navigation}) => {
   const [isShareModalVisible, setShareModalVisible] = React.useState(false);
   const [isLogoutModalVisible, setLogoutModalVisible] = React.useState(false);
@@ -67,9 +68,7 @@ const Profile = ({navigation}) => {
                     marginRight: index === 3 ? 0 : 25,
                   }}>
                   {item.logo}
-                  <Text style={{marginTop: 13, textAlign: 'center'}}>
-                    {item.label}
-                  </Text>
+                  <Text style={styles.shareModalText}>{item.label}</Text>
                 </TouchableOpacity>
               );
             }}
@@ -129,7 +128,7 @@ const Profile = ({navigation}) => {
         <Image source={ProfileImage} style={styles.profileContainer} />
         {/* SETTINGS_BUTTON */}
         <ButtonwithIcon
-          icon={<Settings1 />}
+          icon={<Settings1 fill={COLORS.black} />}
           containerStyle={styles.settingsIconStyles}
           onPress={() => navigation.navigate(routes.SETTINGS)}
         />
@@ -137,7 +136,11 @@ const Profile = ({navigation}) => {
         <TextButtonwithIcon
           label={'Jhon Doe'}
           rightIcon={<CrowCircle1 />}
-          labelStyle={{fontSize: 16, marginRight: 7}}
+          labelStyle={{
+            fontSize: 16,
+            marginRight: 7,
+            fontFamily: FONTS.Nunito_SemiBold,
+          }}
           containerStyle={{marginTop: 23, alignSelf: 'center'}}
           disabled
         />
@@ -168,7 +171,7 @@ const Profile = ({navigation}) => {
               label="Calendar"
               containerStyle={{marginTop: 7}}
               iconBackgroundColor={COLORS.red}
-              onPress={() => navigation.navigate(routes.CALENDAR)}
+              onPress={() => navigation.navigate(routes.AGENDA)}
             />
             {/*TITLE */}
             <Text style={styles.title}>Support</Text>
@@ -178,7 +181,9 @@ const Profile = ({navigation}) => {
               onPress={() => navigation.navigate(routes.ABOUTUS)}
             />
             <ProfileAction
-              LeftIcon={<About />}
+              LeftIcon={
+                <Image source={Community} style={{width: 12, height: 12}} />
+              }
               label="Community"
               containerStyle={{marginTop: 7}}
               onPress={() => navigation.navigate(routes.COMMUNITY)}
@@ -252,10 +257,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: '600',
     color: '#292D32',
     marginTop: 20,
     marginBottom: 6,
+    fontFamily: FONTS.Nunito_Bold,
   },
   modalContainer: {
     padding: 30,
@@ -270,18 +275,24 @@ const styles = StyleSheet.create({
   },
   modalTitle: {
     fontSize: 18,
-    fontWeight: '700',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   paragraph: {
     fontSize: 16,
     color: COLORS.black,
     marginTop: 4,
+    fontFamily: FONTS.Nunito_Regular,
   },
   logoutButton: {
     backgroundColor: COLORS.red,
     marginTop: 36,
     height: 42,
     borderRadius: 10,
+  },
+  shareModalText: {
+    marginTop: 13,
+    textAlign: 'center',
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

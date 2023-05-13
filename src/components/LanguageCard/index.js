@@ -1,5 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
+import {FONTS} from '../../themes';
 
 const LanguageCard = ({flag, icon, onPress}) => {
   return (
@@ -25,9 +26,9 @@ const styles = StyleSheet.create({
   },
   language: {
     fontSize: 14,
-    fontWeight: '400',
     color: '#292D32',
     marginLeft: 11,
     flex: 1,
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

@@ -3,13 +3,12 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React, {useContext} from 'react';
 import {Platform} from 'react-native';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import RNPickerSelect from 'react-native-picker-select';
-import {Card, DropDown, MasterCard} from '../../../assets/svgicons';
+import {Card, DropDown} from '../../../assets/svgicons';
 import FormInput from '../../../components/FormInput';
 import {TextButton} from '../../../components';
 import {AuthContext} from '../../../../App';
-COLORS;
 const CheckOut = () => {
   const {setUserId} = useContext(AuthContext);
   return (
@@ -35,8 +34,12 @@ const CheckOut = () => {
                 top: Platform.OS === 'ios' ? 5 : 22,
                 right: 0,
               },
-              inputAndroid: {},
-              inputIOS: {},
+              inputAndroid: {
+                fontFamily: FONTS.Nunito_Regular,
+              },
+              inputIOS: {
+                fontFamily: FONTS.Nunito_Regular,
+              },
             }}
           />
         </View>
@@ -139,5 +142,6 @@ const styles = StyleSheet.create({
     color: '#AAAAAA',
     textAlign: 'center',
     marginTop: 20,
+    fontFamily: FONTS.Nunito_Regular,
   },
 });

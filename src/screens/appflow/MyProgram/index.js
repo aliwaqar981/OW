@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {AllPrograms} from '../../../constants';
 import {Program} from '../../../components';
 import {routes} from '../../../constants';
@@ -39,8 +39,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: '700',
     color: COLORS.black,
     marginTop: 33,
+    fontFamily: FONTS.Nunito_Bold,
   },
 });

@@ -2,11 +2,11 @@
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {CreatPassword} from '../../../assets/images';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {Forminput, TextButton} from '../../../components';
 import {Eye, Lock} from '../../../assets/svgicons';
 import {routes} from '../../../constants';
-const CreatePassword = ({navigation}) => {
+const CreatePassword = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* BACKGROUND_IMAGE */}
@@ -36,9 +36,11 @@ const CreatePassword = ({navigation}) => {
         />
         <TextButton
           label={'Reset Password'}
-          labelStyle={{color: COLORS.white}}
+          labelStyle={{color: COLORS.white, fontSize: 16}}
           containerStyle={styles.button}
-          onPress={() => navigation.navigate(routes.LOGIN)}
+          onPress={() =>
+            navigation.navigate(routes.LOGIN, {key: route.params.key})
+          }
         />
       </View>
     </SafeAreaView>
@@ -61,8 +63,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     color: COLORS.black,
-    fontWeight: '500',
     textAlign: 'center',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   paragraph: {
     fontSize: 14,
@@ -70,6 +72,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
     textAlign: 'center',
     marginTop: 4,
+    fontFamily: FONTS.Nunito_Regular,
   },
   footer: {
     flex: 1,

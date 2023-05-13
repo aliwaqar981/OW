@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import TextButtonwithIcon from '../TextButtonwithIcon';
 import {Plus, Time, Video1} from '../../assets/svgicons';
 import ButtonwithIcon from '../ButtonwithIcon';
@@ -35,7 +35,14 @@ const Program = ({
           </TouchableOpacity>
           {showLoading ? (
             <View style={styles.loadingContainer}>
-              <Text style={{fontSize: 8, color: COLORS.black}}>62%</Text>
+              <Text
+                style={{
+                  fontSize: 8,
+                  color: COLORS.black,
+                  fontFamily: FONTS.Nunito_Regular,
+                }}>
+                62%
+              </Text>
             </View>
           ) : null}
         </View>
@@ -47,14 +54,14 @@ const Program = ({
           {/* TIME */}
           <TextButtonwithIcon
             label={'1h 30min'}
-            labelStyle={{fontSize: 12, marginLeft: 5}}
+            labelStyle={styles.text}
             leftIcon={<Time />}
             disabled
           />
           {/* EXERCISES */}
           <TextButtonwithIcon
             label={'06 Exercises'}
-            labelStyle={{fontSize: 12, marginLeft: 5}}
+            labelStyle={styles.text}
             leftIcon={<Video1 />}
             disabled
             containerStyle={{marginRight: 60}}
@@ -106,8 +113,8 @@ const styles = StyleSheet.create({
   },
   badgelabel: {
     fontSize: 10,
-    fontWeight: '700',
     color: COLORS.white,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   innerContainer: {
     marginTop: 5,
@@ -116,8 +123,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: '700',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   innerContainer1: {
     flexDirection: 'row',
@@ -134,5 +141,10 @@ const styles = StyleSheet.create({
     borderRadius: 40 / 2,
     borderWidth: 2.5,
     borderTopColor: '#FFE5DD',
+  },
+  text: {
+    fontSize: 12,
+    marginLeft: 5,
+    fontFamily: FONTS.Nunito_Light,
   },
 });

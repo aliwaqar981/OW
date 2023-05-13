@@ -11,7 +11,7 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {
   BodyParts,
   AllPrograms,
@@ -102,7 +102,7 @@ const VideoArena = () => {
       <View style={{marginTop: 24}}>
         {KneeExercise.map(item => {
           return (
-            <ProgramDetails
+            <ProgramDetail
               key={item.key}
               item={item}
               containerStyle={{marginBottom: 16}}
@@ -117,7 +117,7 @@ const VideoArena = () => {
       <View style={{marginTop: 24}}>
         {NeckExercise.map(item => {
           return (
-            <ProgramDetails
+            <ProgramDetail
               key={item.key}
               item={item}
               containerStyle={{marginBottom: 16}}
@@ -132,7 +132,7 @@ const VideoArena = () => {
       <View style={{marginTop: 24}}>
         {BackExercise.map(item => {
           return (
-            <ProgramDetails
+            <ProgramDetail
               key={item.key}
               item={item}
               containerStyle={{marginBottom: 16}}
@@ -187,7 +187,9 @@ const VideoArena = () => {
           {/* TITLE */}
           <Text style={styles.title1}>Blogs</Text>
           <TouchableOpacity>
-            <Text style={{fontSize: 12}}>View all</Text>
+            <Text style={{fontSize: 12, fontFamily: FONTS.Nunito_Regular}}>
+              View all
+            </Text>
           </TouchableOpacity>
         </View>
         {/* BLOG */}
@@ -250,8 +252,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: '600',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   lineStyles: {
     width: '100%',
@@ -261,8 +263,8 @@ const styles = StyleSheet.create({
   },
   title1: {
     fontSize: 16,
-    fontWeight: '700',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   header: {
     flexDirection: 'row',
