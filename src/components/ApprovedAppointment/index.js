@@ -1,14 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 import TextButtonwithIcon from '../TextButtonwithIcon';
 import {Call1, NotoStar, VideoCall} from '../../assets/svgicons';
 import ButtonwithIcon from '../ButtonwithIcon';
 const ApprovedAppointment = ({showRating, containerStyle}) => {
   return (
-    <View style={[styles.container, {containerStyle}]}>
+    <View style={[styles.container, containerStyle]}>
       <View
         style={{
           flexDirection: 'row',
@@ -73,23 +73,24 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.15,
+    shadowOpacity: 0.1,
     shadowRadius: 2.62,
 
-    elevation: 4,
+    elevation: 2.2,
     paddingVertical: 19,
     paddingHorizontal: 16,
     borderRadius: 12,
   },
   therapyText: {
     fontSize: 14,
-    fontWeight: '600',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   timeText: {
     fontSize: 12,
     color: '#404040',
     paddingTop: 5,
+    fontFamily: FONTS.Nunito_Regular,
   },
   horizontalLine: {
     marginVertical: 20,
@@ -107,14 +108,14 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 12,
-    fontWeight: '400',
     color: '#404040',
+    fontFamily: FONTS.Nunito_Light,
   },
   dateText: {
     fontSize: 16,
     color: '#333333',
-    fontWeight: '600',
     marginBottom: 4,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   startSessionButton: {
     height: 48,
@@ -122,13 +123,13 @@ const styles = StyleSheet.create({
     marginTop: 28,
     borderRadius: 8,
   },
-  detailText: {
-    fontSize: 15,
-    fontWeight: '500',
-    color: COLORS.red,
-    alignSelf: 'center',
-    paddingTop: 17,
-  },
+  // detailText: {
+  //   fontSize: 15,
+  //   fontWeight: '500',
+  //   color: COLORS.red,
+  //   alignSelf: 'center',
+  //   paddingTop: 17,
+  // },
   footer: {
     paddingTop: 24,
     flexDirection: 'row',

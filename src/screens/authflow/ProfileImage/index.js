@@ -57,7 +57,7 @@ const ProfileImage = ({navigation}) => {
           {/* LABEL */}
           <Text style={styles.label}>
             Specialized in resolving pain for{' '}
-            <Text style={{fontWeight: '400', color: '#707070'}}>
+            <Text style={{fontFamily: FONTS.Nunito_Regular, color: '#707070'}}>
               (optional)
             </Text>
           </Text>
@@ -131,8 +131,8 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 13,
-    fontWeight: '700',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   textInputStyles: {
     height: 51,

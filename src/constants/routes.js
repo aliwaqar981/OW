@@ -23,6 +23,7 @@ export const routes = {
   PROFESSIONALPROFILE: 'professionalProfile',
   EDITDOCTORDETAILS: 'editDoctorDetails',
   PROFESSIONALBOOKINGSSTATUS: 'professionalBookingsStatus',
+  PROFESSIONALBOOKINGSLIST: 'prprofessionalBookingsList',
 
   // HOME_STACK
   HOME: 'home',
@@ -48,4 +49,11 @@ export const routes = {
   SESSION: 'session',
   DOCTORDETAILS: 'doctorDetails',
   EDITBOOKINGDETAILS: 'editBookingDetails',
+  BLOGS: 'blog',
+  VIDEOBLOGS: 'videoBlogs',
+  CHOOSEDOCTOR: 'chooseDoctor',
+  PROFESSIONALBOOKINGDETAILS: 'professionalBookingDetails',
+  EARNINGSDETAILS: 'earningDetails',
+  HOMECHECKOUT: 'HOMECHECKOUT',
+  HOMEPAYMENTMETHOD: 'HOMEPAYMENTMETHOD',
 };

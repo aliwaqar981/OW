@@ -138,7 +138,11 @@ const Subscribe = ({navigation}) => {
                   <TextButton
                     label={'Get Started'}
                     containerStyle={styles.getStartedButton}
-                    onPress={() => navigation.navigate(routes.PAYMENTMETHOD)}
+                    onPress={() =>
+                      navigation.navigate(routes.PAYMENTMETHOD, {
+                        screen: routes.CHECKOUT,
+                      })
+                    }
                   />
                 </View>
               </ImageBackground>
@@ -216,7 +220,7 @@ const styles = StyleSheet.create({
   categoryText: {
     fontSize: 18,
     color: COLORS.white,
-    fontWeight: '600',
+    fontFamily: FONTS.Nunito_Bold,
   },
   priceText: {
     fontSize: 15,
@@ -259,13 +263,14 @@ const styles = StyleSheet.create({
     marginTop: 36,
     fontSize: 14,
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Regular,
   },
   contactusText: {
     textAlign: 'center',
     marginTop: 5,
     fontSize: 16,
     color: COLORS.primary,
-    fontWeight: '600',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   title: {
     fontSize: 20,

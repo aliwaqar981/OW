@@ -4,6 +4,7 @@ import React from 'react';
 import {
   ButtonwithIcon,
   ProfileAction,
+  TextButton,
   TextButtonwithIcon,
 } from '../../../components';
 import {COLORS, FONTS} from '../../../themes';
@@ -22,11 +23,48 @@ import {
   Privacy,
   Settings1,
   User1,
+  Logout,
 } from '../../../assets/svgicons';
 import {routes} from '../../../constants';
 import {AuthContext} from '../../../../App';
+import Modal from 'react-native-modal';
 const ProfessionalProfile = ({navigation}) => {
   const {setIsProfessional} = React.useContext(AuthContext);
+  const [isLogoutModalVisible, setLogoutModalVisible] = React.useState(false);
+
+  const toggleLogoutModal = () => {
+    setLogoutModalVisible(!isLogoutModalVisible);
+  };
+  const renderLogoutModal = () => {
+    return (
+      <Modal
+        isVisible={isLogoutModalVisible}
+        onBackdropPress={() => toggleLogoutModal()}
+        backdropOpacity={0.2}
+        style={{margin: 0, position: 'absolute', bottom: 0, left: 0, right: 0}}>
+        <View style={styles.logoutModalContainer}>
+          {/* TITLE */}
+          <Text style={styles.modalTitle}>Log Out?</Text>
+          {/* PARAGRAPH */}
+          <Text style={styles.paragraph}>Are you sure want to logout?</Text>
+          {/* LOGOUT_BUTTON */}
+          <TextButton
+            label={'Yes! Log me out'}
+            labelStyle={{color: COLORS.white}}
+            containerStyle={styles.logoutButton}
+            onPress={() => setIsProfessional(null)}
+          />
+          {/* CANCEL */}
+          <TextButton
+            label={'Cancel'}
+            labelStyle={{color: '#A7A7A7'}}
+            containerStyle={{marginVertical: 20}}
+            onPress={toggleLogoutModal}
+          />
+        </View>
+      </Modal>
+    );
+  };
   return (
     <View style={styles.container}>
       {/* PROFILE_SECTION */}
@@ -69,9 +107,8 @@ const ProfessionalProfile = ({navigation}) => {
           label="Calendar"
           containerStyle={{marginTop: 7}}
           iconBackgroundColor={COLORS.red}
-          // onPress={() => navigation.navigate(routes.AGENDA)}
+          onPress={() => navigation.navigate(routes.AGENDA)}
         />
-
         {/* MANGE_PROFILE */}
         <ProfileAction
           LeftIcon={<User1 />}
@@ -84,14 +121,13 @@ const ProfessionalProfile = ({navigation}) => {
           LeftIcon={<Location1 />}
           label="Location"
           containerStyle={{marginTop: 7}}
-          // onPress={() => navigation.navigate(routes.COMMUNITY)}
         />
         {/* COMMUNITY */}
         <ProfileAction
           LeftIcon={<Image source={Dollar} style={{width: 14, height: 14}} />}
           label="Accounts"
           containerStyle={{marginTop: 7}}
-          onPress={() => setIsProfessional(null)}
+          onPress={() => navigation.navigate(routes.EARNINGSDETAILS)}
         />
         {/* CONTACK_SUPPORTT */}
         <ProfileAction
@@ -121,6 +157,13 @@ const ProfessionalProfile = ({navigation}) => {
           onPress={() => navigation.navigate(routes.ABOUTUS)}
           containerStyle={{marginTop: 7}}
         />
+        <ProfileAction
+          LeftIcon={<Logout />}
+          label="Sign Out"
+          containerStyle={{marginTop: 7, marginBottom: 40}}
+          onPress={toggleLogoutModal}
+        />
+        {renderLogoutModal()}
       </ScrollView>
     </View>
   );
@@ -176,5 +219,33 @@ const styles = StyleSheet.create({
   profileAction: {
     paddingHorizontal: 20,
     paddingTop: 10,
+  },
+  modalContainer: {
+    padding: 30,
+    backgroundColor: COLORS.white,
+  },
+  logoutModalContainer: {
+    paddingTop: 30,
+    paddingHorizontal: 15,
+    backgroundColor: COLORS.white,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+  },
+  modalTitle: {
+    fontSize: 18,
+    color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
+  },
+  paragraph: {
+    fontSize: 16,
+    color: COLORS.black,
+    marginTop: 4,
+    fontFamily: FONTS.Nunito_Regular,
+  },
+  logoutButton: {
+    backgroundColor: COLORS.red,
+    marginTop: 36,
+    height: 42,
+    borderRadius: 10,
   },
 });

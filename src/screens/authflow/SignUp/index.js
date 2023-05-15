@@ -48,7 +48,7 @@ const SignUp = ({navigation, route}) => {
       <Text style={styles.title}>Sign Up</Text>
       {/* PARAGRAPH */}
       <Text style={styles.paragraph}>Please enter your details. </Text>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         {/* INPUT_FIELDS */}
         <View style={{marginHorizontal: 20, marginTop: 24}}>
           {/* NAME_INPUT_FEILDS */}
@@ -120,7 +120,7 @@ const SignUp = ({navigation, route}) => {
         <TextButton
           label={'Sign Up'}
           labelStyle={{color: COLORS.white}}
-          containerStyle={styles.loginButton}
+          containerStyle={styles.signUpButton}
           onPress={onSignUpPress}
         />
         {/* LINE_DIVIDER */}
@@ -217,12 +217,20 @@ const styles = StyleSheet.create({
     paddingLeft: 50,
     paddingRight: 20,
   },
-  loginButton: {
+  signUpButton: {
     height: 52,
     backgroundColor: COLORS.primary,
     marginHorizontal: 30,
     borderRadius: 10,
     marginTop: 38,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 14,
+    elevation: 17,
   },
   dividerContainer: {
     flexDirection: 'row',
@@ -279,6 +287,6 @@ const styles = StyleSheet.create({
   signUpButtonLabel: {
     color: COLORS.primary,
     marginLeft: 7,
-    fontFamily: FONTS.Nunito_Regular,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
 });

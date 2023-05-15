@@ -38,6 +38,7 @@ import Contact from './Contact.png';
 import Term from './Term.png';
 import About1 from './About1.png';
 import Image6 from './Image6.png';
+import launch_screen from './launch_screen.png';
 
 export {
   Logo,
@@ -80,4 +81,5 @@ export {
   Term,
   About1,
   Image6,
+  launch_screen,
 };

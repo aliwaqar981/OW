@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {NotificationCard} from '../../../components';
 import {Notifications_List} from '../../../constants';
@@ -8,6 +8,7 @@ import {COLORS} from '../../../themes';
 const Notification = () => {
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor={COLORS.red} />
       {/* TITLE */}
       <Text style={styles.title}>Today</Text>
       {Notifications_List.map(item => {

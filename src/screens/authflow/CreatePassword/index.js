@@ -1,5 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React from 'react';
 import {CreatPassword} from '../../../assets/images';
 import {COLORS, FONTS} from '../../../themes';
@@ -11,38 +18,40 @@ const CreatePassword = ({navigation, route}) => {
     <SafeAreaView style={styles.container}>
       {/* BACKGROUND_IMAGE */}
       <Image source={CreatPassword} style={styles.image} />
-      {/* TITLE */}
-      <Text style={styles.title}>Reset Password</Text>
-      {/* PARAGRAPH */}
-      <Text style={styles.paragraph}>
-        Enter your new password try not to forget again
-      </Text>
-      {/* FOOTER */}
-      <View style={styles.footer}>
-        {/* PASSWORD_INPUT_FEILDS */}
-        <Forminput
-          placeholder={'Password'}
-          placeholderTextColor="#292D3260"
-          leftIcon={<Lock />}
-          righIcon={<Eye />}
-        />
-        {/* PASSWORD_INPUT_FEILDS */}
-        <Forminput
-          placeholder={'Password'}
-          placeholderTextColor="#292D3260"
-          leftIcon={<Lock />}
-          righIcon={<Eye />}
-          containerStyle={{marginTop: 14}}
-        />
-        <TextButton
-          label={'Reset Password'}
-          labelStyle={{color: COLORS.white, fontSize: 16}}
-          containerStyle={styles.button}
-          onPress={() =>
-            navigation.navigate(routes.LOGIN, {key: route.params.key})
-          }
-        />
-      </View>
+      <ScrollView>
+        {/* TITLE */}
+        <Text style={styles.title}>Reset Password</Text>
+        {/* PARAGRAPH */}
+        <Text style={styles.paragraph}>
+          Enter your new password try not to forget again
+        </Text>
+        {/* FOOTER */}
+        <View style={styles.footer}>
+          {/* PASSWORD_INPUT_FEILDS */}
+          <Forminput
+            placeholder={'Password'}
+            placeholderTextColor="#292D3260"
+            leftIcon={<Lock />}
+            righIcon={<Eye />}
+          />
+          {/* PASSWORD_INPUT_FEILDS */}
+          <Forminput
+            placeholder={'Confirm Password'}
+            placeholderTextColor="#292D3260"
+            leftIcon={<Lock />}
+            righIcon={<Eye />}
+            containerStyle={{marginTop: 14}}
+          />
+          <TextButton
+            label={'Reset Password'}
+            labelStyle={{color: COLORS.white, fontSize: 16}}
+            containerStyle={styles.button}
+            onPress={() =>
+              navigation.navigate(routes.LOGIN, {key: route.params.key})
+            }
+          />
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

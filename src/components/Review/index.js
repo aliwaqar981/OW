@@ -10,7 +10,7 @@ const Review = () => {
       <Text style={styles.text}>Rate:</Text>
       <TextButtonwithIcon
         label={'5.0'}
-        labelStyle={{fontSize: 18, fontWeight: '400', marginLeft: 5}}
+        labelStyle={{fontSize: 18, marginLeft: 5}}
         leftIcon={<NotoStar />}
         containerStyle={{marginTop: 20}}
         disabled

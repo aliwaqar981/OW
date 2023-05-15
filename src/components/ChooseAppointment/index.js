@@ -2,7 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 
 const ChooseAppointment = ({onContinuePress}) => {
@@ -82,10 +82,10 @@ const styles = StyleSheet.create({
   },
   chooseText: {
     fontSize: 14,
-    fontWeight: '600',
     color: COLORS.black,
     paddingTop: 25,
     marginBottom: 18,
+    fontFamily: FONTS.Nunito_Bold,
   },
   innerContainer: {
     backgroundColor: '#00000007',
@@ -97,13 +97,13 @@ const styles = StyleSheet.create({
   },
   speciality: {
     fontSize: 14,
-    fontWeight: '600',
     color: '#000000',
+    fontFamily: FONTS.Nunito_Bold,
   },
   timeText: {
     fontSize: 12,
-    fontWeight: '400',
     color: '#404040',
+    fontFamily: FONTS.Nunito_Light,
   },
   continueButton: {
     height: 50,

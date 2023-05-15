@@ -13,15 +13,29 @@ import {
   TermsAndConditions,
   Chats,
   EditDoctorDetails,
+  AgendaView,
+  ProfessionalBookingDetails,
+  Session,
+  EarningsDetails,
 } from '../../screens/appflow';
 import {ButtonwithIcon} from '../../components';
 import {useNavigation} from '@react-navigation/native';
-import {ArrowLeft} from '../../assets/svgicons';
+import {ArrowLeft, Calendar, Calendar4} from '../../assets/svgicons';
+import {COLORS, FONTS} from '../../themes';
+
 const ProfessionalStack = createNativeStackNavigator();
 const ProfessionalStackNavigator = () => {
-  const {goBack} = useNavigation();
+  const {goBack, navigate} = useNavigation();
   return (
-    <ProfessionalStack.Navigator screenOptions={{headerShown: false}}>
+    <ProfessionalStack.Navigator
+      screenOptions={{
+        headerShown: false,
+        headerTitleStyle: {
+          fontSize: 16,
+          fontFamily: FONTS.Nunito_Bold,
+          color: COLORS.black,
+        },
+      }}>
       <ProfessionalStack.Screen
         name="professionaltab"
         component={ProfessionalBottomTab}
@@ -104,6 +118,50 @@ const ProfessionalStackNavigator = () => {
         name={routes.EDITDOCTORDETAILS}
         component={EditDoctorDetails}
         options={{headerShown: false}}
+      />
+      <ProfessionalStack.Screen
+        name={routes.AGENDA}
+        component={AgendaView}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Your Bookings Calendar',
+        }}
+      />
+      <ProfessionalStack.Screen
+        name={routes.PROFESSIONALBOOKINGDETAILS}
+        component={ProfessionalBookingDetails}
+        options={({route}) => ({
+          title: route.params.params,
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerRight: () => (
+            <ButtonwithIcon
+              icon={<Calendar4 />}
+              onPress={() => navigate(routes.AGENDA)}
+            />
+          ),
+        })}
+      />
+      <ProfessionalStack.Screen name={routes.SESSION} component={Session} />
+      <ProfessionalStack.Screen
+        name={routes.EARNINGSDETAILS}
+        component={EarningsDetails}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Earnings Detail',
+          headerShadowVisible: false,
+        }}
       />
     </ProfessionalStack.Navigator>
   );

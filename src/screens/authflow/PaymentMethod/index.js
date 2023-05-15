@@ -11,7 +11,7 @@ import {
 } from '../../../assets/svgicons';
 import {PaymentCard, TextButton} from '../../../components';
 import {routes} from '../../../constants';
-const PaymentMethod = ({navigation}) => {
+const PaymentMethod = ({navigation, route}) => {
   const [selectedCard, setSelectedCard] = useState('');
   return (
     <View style={styles.container}>
@@ -46,6 +46,7 @@ const PaymentMethod = ({navigation}) => {
             ...styles.selectButton,
             backgroundColor: selectedCard ? '#EB4E1F' : '#EB4E1F50',
           }}
+          disabled={!selectedCard}
           onPress={() => navigation.navigate(routes.CHECKOUT)}
         />
       </View>

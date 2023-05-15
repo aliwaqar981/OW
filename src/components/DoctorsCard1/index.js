@@ -1,19 +1,21 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import TextButtonwithIcon from '../TextButtonwithIcon';
 import {NotoStar} from '../../assets/svgicons';
 import TextButton from '../TextButton';
 
-const DoctorsCard1 = ({item, containerStyle}) => {
+const DoctorsCard1 = ({item, containerStyle, onPress}) => {
   return (
-    <View style={[styles.container, containerStyle]}>
+    <TouchableOpacity
+      style={[styles.container, containerStyle]}
+      onPress={onPress}>
       <Image source={item.image} style={styles.imageContainer} />
       <View style={styles.innerContainer}>
         <View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
-            <Text>{item.name}</Text>
+            <Text style={styles.name}>{item.name}</Text>
             {/* RATING */}
             <TextButtonwithIcon
               leftIcon={<NotoStar width={15} height={15} />}
@@ -34,7 +36,7 @@ const DoctorsCard1 = ({item, containerStyle}) => {
           />
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
 
-    elevation: 3,
+    elevation: 2,
   },
   imageContainer: {
     width: 100,
@@ -63,9 +65,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 10,
-    fontWeight: '500',
     color: '#454545',
     marginTop: 3,
+    fontFamily: FONTS.Nunito_Light,
   },
   innerContainer: {
     flex: 1,
@@ -87,6 +89,11 @@ const styles = StyleSheet.create({
   experinceText: {
     fontSize: 10,
     color: '#454545',
-    fontWeight: '500',
+    fontFamily: FONTS.Nunito_Regular,
+  },
+  name: {
+    fontSize: 16,
+    color: '#1B1B1B',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
 });

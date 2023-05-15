@@ -25,10 +25,13 @@ import {
 import {routes} from '../../constants/routes';
 import {ButtonwithIcon} from '../../components';
 import {ArrowLeft} from '../../assets/svgicons';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
+import {useNavigation} from '@react-navigation/native';
 
 const AuthStack = createNativeStackNavigator();
+
 const AuthStackNavigator = ({navigation}) => {
+  const {goBack} = useNavigation();
   return (
     <AuthStack.Navigator
       screenOptions={{
@@ -37,9 +40,10 @@ const AuthStackNavigator = ({navigation}) => {
         headerTitleStyle: {
           fontSize: 16,
           color: COLORS.black,
+          fontFamily: FONTS.Nunito_Bold,
         },
       }}>
-      {/* <AuthStack.Screen name={routes.ONBOARD} component={OnBoard} /> */}
+      {/* <AuthStack.Screen name={routes.ONBOARD} component={OnBoard} />s */}
       <AuthStack.Screen name={routes.SPLASH} component={Splash} />
       <AuthStack.Screen name={routes.LOGIN} component={Login} />
       <AuthStack.Screen name={routes.SIGNUP} component={SignUp} />
@@ -59,12 +63,9 @@ const AuthStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
-          headerTitleAlign: 'left',
+          headerTitleAlign: 'center',
           headerTitle: 'Payment Methods',
         }}
       />
@@ -74,10 +75,7 @@ const AuthStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon
-              icon={<ArrowLeft />}
-              onPress={() => navigation.goBack()}
-            />
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'left',
           headerTitle: 'Payment Methods',

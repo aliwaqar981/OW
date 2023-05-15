@@ -1,7 +1,14 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable react-native/no-inline-styles */
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {Bell, OW1} from '../../../assets/svgicons';
@@ -49,6 +56,7 @@ const Home = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* HEADER */}
+      <StatusBar backgroundColor={COLORS.whites} />
 
       <View style={styles.headerContainer}>
         {/* NOTIFICATION_ICON */}
@@ -117,6 +125,7 @@ const Home = ({navigation}) => {
                   handleOpenedPoint={handleOpenedPointFront}
                   key={`itemss-${index}`}
                   item={item}
+                  front={true}
                 />
               );
             })}
@@ -129,6 +138,7 @@ const Home = ({navigation}) => {
                   handleOpenedPoint={handleOpenedPointBack}
                   key={`itemss-${index}`}
                   item={item}
+                  front={false}
                 />
               );
             })}
@@ -143,7 +153,11 @@ const Home = ({navigation}) => {
       </View>
       <View style={{flex: 1, justifyContent: 'flex-end'}}>
         {/* FIND_A_DOCTOR_BUTTON */}
-        <TextButton label={'Find a Doctor'} containerStyle={styles.button} />
+        <TextButton
+          label={'Find a Doctor'}
+          containerStyle={styles.button}
+          onPress={() => navigation.navigate(routes.CHOOSEDOCTOR)}
+        />
       </View>
     </SafeAreaView>
   );

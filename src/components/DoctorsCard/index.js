@@ -10,9 +10,9 @@ import {
 } from 'react-native';
 import React from 'react';
 import {Logo} from '../../assets/images';
-import {COLORS} from '../../themes';
-import {TextButton} from '../../components';
-
+import {COLORS, FONTS} from '../../themes';
+import {TextButton, TextButtonwithIcon} from '../../components';
+import {NotoStar} from '../../assets/svgicons';
 const DoctorsCard = ({item, containerStyle, onPress}) => {
   return (
     <TouchableOpacity
@@ -36,12 +36,27 @@ const DoctorsCard = ({item, containerStyle, onPress}) => {
           <View style={styles.drInfo}>
             <View>
               <Text style={styles.name}>{item.name}</Text>
-              <Text style={styles.specialityText}>{item.speciality}</Text>
+              <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                <Text style={styles.specialityText}>{item.speciality}</Text>
+                <TextButtonwithIcon
+                  leftIcon={<NotoStar width={12} height={12} />}
+                  label={'4.5'}
+                  labelStyle={{
+                    fontSize: 14,
+                    color: '#4C4C4C',
+                    marginLeft: 5,
+                    fontFamily: FONTS.Nunito_Regular,
+                  }}
+                  disabled
+                  containerStyle={{marginLeft: 5}}
+                />
+              </View>
             </View>
             <TextButton
               disabled
-              label={'Book '}
+              label={'Book'}
               containerStyle={styles.bookButton}
+              labelStyle={{fontSize: 12, lineHeight: 14}}
             />
           </View>
         </View>
@@ -75,9 +90,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 11,
-    fontWeight: '700',
     color: '#E7E7E7',
     marginLeft: 6,
+    fontFamily: FONTS.Nunito_Bold,
   },
   drInfo: {
     backgroundColor: COLORS.white,
@@ -90,12 +105,13 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
-    fontWeight: '700',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_ExtraBold,
   },
   specialityText: {
     fontSize: 14,
     color: '#4C4C4C',
+    fontFamily: FONTS.Nunito_Light,
   },
   bookButton: {
     height: 32,

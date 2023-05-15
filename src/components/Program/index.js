@@ -39,7 +39,7 @@ const Program = ({
                 style={{
                   fontSize: 8,
                   color: COLORS.black,
-                  fontFamily: FONTS.Nunito_Regular,
+                  fontFamily: FONTS.Nunito_SemiBold,
                 }}>
                 62%
               </Text>

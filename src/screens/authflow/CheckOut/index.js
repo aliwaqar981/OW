@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 import {StyleSheet, Text, View} from 'react-native';
@@ -9,8 +10,38 @@ import {Card, DropDown} from '../../../assets/svgicons';
 import FormInput from '../../../components/FormInput';
 import {TextButton} from '../../../components';
 import {AuthContext} from '../../../../App';
-const CheckOut = () => {
+import {routes} from '../../../constants';
+import Modal from 'react-native-modal';
+
+const CheckOut = ({route, navigation}) => {
   const {setUserId} = useContext(AuthContext);
+  const [isModalVisible, setModalVisible] = React.useState(false);
+
+  const toggleModal = () => {
+    setModalVisible(!isModalVisible);
+  };
+  const rederViewCalendarModal = () => {
+    return (
+      <Modal isVisible={isModalVisible} style={{margin: 20}}>
+        <View style={styles.modalContainer}>
+          <Text style={styles.modalTitle}>
+            Great!! Your appointment has been made
+          </Text>
+          <TextButton
+            label={'View My Calendar'}
+            containerStyle={[styles.getStartedButton, {marginTop: 18}]}
+            onPress={() => {
+              toggleModal();
+              setTimeout(() => {
+                navigation.navigate(routes.AGENDA);
+              }, 500);
+            }}
+            labelStyle={{fontFamily: FONTS.Nunito_Regular}}
+          />
+        </View>
+      </Modal>
+    );
+  };
   return (
     <View style={styles.container}>
       <View style={{marginTop: 30, marginHorizontal: 20}}>
@@ -76,11 +107,7 @@ const CheckOut = () => {
       <View style={styles.footer}>
         <TextButton
           label={'Lets Get Started'}
-          containerStyle={{
-            height: 50,
-            backgroundColor: COLORS.red,
-            borderRadius: 8,
-          }}
+          containerStyle={styles.getStartedButton}
           onPress={() => setUserId('uid')}
         />
         {/* INFO */}
@@ -89,6 +116,7 @@ const CheckOut = () => {
           cursus suspendisse.
         </Text>
       </View>
+      {rederViewCalendarModal()}
     </View>
   );
 };
@@ -107,7 +135,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: COLORS.borderColor,
+    borderColor: '#E8E8E8',
     marginTop: 20,
   },
   title: {
@@ -134,14 +162,40 @@ const styles = StyleSheet.create({
   },
   footer: {
     flex: 1,
-    marginTop: 73,
+    paddingTop: 73,
     marginHorizontal: 20,
   },
   text: {
     fontSize: 12,
     color: '#AAAAAA',
     textAlign: 'center',
-    marginTop: 20,
+    paddingTop: 30,
     fontFamily: FONTS.Nunito_Regular,
+    marginHorizontal: 20,
+  },
+  getStartedButton: {
+    height: 50,
+    backgroundColor: COLORS.red,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 14,
+    elevation: 17,
+    width: '100%',
+  },
+  modalContainer: {
+    backgroundColor: COLORS.white,
+    alignItems: 'center',
+    padding: 20,
+    borderRadius: 10,
+  },
+  modalTitle: {
+    fontSize: 16,
+    fontFamily: FONTS.Nunito_Bold,
+    color: COLORS.black,
   },
 });

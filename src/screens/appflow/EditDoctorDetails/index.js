@@ -129,14 +129,14 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 16,
-    fontWeight: '600',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   address: {
-    fontSize: 15,
+    fontSize: 10,
     color: '#C7C7C7',
     marginLeft: 5,
-    fontWeight: '500',
+    fontFamily: FONTS.Nunito_Regular,
   },
   info: {
     width: 90,
@@ -148,14 +148,14 @@ const styles = StyleSheet.create({
   },
   infoText: {
     fontSize: 10,
-    fontWeight: '700',
     color: COLORS.red,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   ratingText: {
     fontSize: 14,
-    fontWeight: '700',
     color: '#FCBD18',
     marginRight: 6,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   ratingContainer: {
     width: 60,
@@ -168,15 +168,15 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     fontSize: 16,
-    fontWeight: '600',
     color: COLORS.black,
     marginTop: 21,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   paragraph: {
     fontSize: 12,
-    fontWeight: '400',
     color: '#ABABAB',
     marginTop: 11,
+    fontFamily: FONTS.Nunito_Regular,
   },
   footer: {
     flex: 1,

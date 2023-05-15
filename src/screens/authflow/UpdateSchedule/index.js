@@ -175,9 +175,9 @@ const styles = StyleSheet.create({
   },
   generalText: {
     fontSize: 14,
-    fontWeight: '700',
     color: COLORS.black,
     marginTop: 23,
+    fontFamily: FONTS.Nunito_Bold,
   },
   text: {
     fontSize: 14,
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   selectTimeText: {
     marginTop: 17,
     fontSize: 14,
-    fontWeight: '500',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   time: {
     width: 106,

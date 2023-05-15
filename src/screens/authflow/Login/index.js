@@ -23,7 +23,7 @@ import {routes} from '../../../constants/routes';
 import {AuthContext} from '../../../../App';
 
 const Login = ({navigation, route}) => {
-  const {setUserId} = useContext(AuthContext);
+  const {setUserId, setIsProfessional} = useContext(AuthContext);
   return (
     <SafeAreaView style={styles.container}>
       {/* LOGO */}
@@ -54,7 +54,7 @@ const Login = ({navigation, route}) => {
       {/* FORGOT_PASSWORD_BUTTON */}
       <TextButton
         label={'Forgot Password?'}
-        labelStyle={{color: '#D0D0D0', fontFamily: FONTS.Nunito_SemiBold}}
+        labelStyle={styles.forgotPasswordLabel}
         containerStyle={styles.forgotPasswordButton}
         onPress={() =>
           navigation.navigate(routes.FORGOTPASSWORD, {key: route.params.key})
@@ -65,7 +65,11 @@ const Login = ({navigation, route}) => {
         label={'Log In'}
         labelStyle={{color: COLORS.white}}
         containerStyle={styles.loginButton}
-        onPress={() => setUserId('uid')}
+        onPress={() => {
+          route.params.key == 'therapist'
+            ? setIsProfessional('uid')
+            : setUserId('uid');
+        }}
       />
       {/* LINE_DIVIDER */}
       <View style={styles.dividerContainer}>
@@ -145,7 +149,11 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     marginTop: 5,
     fontSize: 14,
-    marginRight: 20,
+    paddingRight: 20,
+  },
+  forgotPasswordLabel: {
+    color: '#D0D0D0',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   loginButton: {
     height: 52,
@@ -153,6 +161,14 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     borderRadius: 10,
     marginTop: 38,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 14,
+    elevation: 17,
   },
   dividerContainer: {
     flexDirection: 'row',
@@ -205,7 +221,7 @@ const styles = StyleSheet.create({
   signInButtonLabel: {
     color: COLORS.primary,
     marginLeft: 7,
-    fontFamily: FONTS.Nunito_Regular,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   googleButtonLabel: {
     color: '#353535',

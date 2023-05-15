@@ -25,20 +25,34 @@ import {
   Session,
   DoctorDetails,
   EditBookingDetails,
+  Blogs,
+  VideoBlogs,
+  ChooseDoctor,
+  HomeCheckOut,
+  HomePaymentMethod,
 } from '../../screens/appflow';
 import {ButtonwithIcon} from '../../components';
-import {ArrowLeft, Cross} from '../../assets/svgicons';
-import {COLORS} from '../../themes';
+import {ArrowLeft, ArrowLeft2, Calendar4, Cross} from '../../assets/svgicons';
+import {COLORS, FONTS} from '../../themes';
 import Language from '../../screens/appflow/Language';
 import {useNavigation} from '@react-navigation/native';
+import {CheckOut, PaymentMethod} from '../../screens/authflow';
 
 const HomeStack = createNativeStackNavigator();
 
-const HomeStackNavigator = ({navigation}) => {
-  const {goBack} = useNavigation();
+const HomeStackNavigator = () => {
+  const {goBack, navigate} = useNavigation();
   return (
     <HomeStack.Navigator
-      screenOptions={{headerShown: false, headerShadowVisible: false}}>
+      screenOptions={{
+        headerShown: false,
+        headerShadowVisible: false,
+        headerTitleStyle: {
+          fontSize: 16,
+          fontFamily: FONTS.Nunito_Bold,
+          color: COLORS.black,
+        },
+      }}>
       <HomeStack.Screen name="bottom" component={BottomTabNavigator} />
       <HomeStack.Screen
         name={routes.NOTIFICATION}
@@ -46,10 +60,19 @@ const HomeStackNavigator = ({navigation}) => {
         options={{
           headerShown: true,
           headerLeft: () => (
-            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+            <ButtonwithIcon icon={<ArrowLeft2 />} onPress={() => goBack()} />
+          ),
+          headerRight: () => (
+            <ButtonwithIcon icon={<Cross />} onPress={() => goBack()} />
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Notifications',
+          headerTitleStyle: {
+            color: COLORS.white,
+          },
+          headerStyle: {
+            backgroundColor: COLORS.red,
+          },
         }}
       />
       <HomeStack.Screen
@@ -221,6 +244,12 @@ const HomeStackNavigator = ({navigation}) => {
           headerLeft: () => (
             <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
           ),
+          headerRight: () => (
+            <ButtonwithIcon
+              icon={<Calendar4 />}
+              onPress={() => navigate(routes.AGENDA)}
+            />
+          ),
           headerTitleAlign: 'center',
           headerTitle: 'Bookings',
         }}
@@ -234,6 +263,12 @@ const HomeStackNavigator = ({navigation}) => {
           headerTitleAlign: 'center',
           headerLeft: () => (
             <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerRight: () => (
+            <ButtonwithIcon
+              icon={<Calendar4 />}
+              onPress={() => navigate(routes.AGENDA)}
+            />
           ),
         })}
       />
@@ -259,6 +294,90 @@ const HomeStackNavigator = ({navigation}) => {
           ),
           headerTitleAlign: 'center',
           headerTitle: 'Edit Your Appointment',
+        }}
+      />
+      {/* <HomeStack.Screen
+        name={routes.PAYMENTMETHOD}
+        component={PaymentMethod}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Payment Methods',
+        }}
+      /> */}
+      {/* <HomeStack.Screen
+        name={routes.CHECKOUT}
+        component={CheckOut}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Payment Methods',
+        }}
+      /> */}
+      <HomeStack.Screen
+        name={routes.BLOGS}
+        component={Blogs}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Blogs',
+        }}
+      />
+      <HomeStack.Screen
+        name={routes.VIDEOBLOGS}
+        component={VideoBlogs}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Treatment Videos',
+        }}
+      />
+      <HomeStack.Screen
+        name={routes.CHOOSEDOCTOR}
+        component={ChooseDoctor}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Home',
+        }}
+      />
+      <HomeStack.Screen
+        name={routes.HOMECHECKOUT}
+        component={HomeCheckOut}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Payment Methods',
+        }}
+      />
+      <HomeStack.Screen
+        name={routes.HOMEPAYMENTMETHOD}
+        component={HomePaymentMethod}
+        options={{
+          headerShown: true,
+          headerLeft: () => (
+            <ButtonwithIcon icon={<ArrowLeft />} onPress={() => goBack()} />
+          ),
+          headerTitleAlign: 'center',
+          headerTitle: 'Payment Methods',
         }}
       />
     </HomeStack.Navigator>

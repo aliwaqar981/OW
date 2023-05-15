@@ -4,7 +4,7 @@ import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 import TextButtonwithIcon from '../TextButtonwithIcon';
-import {NotoCard, NotoStar, Star1} from '../../assets/svgicons';
+import {NotoStar} from '../../assets/svgicons';
 
 const Appointment = ({
   containerStyle,
@@ -125,14 +125,13 @@ const styles = StyleSheet.create({
   dateText: {
     fontSize: 16,
     color: '#333333',
-    fontWeight: '600',
     marginBottom: 4,
     fontFamily: FONTS.Nunito_Light,
   },
   text: {
     fontSize: 12,
-    fontWeight: '400',
     color: '#404040',
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   dot: {
     width: 7,

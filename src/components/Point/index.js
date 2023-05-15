@@ -1,12 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
-const Point = ({item, handleOpenedPoint}) => {
+const Point = ({item, handleOpenedPoint, front}) => {
   // const [showComponent, setShowComponent] = React.useState(null);
 
-  console.log('---------- item:', item);
+  console.log('---------- item:');
 
   let slectedObject = item.isOpened ? item.selected : item.notSelected;
 
@@ -22,7 +22,7 @@ const Point = ({item, handleOpenedPoint}) => {
             styles.info,
             {
               marginRight: slectedObject.marginRight,
-              backgroundColor: '#114EBE',
+              backgroundColor: front ? '#114EBE' : COLORS.red,
             },
           ]}>
           <Text style={styles.label}>{slectedObject.label}</Text>
@@ -35,16 +35,16 @@ const Point = ({item, handleOpenedPoint}) => {
             flexDirection: item.isOnLeftSide ? 'row-reverse' : 'row',
             alignItems: 'flex-end',
             zIndex: 4,
-          }}
-          hitSlop={{left: 10, right: 10, top: 10, bottom: 10}}>
+          }}>
           <TouchableOpacity
             onPress={
               () => handleOpenedPoint(slectedObject.key)
               // setShowComponent(!showComponent)
-            }>
+            }
+            hitSlop={{left: 10, right: 10, top: 10, bottom: 10}}>
             <slectedObject.cicle1 />
           </TouchableOpacity>
-          <View style={{marginBottom: 12, width: 50, height: 40}}>
+          <View style={{marginBottom: 12, width: front ? 50 : 70, height: 40}}>
             <slectedObject.line />
           </View>
         </View>
@@ -88,12 +88,12 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 15,
-    fontWeight: '600',
     color: COLORS.white,
+    fontFamily: FONTS.Nunito_Bold,
   },
   discription: {
     fontSize: 12,
-    fontWeight: '200',
     color: COLORS.white,
+    fontFamily: FONTS.Nunito_Light,
   },
 });

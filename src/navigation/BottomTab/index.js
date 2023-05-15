@@ -7,7 +7,7 @@ import {Home, TalktoDoctor, VideoArena} from '../../screens/appflow';
 import {routes} from '../../constants';
 import {Doc1, Doc2, OW1, VideoIcon, VideoIcon1} from '../../assets/svgicons';
 import {OW2} from '../../assets/images';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
 const BottomTab = createBottomTabNavigator();
 
@@ -22,6 +22,11 @@ const BottomTabNavigator = () => {
         tabBarLabelStyle: {
           fontSize: 10,
         },
+        headerTitleStyle: {
+          fontSize: 16,
+          fontFamily: FONTS.Nunito_Bold,
+          color: COLORS.black,
+        },
       }}>
       <BottomTab.Screen
         name={routes.VIDEOARENA}
@@ -30,6 +35,7 @@ const BottomTabNavigator = () => {
           tabBarIcon: ({focused}) => (focused ? <VideoIcon1 /> : <VideoIcon />),
           headerShown: true,
           headerTitle: 'Video Arena',
+          headerTitleAlign: 'center',
         }}
       />
       <BottomTab.Screen

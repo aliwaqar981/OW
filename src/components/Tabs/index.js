@@ -17,7 +17,6 @@ export default Tabs;
 const styles = StyleSheet.create({
   label: {
     fontSize: 16,
-    fontWeight: '400',
     textAlign: 'center',
     marginBottom: 11,
     fontFamily: FONTS.Nunito_Regular,

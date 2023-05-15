@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 /* eslint-disable react-native/no-inline-styles */
 import {
   Image,
@@ -7,15 +8,28 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Dimensions,
 } from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
-import {Profile} from '../../../assets/images';
+import {Image6, Profile} from '../../../assets/images';
 import {Danger, Settings1} from '../../../assets/svgicons';
-import {ApprovedAppointment, ButtonwithIcon} from '../../../components';
+import {
+  ApprovedAppointment,
+  ButtonwithIcon,
+  Chart,
+  EmptyState,
+  TextButton,
+} from '../../../components';
 import {routes} from '../../../constants';
-
+import {LineChart} from 'react-native-chart-kit';
 const ProfessionalHome = ({navigation}) => {
+  const [isEmptyState, setIsEmptyState] = React.useState(false);
+
+  setTimeout(() => {
+    setIsEmptyState(true);
+  }, 2000);
+
   return (
     <SafeAreaView style={styles.container}>
       {/* HEADER */}
@@ -35,7 +49,9 @@ const ProfessionalHome = ({navigation}) => {
           />
         </View>
       </View>
-      <ScrollView contentContainerStyle={styles.innerContainer}>
+      <ScrollView
+        contentContainerStyle={styles.innerContainer}
+        showsVerticalScrollIndicator={false}>
         {/* APPROVAL_INFO */}
         <View style={styles.approvalContainer}>
           <Danger />
@@ -46,6 +62,7 @@ const ProfessionalHome = ({navigation}) => {
             <Text style={styles.text}>You will be notified soon</Text>
           </View>
         </View>
+
         {/* REQUESTED_AND_ACTIVE_BOOKING_CONTAINER */}
         <View style={styles.requestActiveBookingContainer}>
           {/*REQUESTED */}
@@ -68,8 +85,33 @@ const ProfessionalHome = ({navigation}) => {
               <Text style={styles.viewAllText}>View All</Text>
             </TouchableOpacity>
           </View>
-          <ApprovedAppointment />
+          <View>
+            {!isEmptyState ? (
+              <EmptyState
+                image={Image6}
+                paragraph={'Nothing to show here!'}
+                paragraphStyle={{color: '#969696', marginTop: 10}}
+              />
+            ) : (
+              <View>
+                <ApprovedAppointment
+                  containerStyle={{marginBottom: 3, marginHorizontal: 20}}
+                />
+              </View>
+            )}
+          </View>
         </View>
+        {/* PRICE_INFO */}
+        <View style={styles.priceContainer}>
+          <View>
+            <Text style={styles.price}>$325.00</Text>
+            <Text style={styles.monthText}>This Month</Text>
+          </View>
+          <TextButton label={'Details'} labelStyle={{color: COLORS.red}} />
+        </View>
+        {/* LINE */}
+        <View style={styles.line} />
+        <Chart />
       </ScrollView>
     </SafeAreaView>
   );
@@ -110,7 +152,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.Nunito_Light,
   },
   innerContainer: {
-    paddingHorizontal: 20,
+    // paddingHorizontal: 20,
     paddingTop: 24,
   },
   approvalContainer: {
@@ -120,6 +162,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 14,
     borderRadius: 12,
+    marginHorizontal: 20,
   },
   approvalText: {
     fontSize: 12,
@@ -135,6 +178,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 15,
     justifyContent: 'space-between',
+    marginHorizontal: 20,
   },
   requestedContainer: {
     backgroundColor: '#FFDFDF',
@@ -160,6 +204,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingTop: 27,
     paddingBottom: 16,
+    marginHorizontal: 20,
   },
   appointmentText: {
     fontSize: 16,
@@ -170,5 +215,27 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#030F1C',
     fontFamily: FONTS.Nunito_Regular,
+  },
+  priceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingTop: 35,
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  price: {
+    fontSize: 20,
+    color: COLORS.black,
+    fontFamily: FONTS.Nunito_SemiBold,
+  },
+  monthText: {
+    fontSize: 12,
+    color: '#D5D6D7',
+    fontFamily: FONTS.Nunito_Medium,
+  },
+  line: {
+    height: 1,
+    backgroundColor: '#EAEBEB',
+    marginVertical: 8,
   },
 });

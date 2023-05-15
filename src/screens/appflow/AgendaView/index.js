@@ -1,8 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Button, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Button,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import CalendarStrip from 'react-native-calendar-strip';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {routes} from '../../../constants';
 import {Agenda} from 'react-native-calendars';
 
@@ -45,19 +52,26 @@ const AgendaView = ({navigation}) => {
   };
 
   const renderItem = item => {
-    console.log('index-------', item);
+    // console.log('index-------', item);
     return (
-      <TouchableOpacity style={styles.item}>
-        <View>
-          <Text>Session with Dr. Walters</Text>
-          <Text>Session with Dr. Walters</Text>
-        </View>
-      </TouchableOpacity>
+      <View>
+        <TouchableOpacity
+          style={styles.item}
+          onPress={() => navigation.navigate(routes.BOOKINGLIST)}>
+          <View>
+            <Text style={styles.name}>Session with Dr. Walters</Text>
+            <Text style={styles.speciality}>Therapist</Text>
+            <Text style={styles.time}>08:00AM - 09:30AM</Text>
+          </View>
+        </TouchableOpacity>
+        <View style={styles.line} />
+      </View>
     );
   };
 
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor={COLORS.white} />
       {/* <CalendarStrip
         scrollable
         style={{
@@ -96,10 +110,6 @@ const AgendaView = ({navigation}) => {
         refreshing={false}
         renderItem={renderItem}
       />
-      <Button
-        title="Session with Dr. Walters"
-        onPress={() => navigation.navigate(routes.BOOKINGLIST)}
-      />
     </View>
   );
 };
@@ -112,10 +122,33 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
-    borderRadius: 5,
-    padding: 10,
-    marginRight: 10,
-    marginTop: 17,
-    backgroundColor: '#EB4E1F15',
+    borderRadius: 12,
+    padding: 12,
+    marginRight: 20,
+    marginTop: 25,
+    backgroundColor: '#EB4E1F25',
+  },
+  name: {
+    fontSize: 14,
+    fontFamily: FONTS.Nunito_Bold,
+    color: COLORS.black,
+  },
+  speciality: {
+    fontSize: 11,
+    color: '#818E9C',
+    fontFamily: FONTS.Nunito_Light,
+    paddingTop: 2,
+  },
+  time: {
+    fontSize: 11,
+    color: '#818E9C',
+    fontFamily: FONTS.Nunito_Regular,
+    paddingTop: 18,
+  },
+  line: {
+    flex: 1,
+    backgroundColor: '#EB4E1F20',
+    marginTop: 25,
+    height: 1,
   },
 });

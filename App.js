@@ -6,7 +6,7 @@ import SystemNavigationBar from 'react-native-system-navigation-bar';
 import {StatusBar} from 'react-native';
 import Navigation from './src/navigation';
 import {COLORS} from './src/themes';
-import {ProfessionalBookingList} from './src/screens/appflow';
+import SplashScreen from 'react-native-splash-screen';
 
 export const AuthContext = React.createContext({
   userId: null,
@@ -18,7 +18,8 @@ const App = () => {
   const [userId, setUserId] = useState('');
   const [isProfessional, setIsProfessional] = useState('');
 
-  console.log('isProfessional_____', isProfessional);
+  console.log('userId', userId);
+  console.log('isProfessional', isProfessional);
 
   useEffect(() => {
     retrieveData();
@@ -49,9 +50,11 @@ const App = () => {
   const setDataLocally = userId => {
     if (userId == null || userId == undefined) {
       AsyncStorage.removeItem('UserId');
+      SplashScreen.hide();
     } else {
       AsyncStorage.setItem('UserId', userId);
       setUserId(userId);
+      SplashScreen.hide();
     }
   };
   const retrieveProfessionalData = async () => {
@@ -73,7 +76,7 @@ const App = () => {
     <AuthContext.Provider
       value={{userId, setUserId, isProfessional, setIsProfessional}}>
       <StatusBar backgroundColor={COLORS.white} barStyle="dark-content" />
-      <ProfessionalBookingList />
+      <Navigation />
     </AuthContext.Provider>
   );
 };

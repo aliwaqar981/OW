@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 import TextButtonwithIcon from '../TextButtonwithIcon';
 import {NotoStar} from '../../assets/svgicons';
@@ -12,9 +12,10 @@ const BookingCard = ({
   buttonTitle,
   buttonColor,
   showRating,
+  onPress,
 }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View
         style={{
           flexDirection: 'row',
@@ -62,10 +63,12 @@ const BookingCard = ({
             labelStyle={{color: COLORS.white}}
             onPress={onStartSessionPress}
           />
-          <Text style={styles.detailText}>View Additional Details</Text>
+          <TouchableOpacity>
+            <Text style={styles.detailText}>View Additional Details</Text>
+          </TouchableOpacity>
         </View>
       ) : null}
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -89,8 +92,8 @@ const styles = StyleSheet.create({
   },
   therapyText: {
     fontSize: 14,
-    fontWeight: '600',
     color: COLORS.black,
+    fontFamily: FONTS.Nunito_Bold,
   },
   timeText: {
     fontSize: 12,
@@ -113,14 +116,14 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 12,
-    fontWeight: '400',
     color: '#404040',
+    fontFamily: FONTS.Nunito_Regular,
   },
   dateText: {
     fontSize: 16,
     color: '#333333',
-    fontWeight: '600',
     marginBottom: 4,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   startSessionButton: {
     height: 48,
@@ -130,9 +133,9 @@ const styles = StyleSheet.create({
   },
   detailText: {
     fontSize: 15,
-    fontWeight: '500',
     color: COLORS.red,
     alignSelf: 'center',
     paddingTop: 17,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
 });

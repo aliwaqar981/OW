@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {FlatList} from 'react-native';
 import {AllContacts, routes} from '../../../constants';
 import {ChatCard} from '../../../components';
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: '700',
     color: COLORS.black,
     paddingLeft: 17,
+    fontFamily: FONTS.Nunito_Bold,
   },
 });

@@ -1,5 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React from 'react';
 import {Forgotpassword} from '../../../assets/images';
 import {COLORS, FONTS} from '../../../themes';
@@ -21,7 +28,6 @@ const ForgotPassword = ({navigation, route}) => {
       </Text>
       <View style={styles.footer}>
         {/* EMAI_INPUT_FEILDS */}
-
         <Forminput
           placeholder={'Email'}
           placeholderTextColor="#292D3260"

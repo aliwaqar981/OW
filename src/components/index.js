@@ -29,7 +29,7 @@ import TextInputCmp from './TextInputCmp';
 import BookingCard from './BookingCard';
 import AppointmentSchdule from './AppointmentSchdule';
 import ApprovedAppointment from './ApprovedAppointment';
-
+import Chart from './Chart';
 export {
   Video,
   TextButton,
@@ -62,4 +62,5 @@ export {
   BookingCard,
   AppointmentSchdule,
   ApprovedAppointment,
+  Chart,
 };

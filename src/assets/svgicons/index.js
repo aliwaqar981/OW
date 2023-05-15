@@ -1,5 +1,6 @@
 import Call from './Call.svg';
 import DropDown from './DropDown.svg';
+import DropDown1 from './DropDown1.svg';
 import Email from './Email.svg';
 import Eye from './Eye.svg';
 import Gender from './Gender.svg';
@@ -30,7 +31,7 @@ import Cross from './Cross.svg';
 import CrowCircle1 from './CrowCircle1.svg';
 import Calendar1 from './Calendar1.svg';
 import Calendar3 from './Calendar3.svg';
-
+import Calendar4 from './Calendar4.svg';
 import Book from './Book.svg';
 import ArrowRight from './ArrowRight.svg';
 import ArrowRight1 from './ArrowRight1.svg';
@@ -74,12 +75,14 @@ import GoogleVoice from './GoogleVoice.svg';
 import Video3 from './Video3.svg';
 import Call2 from './Call2.svg';
 import ArrowLeft1 from './ArrowLeft1.svg';
+import ArrowLeft2 from './ArrowLeft2.svg';
 import BlueCircle from './BlueCircle.svg';
 import ShoulderLine from './ShoulderLine.svg';
 import NeckLine from './NeckLine.svg';
 import CircleWhite from './CircleWhite.svg';
 import Line from './Line.svg';
 import Line1 from './Line1.svg';
+import Line2 from './Line2.svg';
 import CircleRed from './CircleRed.svg';
 import CircleRed1 from './CircleRed1.svg';
 import ForwardArrow from './ForwardArrow.svg';
@@ -96,9 +99,11 @@ import Location1 from './Location1.svg';
 import Dollar from './Dollar.svg';
 import Edit3 from './Edit3.svg';
 import Danger from './Danger.svg';
+
 export {
   Call,
   DropDown,
+  DropDown1,
   Email,
   Eye,
   Gender,
@@ -129,6 +134,7 @@ export {
   CrowCircle1,
   Calendar1,
   Calendar3,
+  Calendar4,
   Book,
   ArrowRight,
   ArrowRight1,
@@ -172,12 +178,14 @@ export {
   Video3,
   Call2,
   ArrowLeft1,
+  ArrowLeft2,
   BlueCircle,
   ShoulderLine,
   NeckLine,
   CircleWhite,
   Line,
   Line1,
+  Line2,
   CircleRed,
   CircleRed1,
   ForwardArrow,

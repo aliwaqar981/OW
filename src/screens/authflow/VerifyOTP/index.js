@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
   paragraph: {
     fontSize: 14,
     color: COLORS.black,
-    marginHorizontal: 30,
+    paddingHorizontal: 50,
     textAlign: 'center',
     marginTop: 4,
     fontFamily: FONTS.Nunito_Regular,

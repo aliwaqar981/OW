@@ -1,13 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {SubscriptionPackage, TextButton} from '../../../components';
 import {COLORS, FONTS} from '../../../themes';
-import {CrownCircle, GlowingStar} from '../../../assets/svgicons';
+import {CrownCircle} from '../../../assets/svgicons';
 
 const Subscription = () => {
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor={COLORS.white} />
+
       {/*HEADER */}
       <View style={styles.header}>
         <View style={styles.crownCircle}>
@@ -50,7 +52,7 @@ const Subscription = () => {
         {/* UPGRADE_BUTTON */}
         <TextButton
           label={'Upgrade'}
-          labelStyle={{fontSize: 8}}
+          labelStyle={{fontSize: 10, fontFamily: FONTS.Nunito_Regular}}
           containerStyle={styles.upgradeButton}
         />
       </View>

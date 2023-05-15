@@ -29,9 +29,4 @@ export const CommunityList = [
     title: 'Topic Name',
     subTitle: '75 people are participating',
   },
-  {
-    id: 7,
-    title: 'Topic Name',
-    subTitle: '75 people are participating',
-  },
 ];

@@ -8,6 +8,7 @@ import {
   View,
   TouchableOpacity,
   FlatList,
+  StatusBar,
 } from 'react-native';
 import React, {useContext} from 'react';
 import {COLORS, FONTS} from '../../../themes';
@@ -120,6 +121,7 @@ const Profile = ({navigation}) => {
   };
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor={COLORS.red} />
       {/* HEADER */}
       <View style={{flex: 0.1, backgroundColor: COLORS.red}} />
 
@@ -132,20 +134,20 @@ const Profile = ({navigation}) => {
           containerStyle={styles.settingsIconStyles}
           onPress={() => navigation.navigate(routes.SETTINGS)}
         />
-        {/* NAME */}
-        <TextButtonwithIcon
-          label={'Jhon Doe'}
-          rightIcon={<CrowCircle1 />}
-          labelStyle={{
-            fontSize: 16,
-            marginRight: 7,
-            fontFamily: FONTS.Nunito_SemiBold,
-          }}
-          containerStyle={{marginTop: 23, alignSelf: 'center'}}
-          disabled
-        />
         {/* PROFILE_ACTONS_LIST */}
         <ScrollView>
+          {/* NAME */}
+          <TextButtonwithIcon
+            label={'Jhon Doe'}
+            rightIcon={<CrowCircle1 />}
+            labelStyle={{
+              fontSize: 16,
+              marginRight: 7,
+              fontFamily: FONTS.Nunito_SemiBold,
+            }}
+            containerStyle={{marginTop: 23, alignSelf: 'center'}}
+            disabled
+          />
           <View style={{marginTop: 27, marginHorizontal: 20}}>
             <ProfileAction
               LeftIcon={<CrownCircle />}

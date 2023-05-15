@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   label: {
-    lineHeight: 17,
+    // lineHeight: 24,
     color: COLORS.white,
     fontSize: 15,
     fontFamily: FONTS.Nunito_Bold,

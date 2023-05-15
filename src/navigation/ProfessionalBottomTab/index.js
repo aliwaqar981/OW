@@ -1,18 +1,31 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable react/react-in-jsx-scope */
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Bookings, PChat, PHome, PUser} from '../../assets/svgicons';
+import {useNavigation} from '@react-navigation/native';
+import {
+  ArrowLeft,
+  Bookings,
+  Calendar,
+  Calendar1,
+  Calendar4,
+  PChat,
+  PHome,
+  PUser,
+} from '../../assets/svgicons';
+import {ButtonwithIcon} from '../../components';
 import {routes} from '../../constants';
 import {
   Chats,
-  ProfessionalBookingsStatus,
+  ProfessionalBookingList,
   ProfessionalHome,
   ProfessionalProfile,
 } from '../../screens/appflow';
-import {COLORS} from '../../themes';
-const ProfessionalTab = createBottomTabNavigator();
+import {COLORS, FONTS} from '../../themes';
 
-const ProfessionalBottomTab = ({navigation}) => {
+const ProfessionalTab = createBottomTabNavigator();
+const ProfessionalBottomTab = () => {
+  const {navigate} = useNavigation();
   return (
     <ProfessionalTab.Navigator
       initialRouteName="Feed"
@@ -21,6 +34,11 @@ const ProfessionalBottomTab = ({navigation}) => {
         tabBarActiveTintColor: COLORS.red,
         tabBarInactiveTintColor: '#263238',
         headerShadowVisible: false,
+        headerTitleStyle: {
+          fontSize: 16,
+          fontFamily: FONTS.Nunito_Bold,
+          color: COLORS.black,
+        },
       }}>
       <ProfessionalTab.Screen
         name={routes.PROFESSIONALHOME}
@@ -36,8 +54,8 @@ const ProfessionalBottomTab = ({navigation}) => {
         }}
       />
       <ProfessionalTab.Screen
-        name={routes.PROFESSIONALBOOKINGSSTATUS}
-        component={ProfessionalBookingsStatus}
+        name={routes.PROFESSIONALBOOKINGSLIST}
+        component={ProfessionalBookingList}
         options={{
           tabBarIcon: ({focused}) =>
             focused ? (
@@ -45,9 +63,17 @@ const ProfessionalBottomTab = ({navigation}) => {
             ) : (
               <Bookings fill={COLORS.black} />
             ),
-          tabBarLabel: 'Bookings',
           headerShown: true,
+          tabBarLabel: 'Bookings',
           headerTitle: 'Bookings',
+
+          headerRight: () => (
+            <ButtonwithIcon
+              icon={<Calendar4 />}
+              onPress={() => navigate(routes.AGENDA)}
+              containerStyle={{marginRight: 20}}
+            />
+          ),
         }}
       />
 

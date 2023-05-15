@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {ArrowRight1, Doc2} from '../../../assets/svgicons';
 import {
   DoctorsCard,
@@ -24,7 +24,9 @@ const TalktoDoctor = ({navigation}) => {
   return (
     <View style={styles.container}>
       {/* HEADER */}
-      <TouchableOpacity style={styles.headerContainer}>
+      <TouchableOpacity
+        style={styles.headerContainer}
+        onPress={() => navigation.navigate(routes.BOOKINGLIST)}>
         <Doc2 />
         <Text style={styles.headerText}>View My Bookings</Text>
         <ArrowRight1 />
@@ -68,10 +70,12 @@ const TalktoDoctor = ({navigation}) => {
             <TextButton
               label={'Explore'}
               containerStyle={styles.exploreButton}
+              labelStyle={{fontSize: 10, lineHeight: 15}}
             />
             <TextButton
               label={'Learn More'}
               containerStyle={styles.learnmoreButton}
+              labelStyle={{fontSize: 10, lineHeight: 15}}
             />
           </View>
         </View>
@@ -113,17 +117,17 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontSize: 16,
-    fontWeight: '600',
     color: COLORS.red,
     marginLeft: 8,
     flex: 1,
+    fontFamily: FONTS.Nunito_Bold,
   },
   title: {
     fontSize: 20,
-    fontWeight: '700',
     color: '#263238',
     marginTop: 40,
     marginLeft: 20,
+    fontFamily: FONTS.Nunito_Bold,
   },
   diagnosticToolCar: {
     backgroundColor: '#263238',
@@ -133,20 +137,20 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 13,
-    fontWeight: '700',
     color: COLORS.white,
     marginTop: 11,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   exploreButton: {
     height: 32,
     backgroundColor: COLORS.red,
-    width: 80,
+    width: 90,
     borderRadius: 7,
   },
   learnmoreButton: {
     height: 32,
     backgroundColor: null,
-    width: 80,
+    width: 90,
     borderRadius: 7,
     marginLeft: 15,
   },

@@ -1,8 +1,15 @@
 /* eslint-disable eqeqeq */
 /* eslint-disable react-native/no-inline-styles */
-import {FlatList, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  FlatList,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
-import {COLORS} from '../../../themes';
+import {COLORS, FONTS} from '../../../themes';
 import {ProgramDetail, Tabs} from '../../../components';
 import {ShoulderExercise} from '../../../constants/AllProgramAndExercise';
 
@@ -10,6 +17,7 @@ const ProgramDetails = () => {
   const [selectedTab, setSelectedTab] = useState('week1');
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor={COLORS.white} />
       {/* HEADER */}
       <View style={styles.headerContainer}>
         {/* TABS */}
@@ -80,13 +88,13 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 14,
-    fontWeight: '400',
     color: '#989898',
+    fontFamily: FONTS.Nunito_Regular,
   },
   title: {
     fontSize: 16,
-    fontWeight: '700',
     color: COLORS.black,
     marginTop: 27,
+    fontFamily: FONTS.Nunito_Bold,
   },
 });

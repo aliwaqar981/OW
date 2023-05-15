@@ -22,7 +22,7 @@ const Community = ({navigation}) => {
         {/* COMMUNITY_LIST */}
         <FlatList
           data={CommunityList}
-          contentContainerStyle={{marginBottom: 30}}
+          contentContainerStyle={{}}
           renderItem={item => {
             return (
               <CommunityCard

@@ -20,6 +20,7 @@ import {
   KneeExercise,
   NeckExercise,
   BackExercise,
+  routes,
 } from '../../../constants';
 import {
   Body_Parts,
@@ -29,7 +30,7 @@ import {
   Video,
 } from '../../../components';
 
-const VideoArena = () => {
+const VideoArena = ({navigation}) => {
   const [isSelected, setIsSelected] = useState('program');
   const [selectedBodyPart, setSelectedBodyPart] = useState('all');
   // console.log('isSelected', isSelected);
@@ -193,7 +194,7 @@ const VideoArena = () => {
           </TouchableOpacity>
         </View>
         {/* BLOG */}
-        <BlogCard />
+        <BlogCard onPress={() => navigation.navigate(routes.BLOGS)} />
         {/* TITLE */}
 
         <View style={styles.header}>
@@ -204,7 +205,7 @@ const VideoArena = () => {
           </TouchableOpacity>
         </View>
         {/* TREAMENT_VIDEO */}
-        <Video />
+        <Video onPress={() => navigation.navigate(routes.VIDEOBLOGS)} />
       </View>
     );
   };

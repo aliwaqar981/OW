@@ -31,9 +31,7 @@ const AddImage = ({navigation}) => {
       <View style={styles.imageContainer}>
         <TouchableOpacity onPress={() => {}} style={styles.iconContainer}>
           <Camera />
-          <Text style={{color: '#606060', fontFamily: FONTS.Nunito_Medium}}>
-            Add Image +
-          </Text>
+          <Text style={{color: '#606060'}}>Add Image +</Text>
         </TouchableOpacity>
       </View>
       {/*FOOTER  */}
@@ -77,7 +75,6 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 14,
-    fontWeight: '500',
     color: '#606060',
     marginTop: 3,
     fontFamily: FONTS.Nunito_Regular,
@@ -103,7 +100,6 @@ const styles = StyleSheet.create({
   },
   discription: {
     fontSize: 12,
-    fontWeight: '500',
     color: COLORS.red,
     fontFamily: FONTS.Nunito_Regular,
   },

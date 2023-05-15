@@ -25,6 +25,13 @@ import ProfessionalProfile from './ProfessionalProfile';
 import EditBookingDetails from './EditBookingDetails';
 import EditDoctorDetails from './EditDoctorDetails';
 import ProfessionalBookingList from './ProfessionalBookingList';
+import Blogs from './Blogs';
+import VideoBlogs from './VideoBlogs';
+import ChooseDoctor from './ChooseDoctor';
+import ProfessionalBookingDetails from './ProfessionalBookingDetails';
+import EarningsDetails from './EarningsDetails';
+import HomeCheckOut from './HomeCheckOut';
+import HomePaymentMethod from './HomePaymentMethod';
 
 export {
   Home,
@@ -54,4 +61,11 @@ export {
   EditBookingDetails,
   EditDoctorDetails,
   ProfessionalBookingList,
+  Blogs,
+  VideoBlogs,
+  ChooseDoctor,
+  ProfessionalBookingDetails,
+  EarningsDetails,
+  HomeCheckOut,
+  HomePaymentMethod,
 };

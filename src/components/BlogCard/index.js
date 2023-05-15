@@ -1,12 +1,12 @@
 /* eslint-disable react-native/no-inline-styles */
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Blog} from '../../assets/images';
-import {COLORS} from '../../themes';
+import {COLORS, FONTS} from '../../themes';
 
-const BlogCard = () => {
+const BlogCard = ({onPress}) => {
   return (
-    <TouchableOpacity style={[styles.container]}>
+    <TouchableOpacity style={[styles.container]} onPress={onPress}>
       <Image
         source={Blog}
         style={{width: '100%', height: 140, borderRadius: 10}}
@@ -31,9 +31,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 14,
     color: COLORS.black,
-    fontWeight: '700',
     marginTop: 11,
     paddingHorizontal: 14,
+    fontFamily: FONTS.Nunito_Bold,
   },
   time: {
     fontSize: 10,
