@@ -6,7 +6,7 @@ import SystemNavigationBar from 'react-native-system-navigation-bar';
 import {StatusBar} from 'react-native';
 import Navigation from './src/navigation';
 import {COLORS} from './src/themes';
-import SplashScreen from 'react-native-splash-screen';
+import LottieSplashScreen from 'react-native-lottie-splash-screen';
 
 export const AuthContext = React.createContext({
   userId: null,
@@ -49,12 +49,12 @@ const App = () => {
   };
   const setDataLocally = userId => {
     if (userId == null || userId == undefined) {
+      LottieSplashScreen.hide(); // here
       AsyncStorage.removeItem('UserId');
-      SplashScreen.hide();
     } else {
       AsyncStorage.setItem('UserId', userId);
+      LottieSplashScreen.hide(); // here
       setUserId(userId);
-      SplashScreen.hide();
     }
   };
   const retrieveProfessionalData = async () => {

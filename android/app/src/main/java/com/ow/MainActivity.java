@@ -10,17 +10,15 @@ import org.devio.rn.splashscreen.SplashScreen; // here
 
 public class MainActivity extends ReactActivity {
    // ...
-  // @Override
-  // protected void onCreate(Bundle savedInstanceState) {
-  //   super.onCreate(null);
-  // }
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(null);
+        SplashScreen.show(this, R.id.lottie); // here
+            SplashScreen.setAnimationFinished(true); // If you want the animation dialog to be forced to close when hide is called, use this code
+
+
+  }
   // ...
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        SplashScreen.show(this);  // here
-        super.onCreate(savedInstanceState);
-    }
-    // ...other code
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule
