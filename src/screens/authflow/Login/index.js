@@ -135,15 +135,16 @@ const styles = StyleSheet.create({
     marginTop: 35,
     fontSize: 24,
     color: '#030F1C',
-    textAlign: 'center',
+    // textAlign: 'center',
     fontFamily: FONTS.Nunito_Bold,
+    paddingLeft: 20,
   },
   paragraph: {
     marginTop: 7,
     fontSize: 14,
     color: '#8D8D8D',
-    textAlign: 'center',
     fontFamily: FONTS.Nunito_Regular,
+    paddingLeft: 20,
   },
   forgotPasswordButton: {
     alignSelf: 'flex-end',

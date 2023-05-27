@@ -33,12 +33,7 @@ const FormInput = ({
         value={value}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
-        style={{
-          color: COLORS.black,
-          flex: 1,
-          fontSize: 14,
-          fontFamily: FONTS.Nunito_Regular,
-        }}
+        style={styles.textInput}
         onBlur={onBlur}
       />
       <TouchableOpacity style={{...rightIconstyle}}>
@@ -61,5 +56,11 @@ const styles = StyleSheet.create({
     borderColor: COLORS.borderColor,
     paddingHorizontal: 18,
     backgroundColor: '#F9F9F9',
+  },
+  textInput: {
+    color: COLORS.black,
+    flex: 1,
+    fontSize: 14,
+    fontFamily: FONTS.Nunito_Regular,
   },
 });
