@@ -2,7 +2,7 @@
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
-import {Line, Logo, WelcomePlant} from '../../../assets/images';
+import {Line, Logo, WelcomePlant, WelcomeTherapy} from '../../../assets/images';
 import {Line1} from '../../../assets/svgicons';
 import {TextButton} from '../../../components';
 import {routes} from '../../../constants';
@@ -19,12 +19,15 @@ const Welcome = ({navigation}) => {
       </View>
       {/* FLOWERS */}
       <View style={styles.flowerContain}>
-        <Image source={WelcomePlant} style={{width: '100%', height: '100%'}} />
+        <Image
+          source={WelcomeTherapy}
+          style={{width: '100%', height: '100%'}}
+        />
       </View>
       <View style={styles.innerContainer}>
         <View>
           {/* HEADING */}
-          <Text style={styles.heading}>Heading</Text>
+          <Text style={styles.heading}>Welcome!!</Text>
           {/* PARAGRAPH */}
           <Text style={styles.paragraph}>
             Lorem ipsum dolor sit amet consectetur. Ut risus non tellus cras
@@ -69,16 +72,19 @@ const styles = StyleSheet.create({
   },
   flowerContain: {
     height: 200,
-    backgroundColor: 'red',
+    paddingHorizontal: 12,
+    marginTop: 60,
   },
   innerContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingBottom: 45,
+    paddingHorizontal: 20,
+    marginTop: 24,
   },
   heading: {
-    fontSize: 16,
+    fontSize: 26,
     color: COLORS.black,
     textAlign: 'center',
     fontFamily: FONTS.Nunito_Bold,

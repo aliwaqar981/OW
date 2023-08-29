@@ -31,6 +31,7 @@ import OnBoard2 from './OnBoard2.jpg';
 import OnBoard3 from './OnBoard3.jpg';
 import Line from './Line.png';
 import WelcomePlant from './WelcomePlant.png';
+import WelcomeTherapy from './WelcomeTherapy.png';
 import Profile3 from './Profile3.png';
 import Community from './Community.png';
 import Dollar from './Dollar.png';
@@ -74,6 +75,7 @@ export {
   OnBoard3,
   Line,
   WelcomePlant,
+  WelcomeTherapy,
   Profile3,
   Community,
   Dollar,
