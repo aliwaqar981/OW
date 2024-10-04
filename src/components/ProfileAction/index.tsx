@@ -1,9 +1,26 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+  TextStyle,
+  ReactNode,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 
-const ProfileAction = ({
+interface ProfileActionProps {
+  containerStyle?: ViewStyle;
+  LeftIcon?: ReactNode;
+  labelStyle?: TextStyle;
+  RightIcon?: ReactNode;
+  onPress: () => void;
+  label: string;
+  iconBackgroundColor?: string;
+}
+
+const ProfileAction: React.FC<ProfileActionProps> = ({
   containerStyle,
   LeftIcon,
   labelStyle,
@@ -14,7 +31,7 @@ const ProfileAction = ({
 }) => {
   return (
     <TouchableOpacity
-      style={[styles.container, {...containerStyle}]}
+      style={[styles.container, containerStyle]}
       onPress={onPress}>
       <View
         style={[
@@ -27,8 +44,7 @@ const ProfileAction = ({
         ]}>
         {LeftIcon}
       </View>
-      <Text style={[styles.label, {...labelStyle}]}>{label}</Text>
-
+      <Text style={[styles.label, labelStyle]}>{label}</Text>
       {RightIcon}
     </TouchableOpacity>
   );

@@ -1,21 +1,32 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  ViewStyle,
+  TextStyle,
+  TextInputProps,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../theme';
-import {TextInput} from 'react-native';
-import {Magnify} from '../../assets/svgIcons';
 
-const SearchBar = ({
+interface SearchBarProps extends TextInputProps {
+  containerStyle?: ViewStyle;
+  icon?: React.ReactNode;
+  showFilter?: boolean;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({
   containerStyle,
-  label,
-  onFocus,
   icon,
   placeholder,
   showFilter,
   onChangeText,
   value,
+  onFocus,
   onSubmitEditing,
   placeholderTextColor,
+  ...textInputProps
 }) => {
   return (
     <View style={{...styles.container, ...containerStyle}}>
@@ -32,6 +43,7 @@ const SearchBar = ({
         onChangeText={onChangeText}
         value={value}
         onSubmitEditing={onSubmitEditing}
+        {...textInputProps} // Spread additional TextInput props
       />
       {showFilter && (
         <Text

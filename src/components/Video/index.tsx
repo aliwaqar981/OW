@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import {
   Image,
   ImageBackground,
@@ -12,9 +11,13 @@ import {Video1} from '../../assets/images';
 import {COLORS, FONTS} from '../../themes';
 import {Thumbnail} from '../../assets/svgicons';
 
-const Video = ({onPress}) => {
+interface VideoProps {
+  onPress: () => void;
+}
+
+const Video: React.FC<VideoProps> = ({onPress}) => {
   return (
-    <TouchableOpacity style={[styles.container]} onPress={onPress}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <ImageBackground source={Video1} style={styles.imageContainer}>
         <Thumbnail />
       </ImageBackground>

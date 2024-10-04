@@ -1,12 +1,27 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 import TextButtonwithIcon from '../TextButtonwithIcon';
 import {NotoStar} from '../../assets/svgicons';
 
-const Appointment = ({
+interface AppointmentProps {
+  containerStyle?: ViewStyle;
+  onStartSessionPress?: () => void;
+  onCancelPress?: () => void;
+  startSession?: boolean;
+  showRating?: boolean;
+  onPress?: () => void;
+}
+
+const Appointment: React.FC<AppointmentProps> = ({
   containerStyle,
   onStartSessionPress,
   onCancelPress,
@@ -20,12 +35,9 @@ const Appointment = ({
       onPress={onPress}>
       <View style={styles.header}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          {/* VERTICAL_LINES */}
           <View style={styles.lineStyles} />
           <View>
-            {/* NAME */}
             <Text style={styles.name}>DR. Walters</Text>
-            {/* DOC_TYPE */}
             <Text style={styles.docType}>Therapist</Text>
           </View>
         </View>
@@ -43,15 +55,12 @@ const Appointment = ({
           />
         ) : null}
       </View>
-      {/* HORIZONTAL_LINES */}
       <View style={styles.horizontalLine} />
-      {/* DATE_&_TIME */}
       <View>
         <Text style={styles.dateText}>Date & Time:</Text>
         <View style={styles.innerContainer}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <Text style={styles.text}>Feb 3, Sunday</Text>
-            {/* DOT */}
             <View style={styles.dot} />
             <Text style={styles.text}>Date & Time:</Text>
           </View>
@@ -63,7 +72,6 @@ const Appointment = ({
           />
         </View>
       </View>
-      {/* START_SESSIONS_BUTTON */}
       {startSession ? (
         <TextButton
           label={'Start Session'}

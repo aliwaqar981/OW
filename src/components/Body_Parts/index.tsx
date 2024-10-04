@@ -1,17 +1,30 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  GestureResponderEvent,
+} from 'react-native';
 import React from 'react';
 import {FONTS} from '../../themes';
-const Body_Parts = ({backgroundColor, label, labelColor, onPress}) => {
+
+interface BodyPartsProps {
+  backgroundColor?: string;
+  label: string;
+  labelColor?: string;
+  onPress?: (event: GestureResponderEvent) => void;
+}
+
+const BodyParts: React.FC<BodyPartsProps> = ({
+  backgroundColor = '#114EBE',
+  label,
+  labelColor = '#FFFFFF',
+  onPress,
+}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={[
-        styles.programButton,
-        {
-          backgroundColor: backgroundColor,
-        },
-      ]}>
+      style={[styles.programButton, {backgroundColor}]}>
       <Text
         style={{
           fontSize: 15,
@@ -24,13 +37,12 @@ const Body_Parts = ({backgroundColor, label, labelColor, onPress}) => {
   );
 };
 
-export default Body_Parts;
+export default BodyParts;
 
 const styles = StyleSheet.create({
   programButton: {
     paddingVertical: 10,
     paddingHorizontal: 22,
-    backgroundColor: '#114EBE',
     marginRight: 8,
     borderRadius: 25,
     borderWidth: 1,

@@ -1,10 +1,13 @@
-/* eslint-disable react-native/no-inline-styles */
 import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Blog} from '../../assets/images';
 import {COLORS, FONTS} from '../../themes';
 
-const BlogCard = ({onPress}) => {
+interface BlogCardProps {
+  onPress: () => void;
+}
+
+const BlogCard: React.FC<BlogCardProps> = ({onPress}) => {
   return (
     <TouchableOpacity style={[styles.container]} onPress={onPress}>
       <Image

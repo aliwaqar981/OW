@@ -1,9 +1,17 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ViewStyle} from 'react-native';
 import React from 'react';
 import {GlowingStar} from '../../assets/svgicons';
 import {COLORS, FONTS} from '../../themes';
 
-const SubscriptionPackage = ({label, containerStyle}) => {
+interface SubscriptionPackageProps {
+  label: string;
+  containerStyle?: ViewStyle;
+}
+
+const SubscriptionPackage: React.FC<SubscriptionPackageProps> = ({
+  label,
+  containerStyle,
+}) => {
   return (
     <View style={[styles.container, containerStyle]}>
       <GlowingStar />

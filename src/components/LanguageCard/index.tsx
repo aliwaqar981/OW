@@ -1,8 +1,22 @@
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 import {FONTS} from '../../themes';
+import {ReactNode} from 'react';
 
-const LanguageCard = ({flag, icon, onPress}) => {
+// Define the props interface for LanguageCard
+interface LanguageCardProps {
+  flag: ReactNode;
+  icon: ReactNode;
+  onPress?: () => void;
+}
+
+const LanguageCard: React.FC<LanguageCardProps> = ({flag, icon, onPress}) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       {flag}

@@ -1,11 +1,11 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable react-native/no-inline-styles */
 import {
   ScrollView,
   StyleSheet,
   Text,
+  TextStyle,
   TouchableOpacity,
   View,
+  ViewStyle,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {COLORS, FONTS} from '../../themes';
@@ -13,19 +13,33 @@ import TextButton from '../TextButton';
 import {afternoon, evening, morning} from '../../constants';
 import CalendarStrip from 'react-native-calendar-strip';
 
-const AppointmentSchdule = ({onPress}) => {
+// Define the structure of the time slots
+interface TimeSlot {
+  id: number;
+  time: string;
+  type: string;
+}
+
+// Define props type for AppointmentSchedule
+interface AppointmentScheduleProps {
+  onPress: () => void; // Function to handle button press
+}
+
+const AppointmentSchedule: React.FC<AppointmentScheduleProps> = ({onPress}) => {
   const [selectedDayTime, setSelectedDayTime] = useState('morning');
-  const [currentTime, setCurrentTime] = useState(morning);
-  const [chooseHours, setChooseHours] = useState();
+  const [currentTime, setCurrentTime] = useState<TimeSlot[]>([]); // Specify the type
+  const [chooseHours, setChooseHours] = useState<number | undefined>();
+
   useEffect(() => {
-    if (selectedDayTime == 'morning') {
+    if (selectedDayTime === 'morning') {
       setCurrentTime(morning);
-    } else if (selectedDayTime == 'afternoon') {
+    } else if (selectedDayTime === 'afternoon') {
       setCurrentTime(afternoon);
     } else {
       setCurrentTime(evening);
     }
   }, [selectedDayTime]);
+
   return (
     <View style={styles.container}>
       <Text style={styles.slot}>Schedule</Text>
@@ -62,47 +76,62 @@ const AppointmentSchdule = ({onPress}) => {
       <View style={styles.buttonContainer}>
         <TextButton
           label={'Morning'}
-          labelStyle={[
-            styles.label,
-            {color: selectedDayTime == 'morning' ? COLORS.white : '#9E9E9E'},
-          ]}
-          containerStyle={[
-            styles.button,
-            {
-              backgroundColor:
-                selectedDayTime == 'morning' ? COLORS.red : '#F5F6F7',
-            },
-          ]}
+          labelStyle={
+            [
+              styles.label,
+              {color: selectedDayTime === 'morning' ? COLORS.white : '#9E9E9E'},
+            ] as TextStyle
+          }
+          containerStyle={
+            [
+              styles.button,
+              {
+                backgroundColor:
+                  selectedDayTime === 'morning' ? COLORS.red : '#F5F6F7',
+              },
+            ] as ViewStyle
+          }
           onPress={() => setSelectedDayTime('morning')}
         />
         <TextButton
           label={'Afternoon'}
-          labelStyle={[
-            styles.label,
-            {color: selectedDayTime == 'afternoon' ? COLORS.white : '#9E9E9E'},
-          ]}
-          containerStyle={[
-            styles.button,
-            {
-              backgroundColor:
-                selectedDayTime == 'afternoon' ? COLORS.red : '#F5F6F7',
-            },
-          ]}
+          labelStyle={
+            [
+              styles.label,
+              {
+                color:
+                  selectedDayTime === 'afternoon' ? COLORS.white : '#9E9E9E',
+              },
+            ] as TextStyle
+          }
+          containerStyle={
+            [
+              styles.button,
+              {
+                backgroundColor:
+                  selectedDayTime === 'afternoon' ? COLORS.red : '#F5F6F7',
+              },
+            ] as ViewStyle
+          }
           onPress={() => setSelectedDayTime('afternoon')}
         />
         <TextButton
           label={'Evening'}
-          labelStyle={[
-            styles.label,
-            {color: selectedDayTime == 'evening' ? COLORS.white : '#9E9E9E'},
-          ]}
-          containerStyle={[
-            styles.button,
-            {
-              backgroundColor:
-                selectedDayTime == 'evening' ? COLORS.red : '#F5F6F7',
-            },
-          ]}
+          labelStyle={
+            [
+              styles.label,
+              {color: selectedDayTime === 'evening' ? COLORS.white : '#9E9E9E'},
+            ] as TextStyle
+          }
+          containerStyle={
+            [
+              styles.button,
+              {
+                backgroundColor:
+                  selectedDayTime === 'evening' ? COLORS.red : '#F5F6F7',
+              },
+            ] as ViewStyle
+          }
           onPress={() => setSelectedDayTime('evening')}
         />
       </View>
@@ -111,7 +140,7 @@ const AppointmentSchdule = ({onPress}) => {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyles={{flexDirection: 'row'}}>
+        contentContainerStyle={{flexDirection: 'row'}}>
         {currentTime.map(item => {
           return (
             <TouchableOpacity
@@ -121,13 +150,13 @@ const AppointmentSchdule = ({onPress}) => {
                 styles.timeContainer,
                 {
                   backgroundColor:
-                    item.id == chooseHours ? COLORS.red : '#F5F6F7',
+                    item.id === chooseHours ? COLORS.red : '#F5F6F7',
                 },
               ]}>
               <Text
                 style={[
                   styles.text,
-                  {color: item.id == chooseHours ? COLORS.white : '#9E9E9E'},
+                  {color: item.id === chooseHours ? COLORS.white : '#9E9E9E'},
                 ]}>
                 {item.time} {item.type}
               </Text>
@@ -145,7 +174,7 @@ const AppointmentSchdule = ({onPress}) => {
   );
 };
 
-export default AppointmentSchdule;
+export default AppointmentSchedule;
 
 const styles = StyleSheet.create({
   container: {

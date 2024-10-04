@@ -1,9 +1,20 @@
-/* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {FONTS} from '../../themes';
 
-const Tabs = ({ActiveTabColor, label, onPress, labelColor}) => {
+interface TabsProps {
+  ActiveTabColor: string;
+  label: string;
+  onPress: () => void;
+  labelColor?: string;
+}
+
+const Tabs: React.FC<TabsProps> = ({
+  ActiveTabColor,
+  label,
+  onPress,
+  labelColor,
+}) => {
   return (
     <TouchableOpacity style={{width: '33.33%'}} onPress={onPress}>
       <Text style={[styles.label, {color: labelColor}]}>{label}</Text>

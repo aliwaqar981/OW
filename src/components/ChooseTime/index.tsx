@@ -1,10 +1,26 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 
-const ChooseTime = ({day, containerStyle, onToPress, onFromPress}) => {
+interface ChooseTimeProps {
+  day: string;
+  containerStyle?: ViewStyle;
+  onToPress: () => void;
+  onFromPress: () => void;
+}
+
+const ChooseTime: React.FC<ChooseTimeProps> = ({
+  day,
+  containerStyle,
+  onToPress,
+  onFromPress,
+}) => {
   return (
     <View style={[styles.container, containerStyle]}>
       <TouchableOpacity style={{flex: 1, flexDirection: 'row'}}>
@@ -17,7 +33,7 @@ const ChooseTime = ({day, containerStyle, onToPress, onFromPress}) => {
         <TouchableOpacity style={styles.chooseTime} onPress={onToPress}>
           <Text>8:00 PM</Text>
         </TouchableOpacity>
-        {/* FROM*/}
+        {/* FROM */}
         <Text style={{marginHorizontal: 10}}>-</Text>
         <TouchableOpacity style={styles.chooseTime} onPress={onFromPress}>
           <Text>8:00 PM</Text>

@@ -1,17 +1,26 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, View, TextInput} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TextInputProps} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 
-const TextInputCmp = ({
+interface TextInputCmpProps extends TextInputProps {
+  placeholder?: string;
+  placeholderTextColor?: string;
+  icon?: React.ReactNode;
+  label: string;
+  containerStyle?: object;
+  multiline?: boolean;
+  style?: object;
+}
+
+const TextInputCmp: React.FC<TextInputCmpProps> = ({
   placeholder,
   placeholderTextColor,
-  props,
   icon,
   label,
   containerStyle,
   multiline,
   style,
+  ...props
 }) => {
   return (
     <View style={[styles.container, containerStyle]}>

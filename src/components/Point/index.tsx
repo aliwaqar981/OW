@@ -1,33 +1,57 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 
-const Point = ({item, handleOpenedPoint, front}) => {
-  // const [showComponent, setShowComponent] = React.useState(null);
+interface SelectedObject {
+  top: number;
+  right: number;
+  marginRight: number;
+  label: string;
+  discription?: string;
+  cicle: React.ReactNode;
+  cicle1: React.ReactNode;
+  line: React.ReactNode;
+  key: string;
+}
 
-  console.log('---------- item:');
+interface PointProps {
+  item: {
+    isOpened: boolean;
+    selected: SelectedObject;
+    notSelected: SelectedObject;
+    isOnLeftSide?: boolean;
+  };
+  handleOpenedPoint: (key: string) => void;
+  front: boolean;
+}
 
-  let slectedObject = item.isOpened ? item.selected : item.notSelected;
+const Point: React.FC<PointProps> = ({item, handleOpenedPoint, front}) => {
+  let selectedObject = item.isOpened ? item.selected : item.notSelected;
 
   if (item.isOpened) {
     return (
       <View
         style={[
           styles.container,
-          {top: slectedObject.top, right: slectedObject.right},
+          {top: selectedObject.top, right: selectedObject.right},
         ]}>
         <View
           style={[
             styles.info,
             {
-              marginRight: slectedObject.marginRight,
+              marginRight: selectedObject.marginRight,
               backgroundColor: front ? '#114EBE' : COLORS.red,
             },
           ]}>
-          <Text style={styles.label}>{slectedObject.label}</Text>
-          {slectedObject.discription && (
-            <Text style={styles.discription}>{slectedObject.discription}</Text>
+          <Text style={styles.label}>{selectedObject.label}</Text>
+          {selectedObject.discription && (
+            <Text style={styles.description}>{selectedObject.discription}</Text>
           )}
         </View>
         <View
@@ -37,32 +61,26 @@ const Point = ({item, handleOpenedPoint, front}) => {
             zIndex: 4,
           }}>
           <TouchableOpacity
-            onPress={
-              () => handleOpenedPoint(slectedObject.key)
-              // setShowComponent(!showComponent)
-            }
+            onPress={() => handleOpenedPoint(selectedObject.key)}
             hitSlop={{left: 10, right: 10, top: 10, bottom: 10}}>
-            <slectedObject.cicle1 />
+            {selectedObject.cicle1}
           </TouchableOpacity>
           <View style={{marginBottom: 12, width: front ? 50 : 70, height: 40}}>
-            <slectedObject.line />
+            {selectedObject.line}
           </View>
         </View>
       </View>
     );
   }
+
   return (
     <View
       style={[
         styles.container,
-        {top: slectedObject.top, right: slectedObject.right, zIndex: 4},
+        {top: selectedObject.top, right: selectedObject.right, zIndex: 4},
       ]}>
-      <TouchableOpacity
-        onPress={
-          () => handleOpenedPoint(slectedObject.key)
-          // setShowComponent(!showComponent)
-        }>
-        <slectedObject.cicle />
+      <TouchableOpacity onPress={() => handleOpenedPoint(selectedObject.key)}>
+        {selectedObject.cicle}
       </TouchableOpacity>
     </View>
   );
@@ -91,7 +109,7 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     fontFamily: FONTS.Nunito_Bold,
   },
-  discription: {
+  description: {
     fontSize: 12,
     color: COLORS.white,
     fontFamily: FONTS.Nunito_Light,

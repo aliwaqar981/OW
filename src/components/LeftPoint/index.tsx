@@ -1,12 +1,36 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 
-const LeftPoint = ({item, handleOpenedPoint}) => {
-  // const [showComponent, setShowComponent] = React.useState(null);
+interface PointObject {
+  top: number;
+  right: number;
+  marginRight?: number;
+  label?: string;
+  key: string;
+  line: React.ComponentType;
+  cicle: React.ComponentType;
+  cicle1?: React.ComponentType;
+}
 
-  console.log('---------- item:', item);
+interface Item {
+  isOpened: boolean;
+  selected: PointObject;
+  notSelected: PointObject;
+}
 
+interface LeftPointProps {
+  item: Item;
+  handleOpenedPoint: (key: string) => void;
+}
+
+const LeftPoint: React.FC<LeftPointProps> = ({item, handleOpenedPoint}) => {
   let slectedObject = item.isOpened ? item.selected : item.notSelected;
 
   if (item.isOpened) {
@@ -39,10 +63,7 @@ const LeftPoint = ({item, handleOpenedPoint}) => {
             <slectedObject.line />
           </View>
           <TouchableOpacity
-            onPress={
-              () => handleOpenedPoint(slectedObject.key)
-              // setShowComponent(!showComponent)
-            }
+            onPress={() => handleOpenedPoint(slectedObject.key)}
             style={{alignSelf: 'flex-end'}}>
             <slectedObject.cicle1 />
           </TouchableOpacity>
@@ -50,17 +71,14 @@ const LeftPoint = ({item, handleOpenedPoint}) => {
       </View>
     );
   }
+
   return (
     <View
       style={[
         styles.container,
         {top: slectedObject.top, right: slectedObject.right, zIndex: 4},
       ]}>
-      <TouchableOpacity
-        onPress={
-          () => handleOpenedPoint(slectedObject.key)
-          // setShowComponent(!showComponent)
-        }>
+      <TouchableOpacity onPress={() => handleOpenedPoint(slectedObject.key)}>
         <slectedObject.cicle />
       </TouchableOpacity>
     </View>

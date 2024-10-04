@@ -1,21 +1,26 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, View, ViewStyle} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 import TextButtonwithIcon from '../TextButtonwithIcon';
-import {NotoStar} from '../../assets/svgicons';
+import {Call1, NotoStar, VideoCall} from '../../assets/svgicons';
+import ButtonwithIcon from '../ButtonwithIcon';
+interface ApprovedAppointmentProps {
+  showRating: boolean;
+  containerStyle?: ViewStyle; // containerStyle is optional
+}
 
-const BookingCard = ({
-  startSession,
-  onStartSessionPress,
-  buttonTitle,
-  buttonColor,
+interface ApprovedAppointmentProps {
+  showRating: boolean;
+  containerStyle?: ViewStyle; // containerStyle is optional
+}
+
+const ApprovedAppointment: React.FC<ApprovedAppointmentProps> = ({
   showRating,
-  onPress,
+  containerStyle,
 }) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <View style={[styles.container, containerStyle]}>
       <View
         style={{
           flexDirection: 'row',
@@ -41,38 +46,36 @@ const BookingCard = ({
       {/* HORIZONTAL_LINES */}
       <View style={styles.horizontalLine} />
       {/* DATE_&_TIME */}
+      <Text style={styles.dateText}>Date & Time:</Text>
       <View>
-        <Text style={styles.dateText}>Date & Time:</Text>
-        <View style={styles.innerContainer}>
-          <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text style={styles.text}>Feb 3, Sunday</Text>
-            {/* DOT */}
-            <View style={styles.dot} />
-            <Text style={styles.text}>Date & Time:</Text>
-          </View>
+        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+          <Text style={styles.text}>Feb 3, Sunday</Text>
+          {/* DOT */}
+          <View style={styles.dot} />
+          <Text style={styles.text}>Date & Time:</Text>
         </View>
       </View>
-      {startSession ? (
-        <View>
-          <TextButton
-            label={buttonTitle}
-            containerStyle={[
-              styles.startSessionButton,
-              {backgroundColor: buttonColor},
-            ]}
-            labelStyle={{color: COLORS.white}}
-            onPress={onStartSessionPress}
+      <View style={styles.footer}>
+        <View style={{flexDirection: 'row'}}>
+          {/* AUDIO_CALL */}
+          <ButtonwithIcon icon={<Call1 />} />
+          {/* VIDEO_CALL */}
+          <ButtonwithIcon
+            icon={<VideoCall />}
+            containerStyle={{marginLeft: 12}}
           />
-          <TouchableOpacity>
-            <Text style={styles.detailText}>View Additional Details</Text>
-          </TouchableOpacity>
         </View>
-      ) : null}
-    </TouchableOpacity>
+        <TextButton
+          label={'View'}
+          labelStyle={{color: COLORS.red}}
+          containerStyle={{width: 45}}
+        />
+      </View>
+    </View>
   );
 };
 
-export default BookingCard;
+export default ApprovedAppointment;
 
 const styles = StyleSheet.create({
   container: {
@@ -82,10 +85,10 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.15,
+    shadowOpacity: 0.1,
     shadowRadius: 2.62,
 
-    elevation: 4,
+    elevation: 2.2,
     paddingVertical: 19,
     paddingHorizontal: 16,
     borderRadius: 12,
@@ -93,12 +96,13 @@ const styles = StyleSheet.create({
   therapyText: {
     fontSize: 14,
     color: COLORS.black,
-    fontFamily: FONTS.Nunito_Bold,
+    fontFamily: FONTS.Nunito_SemiBold,
   },
   timeText: {
     fontSize: 12,
     color: '#404040',
     paddingTop: 5,
+    fontFamily: FONTS.Nunito_Regular,
   },
   horizontalLine: {
     marginVertical: 20,
@@ -117,7 +121,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 12,
     color: '#404040',
-    fontFamily: FONTS.Nunito_Regular,
+    fontFamily: FONTS.Nunito_Light,
   },
   dateText: {
     fontSize: 16,
@@ -131,11 +135,17 @@ const styles = StyleSheet.create({
     marginTop: 28,
     borderRadius: 8,
   },
-  detailText: {
-    fontSize: 15,
-    color: COLORS.red,
-    alignSelf: 'center',
-    paddingTop: 17,
-    fontFamily: FONTS.Nunito_SemiBold,
+  // detailText: {
+  //   fontSize: 15,
+  //   fontWeight: '500',
+  //   color: COLORS.red,
+  //   alignSelf: 'center',
+  //   paddingTop: 17,
+  // },
+  footer: {
+    paddingTop: 24,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

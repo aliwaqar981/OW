@@ -1,10 +1,10 @@
-/* eslint-disable react-native/no-inline-styles */
 import {
   ImageBackground,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  ViewStyle,
 } from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
@@ -12,7 +12,20 @@ import TextButtonwithIcon from '../TextButtonwithIcon';
 import {Plus, Time, Video1} from '../../assets/svgicons';
 import ButtonwithIcon from '../ButtonwithIcon';
 
-const Program = ({
+interface ProgramProps {
+  item: {
+    image: any; // Adjust this to the correct type for the image
+    bodyPart: string;
+    label: string;
+  };
+  containerStyle?: ViewStyle;
+  onBadgePress: () => void;
+  showButton: boolean;
+  showLoading: boolean;
+  onPress: () => void;
+}
+
+const Program: React.FC<ProgramProps> = ({
   item,
   containerStyle,
   onBadgePress,
@@ -22,7 +35,7 @@ const Program = ({
 }) => {
   return (
     <TouchableOpacity
-      style={[styles.container, {...containerStyle}]}
+      style={[styles.container, containerStyle]}
       onPress={onPress}>
       {/* BACKGROUND_IMAGE */}
       <ImageBackground
@@ -135,7 +148,7 @@ const styles = StyleSheet.create({
   loadingContainer: {
     width: 40,
     height: 40,
-    backgroundColor: 's#FFE5DD',
+    backgroundColor: '#FFE5DD',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 40 / 2,

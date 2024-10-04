@@ -5,24 +5,43 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ImageSourcePropType,
+  ViewStyle,
 } from 'react-native';
 import React from 'react';
 import {Logo} from '../../assets/images';
 import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 
-const DoctorsCard = ({item, containerStyle, onPress}) => {
+interface DoctorItem {
+  image: ImageSourcePropType;
+  name: string;
+  speciality: string;
+  recommendation?: boolean;
+}
+
+interface DoctorsCardProps {
+  item: DoctorItem;
+  containerStyle?: ViewStyle;
+  onPress: () => void;
+}
+
+const DoctorsCard: React.FC<DoctorsCardProps> = ({
+  item,
+  containerStyle,
+  onPress,
+}) => {
   return (
     <TouchableOpacity
       style={[styles.container, containerStyle]}
       onPress={onPress}>
-      {/* BACKGROUND_IMAAGE */}
+      {/* BACKGROUND_IMAGE */}
       <ImageBackground
         resizeMode="cover"
         source={item.image}
         style={styles.imageContainer}
         imageStyle={{borderRadius: 12}}>
-        {/* RECOMENDED */}
+        {/* RECOMMENDED */}
         {item.recommendation && (
           <View style={styles.recomdend}>
             <Image source={Logo} style={{width: 25, height: 15}} />
@@ -36,18 +55,6 @@ const DoctorsCard = ({item, containerStyle, onPress}) => {
               <Text style={styles.name}>{item.name}</Text>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Text style={styles.specialityText}>{item.speciality}</Text>
-                {/* <TextButtonwithIcon
-                  leftIcon={<NotoStar width={12} height={12} />}
-                  label={'4.5'}
-                  labelStyle={{
-                    fontSize: 14,
-                    color: '#4C4C4C',
-                    marginLeft: 5,
-                    fontFamily: FONTS.Nunito_Regular,
-                  }}
-                  disabled
-                  containerStyle={{marginLeft: 5}}
-                /> */}
               </View>
             </View>
             <TextButton

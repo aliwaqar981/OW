@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import {
   ImageBackground,
   StyleSheet,
@@ -6,6 +5,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  ViewStyle,
 } from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
@@ -13,10 +13,21 @@ import TextButtonwithIcon from '../TextButtonwithIcon';
 import {Time} from '../../assets/svgicons';
 import {PlayIcon} from '../../assets/images';
 
-const ProgramDetails = ({item, containerStyle}) => {
-  // console.log('______________', item);
+interface ProgramDetailsProps {
+  item: {
+    image: any; // Adjust this to the correct type for the image
+    label: string;
+    bodyPart?: string; // Optional if needed later
+  };
+  containerStyle?: ViewStyle;
+}
+
+const ProgramDetails: React.FC<ProgramDetailsProps> = ({
+  item,
+  containerStyle,
+}) => {
   return (
-    <TouchableOpacity style={[styles.container, {...containerStyle}]}>
+    <TouchableOpacity style={[styles.container, containerStyle]}>
       {/* BACKGROUND_IMAGE */}
       <ImageBackground
         source={item.image}

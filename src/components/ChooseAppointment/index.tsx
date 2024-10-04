@@ -1,12 +1,17 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import {COLORS, FONTS} from '../../themes';
 import TextButton from '../TextButton';
 
-const ChooseAppointment = ({onContinuePress}) => {
-  const [selectedCard, setSelectedCard] = useState('');
+interface ChooseAppointmentProps {
+  onContinuePress: () => void;
+}
+
+const ChooseAppointment: React.FC<ChooseAppointmentProps> = ({
+  onContinuePress,
+}) => {
+  const [selectedCard, setSelectedCard] = useState<string>('');
+
   return (
     <View style={styles.container}>
       {/* LINE */}

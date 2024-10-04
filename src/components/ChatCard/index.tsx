@@ -1,14 +1,32 @@
-/* eslint-disable react-native/no-inline-styles */
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 
-const ChatHome = ({onPress, item}) => {
+interface ChatItem {
+  image: ImageSourcePropType;
+  name: string;
+  time: string;
+  message: string;
+}
+
+interface ChatHomeProps {
+  onPress: () => void;
+  item: ChatItem;
+}
+
+const ChatHome: React.FC<ChatHomeProps> = ({onPress, item}) => {
   return (
-    <TouchableOpacity style={[styles.container]} onPress={onPress}>
-      <Image source={item.image} style={{width: 50, height: 50}} />
-      <View style={{flex: 1, marginLeft: 7}}>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <Image source={item.image} style={styles.image} />
+      <View style={styles.textContainer}>
+        <View style={styles.header}>
           <Text style={styles.name}>{item.name}</Text>
           <Text style={styles.message}>{item.time}</Text>
         </View>
@@ -32,6 +50,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: COLORS.borderColor,
+  },
+  image: {
+    width: 50,
+    height: 50,
+  },
+  textContainer: {
+    flex: 1,
+    marginLeft: 7,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   name: {
     fontSize: 14,

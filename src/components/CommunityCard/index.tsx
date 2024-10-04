@@ -1,8 +1,26 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 
-const CommunityCard = ({containerStyle, title, subTitle, onPress}) => {
+interface CommunityCardProps {
+  containerStyle?: ViewStyle;
+  title: string;
+  subTitle: string;
+  onPress: () => void;
+}
+
+const CommunityCard: React.FC<CommunityCardProps> = ({
+  containerStyle,
+  title,
+  subTitle,
+  onPress,
+}) => {
   return (
     <TouchableOpacity
       style={[styles.container, containerStyle]}
@@ -29,7 +47,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.2,
     shadowRadius: 1.41,
-
     elevation: 2,
     paddingHorizontal: 20,
     flexDirection: 'row',

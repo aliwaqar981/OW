@@ -1,10 +1,9 @@
-/* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
 import {StarList} from '../../assets/svgicons';
 import {FONTS} from '../../themes';
 
-const Rating = () => {
+const Rating: React.FC = () => {
   return (
     <View style={styles.card}>
       <Text style={styles.text}>Rate:</Text>

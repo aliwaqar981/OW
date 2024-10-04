@@ -1,9 +1,28 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 
-const NotificationCard = ({label, time, containerStyle, color, icon}) => {
+interface NotificationCardProps {
+  label: string;
+  time: string;
+  containerStyle?: ViewStyle;
+  color: string;
+  icon: React.ReactNode;
+}
+
+const NotificationCard: React.FC<NotificationCardProps> = ({
+  label,
+  time,
+  containerStyle,
+  color,
+  icon,
+}) => {
   return (
     <TouchableOpacity style={{...styles.container, ...containerStyle}}>
       <View style={{...styles.iconContainer, backgroundColor: color}}>

@@ -1,9 +1,14 @@
-/* eslint-disable curly */
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TextStyle} from 'react-native';
 import React from 'react';
-import {FONTS} from '../../constants';
+import {FONTS} from '../../themes';
 
-const AppText = ({error, visible, style}) => {
+interface AppTextProps {
+  error?: string;
+  visible: boolean;
+  style?: TextStyle;
+}
+
+const AppText: React.FC<AppTextProps> = ({error, visible, style}) => {
   if (!visible || !error) return null;
   return (
     <View>

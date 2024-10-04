@@ -1,15 +1,34 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 import ToggleSwitch from 'toggle-switch-react-native';
 
-const SettingAction = ({containerStyle, icon, label, showSwitch, onPress}) => {
+interface SettingActionProps {
+  containerStyle?: ViewStyle;
+  icon?: React.ReactNode;
+  label: string;
+  showSwitch?: boolean;
+  onPress?: () => void;
+}
+
+const SettingAction: React.FC<SettingActionProps> = ({
+  containerStyle,
+  icon,
+  label,
+  showSwitch,
+  onPress,
+}) => {
   const [toggleSwitch, setToggleSwitch] = React.useState(false);
 
   return (
     <TouchableOpacity
-      style={[styles.container, {containerStyle}]}
+      style={[styles.container, containerStyle]}
       onPress={onPress}>
       {icon}
       <Text
@@ -22,7 +41,7 @@ const SettingAction = ({containerStyle, icon, label, showSwitch, onPress}) => {
         }}>
         {label}
       </Text>
-      {showSwitch ? (
+      {showSwitch && (
         <ToggleSwitch
           isOn={toggleSwitch}
           onColor={'#00DD6E'}
@@ -35,7 +54,7 @@ const SettingAction = ({containerStyle, icon, label, showSwitch, onPress}) => {
           thumbOnStyle={styles.thumbOnStyle}
           animationSpeed={200}
         />
-      ) : null}
+      )}
     </TouchableOpacity>
   );
 };

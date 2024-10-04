@@ -1,12 +1,38 @@
-/* eslint-disable react-native/no-inline-styles */
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ImageSourcePropType,
+  ViewStyle,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 import TextButtonwithIcon from '../TextButtonwithIcon';
 import {NotoStar} from '../../assets/svgicons';
 import TextButton from '../TextButton';
 
-const DoctorsCard1 = ({item, containerStyle, onPress}) => {
+// Define the type for the item prop
+interface DoctorItem {
+  image: ImageSourcePropType;
+  name: string;
+  speciality: string;
+  experience: string;
+}
+
+// Define the props interface for DoctorsCard1
+interface DoctorsCard1Props {
+  item: DoctorItem;
+  containerStyle?: ViewStyle;
+  onPress: () => void;
+}
+
+const DoctorsCard1: React.FC<DoctorsCard1Props> = ({
+  item,
+  containerStyle,
+  onPress,
+}) => {
   return (
     <TouchableOpacity
       style={[styles.container, containerStyle]}
@@ -16,7 +42,6 @@ const DoctorsCard1 = ({item, containerStyle, onPress}) => {
         <View>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
             <Text style={styles.name}>{item.name}</Text>
-            {/* RATING */}
             <TextButtonwithIcon
               leftIcon={<NotoStar width={15} height={15} />}
               label={'5.6'}
@@ -26,9 +51,7 @@ const DoctorsCard1 = ({item, containerStyle, onPress}) => {
           <Text style={styles.text}>{item.speciality}</Text>
         </View>
         <View style={styles.footer}>
-          {/* EXPERIENCE */}
-          <Text style={styles.experinceText}>5+ Year Exp.</Text>
-          {/* BOOK_BUTTON */}
+          <Text style={styles.experinceText}>{item.experience}</Text>
           <TextButton
             disabled
             label={'Book '}
@@ -55,7 +78,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 2,
   },
   imageContainer: {

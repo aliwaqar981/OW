@@ -1,9 +1,12 @@
-/* eslint-disable react-native/no-inline-styles */
-import {View} from 'react-native';
+import {View, ViewStyle} from 'react-native';
 import React from 'react';
 import {COLORS} from '../../constants';
 
-const LineDivider = ({lineStyle}) => {
+interface LineDividerProps {
+  lineStyle?: ViewStyle;
+}
+
+const LineDivider: React.FC<LineDividerProps> = ({lineStyle}) => {
   return (
     <View
       style={{
