@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import {
   StyleSheet,
   View,
@@ -7,18 +6,20 @@ import {
   Dimensions,
   ImageBackground,
 } from 'react-native';
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import Carousel from 'react-native-snap-carousel';
-
 import {COLORS, FONTS} from '../../../themes';
 import {Gold, Platinum} from '../../../assets/images';
 import {TextButton, TextButtonwithIcon} from '../../../components';
 import {CrownCircle, GlowingStar} from '../../../assets/svgicons';
 import {routes} from '../../../constants';
-import {AuthContext} from '../../../../App';
+import {useUser} from '../../../Hooks/UseContext';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'Subscribe'>;
 
-const Subscribe = ({navigation}) => {
-  const {setUserId} = useContext(AuthContext);
+const Subscribe: React.FC<Props> = ({navigation}) => {
+  const {setUserId} = useUser();
   const [activeSlide, setActiveSlide] = useState(0);
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
@@ -49,7 +50,6 @@ const Subscribe = ({navigation}) => {
       price: 15,
     },
   ];
-  console.log('active index', activeSlide);
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -139,7 +139,7 @@ const Subscribe = ({navigation}) => {
                     label={'Get Started'}
                     containerStyle={styles.getStartedButton}
                     onPress={() =>
-                      navigation.navigate(routes.PAYMENTMETHOD, {
+                      navigation.navigate('PaymentMethod', {
                         screen: routes.CHECKOUT,
                       })
                     }
@@ -175,7 +175,7 @@ const Subscribe = ({navigation}) => {
             ]}
           />
         </View>
-        <View style={styles.footer}>
+        <View>
           {/* CONTINEUE_BUTTON */}
           <TextButton
             label={'Continue Free'}

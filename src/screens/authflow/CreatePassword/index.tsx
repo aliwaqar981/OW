@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import {
   Image,
   SafeAreaView,
@@ -12,8 +11,11 @@ import {CreatPassword} from '../../../assets/images';
 import {COLORS, FONTS} from '../../../themes';
 import {Forminput, TextButton} from '../../../components';
 import {Eye, Lock} from '../../../assets/svgicons';
-import {routes} from '../../../constants';
-const CreatePassword = ({navigation, route}) => {
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'CreatePassword'>;
+
+const CreatePassword: React.FC<Props> = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* BACKGROUND_IMAGE */}
@@ -47,7 +49,7 @@ const CreatePassword = ({navigation, route}) => {
             labelStyle={{color: COLORS.white, fontSize: 16}}
             containerStyle={styles.button}
             onPress={() =>
-              navigation.navigate(routes.LOGIN, {key: route.params.key})
+              navigation.navigate('Login', {key: route.params.key})
             }
           />
         </View>

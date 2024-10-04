@@ -33,13 +33,13 @@ import {
   Settings1,
 } from '../../../assets/svgicons';
 import {routes, SocialMediaButton} from '../../../constants';
-import {AuthContext} from '../../../../App';
 import Modal from 'react-native-modal';
+import {useUser} from '../../../Hooks/UseContext';
 
 const Profile = ({navigation}) => {
   const [isShareModalVisible, setShareModalVisible] = React.useState(false);
   const [isLogoutModalVisible, setLogoutModalVisible] = React.useState(false);
-  const {setUserId} = useContext(AuthContext);
+  const {setUserId} = useUser();
 
   const toggleShareModal = () => {
     setShareModalVisible(!isShareModalVisible);

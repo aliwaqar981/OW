@@ -1,5 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
-/* eslint-disable react-native/no-inline-styles */
 import {
   LayoutAnimation,
   SafeAreaView,
@@ -16,7 +14,7 @@ import {ChooseTime, TextButton, TextButtonwithIcon} from '../../../components';
 import {WhiteCheck} from '../../../assets/svgicons';
 import {routes, time} from '../../../constants';
 
-const UpdateSchedule = ({navigation}) => {
+const ProfileVerificationStep4 = ({navigation}) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [datePickerVisible, setDatePickerVisible] = useState(false);
   const [showAdvanceSchedule, setShowAdvanceSchedule] = useState(false);
@@ -59,7 +57,7 @@ const UpdateSchedule = ({navigation}) => {
         {/* HEADING */}
         <Text style={styles.heading}>Complete My Profile</Text>
         {/* COUNTER */}
-        <Text style={[styles.heading, {marginTop: 3}]}>1/7</Text>
+        <Text style={[styles.heading, {marginTop: 3}]}>4/7</Text>
         {/* TITLE */}
         <Text style={styles.title}>Update Schedule</Text>
         {/* DISCRIPTION */}
@@ -102,6 +100,7 @@ const UpdateSchedule = ({navigation}) => {
         containerStyle={{marginTop: 15}}
         onPress={() => setShowAdvanceSchedule(!showAdvanceSchedule)}
       />
+
       {/* ADVACNE_SCHDULE */}
       {showAdvanceSchedule ? (
         <ScrollView
@@ -134,7 +133,9 @@ const UpdateSchedule = ({navigation}) => {
             <TextButton
               label={'Next'}
               containerStyle={styles.nextButton}
-              onPress={() => navigation.navigate(routes.ADDSERVICES)}
+              onPress={() =>
+                navigation.navigate(routes.PROFILEVERIFICATIONSTEP5)
+              }
             />
           </View>
         </ScrollView>
@@ -145,7 +146,7 @@ const UpdateSchedule = ({navigation}) => {
   );
 };
 
-export default UpdateSchedule;
+export default ProfileVerificationStep4;
 
 const styles = StyleSheet.create({
   container: {

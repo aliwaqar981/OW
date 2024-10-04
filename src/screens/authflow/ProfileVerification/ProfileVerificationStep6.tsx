@@ -1,11 +1,10 @@
-/* eslint-disable react-native/no-inline-styles */
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {TextButton} from '../../../components';
 import {routes} from '../../../constants';
 
-const ServiceDetails = ({navigation}) => {
+const ProfileVerificationStep6 = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
@@ -20,7 +19,7 @@ const ServiceDetails = ({navigation}) => {
           />
         </View>
         {/* COUNTER */}
-        <Text style={[styles.heading, {marginTop: 3}]}>5/7</Text>
+        <Text style={[styles.heading, {marginTop: 3}]}>6/7</Text>
         {/* TITLE */}
         <Text style={styles.title}>Add services you offer</Text>
         {/* DISCRIPTION */}
@@ -44,14 +43,14 @@ const ServiceDetails = ({navigation}) => {
         <TextButton
           label={'Next'}
           containerStyle={styles.nextButton}
-          onPress={() => navigation.navigate(routes.ELIGIBILITY)}
+          onPress={() => navigation.navigate(routes.PROFILEVERIFICATIONSTEP7)}
         />
       </View>
     </SafeAreaView>
   );
 };
 
-export default ServiceDetails;
+export default ProfileVerificationStep6;
 
 const styles = StyleSheet.create({
   container: {
@@ -72,7 +71,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.Nunito_Bold,
   },
   skip: {
-    backgroundColor: null,
+    backgroundColor: undefined,
     width: 40,
   },
   title: {
@@ -106,7 +105,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.Nunito_Regular,
   },
   addmore: {
-    backgroundColor: null,
+    backgroundColor: undefined,
     width: 90,
     alignSelf: 'flex-end',
   },

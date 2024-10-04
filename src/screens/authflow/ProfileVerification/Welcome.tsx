@@ -1,11 +1,8 @@
-/* eslint-disable react-native/no-inline-styles */
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
-import {Line, Logo, WelcomePlant} from '../../../assets/images';
-import {Line1} from '../../../assets/svgicons';
+import {Logo, WelcomePlant} from '../../../assets/images';
 import {TextButton} from '../../../components';
-import {routes} from '../../../constants';
 
 const Welcome = ({navigation}) => {
   return (
@@ -41,7 +38,7 @@ const Welcome = ({navigation}) => {
           <TextButton
             label={'Complete My Profile'}
             containerStyle={styles.completedButton}
-            onPress={() => navigation.navigate(routes.ADDPROFILE)}
+            onPress={() => navigation.navigate('ProfileVerificationStep1')}
           />
         </View>
       </View>

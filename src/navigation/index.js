@@ -1,16 +1,16 @@
-/* eslint-disable curly */
 import {StyleSheet} from 'react-native';
-import React, {useContext} from 'react';
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import AuthStackNavigator from './AuthStack';
-import {AuthContext} from '../../App';
 import HomeStackNavigator from './HomeStack';
 import ProfessionalStackNavigator from './ProfessionalStack';
+import {useUser} from '../Hooks/UseContext';
 
 const CurrentStack = createNativeStackNavigator();
 const Navigation = () => {
-  const {userId, isProfessional} = useContext(AuthContext);
+  const {userId, isProfessional} = useUser();
+
   const CurrentStackNavigator = () => {
     if (userId) return <HomeStackNavigator />;
     else if (isProfessional) return <ProfessionalStackNavigator />;

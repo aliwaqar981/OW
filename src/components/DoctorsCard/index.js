@@ -1,5 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
 import {
   Image,
   ImageBackground,
@@ -11,8 +9,8 @@ import {
 import React from 'react';
 import {Logo} from '../../assets/images';
 import {COLORS, FONTS} from '../../themes';
-import {TextButton, TextButtonwithIcon} from '../../components';
-import {NotoStar} from '../../assets/svgicons';
+import TextButton from '../TextButton';
+
 const DoctorsCard = ({item, containerStyle, onPress}) => {
   return (
     <TouchableOpacity
@@ -38,7 +36,7 @@ const DoctorsCard = ({item, containerStyle, onPress}) => {
               <Text style={styles.name}>{item.name}</Text>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <Text style={styles.specialityText}>{item.speciality}</Text>
-                <TextButtonwithIcon
+                {/* <TextButtonwithIcon
                   leftIcon={<NotoStar width={12} height={12} />}
                   label={'4.5'}
                   labelStyle={{
@@ -49,7 +47,7 @@ const DoctorsCard = ({item, containerStyle, onPress}) => {
                   }}
                   disabled
                   containerStyle={{marginLeft: 5}}
-                />
+                /> */}
               </View>
             </View>
             <TextButton

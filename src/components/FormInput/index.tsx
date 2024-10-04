@@ -1,10 +1,23 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable prettier/prettier */
-import {StyleSheet, TextInput, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import {
+  StyleSheet,
+  TextInput,
+  TextInputProps,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {COLORS, FONTS} from '../../themes';
 
-const FormInput = ({
+interface FormInputProps extends TextInputProps {
+  containerStyle?: ViewStyle;
+  leftIcon?: React.ReactNode;
+  righIcon?: React.ReactNode;
+  leftIconStyle?: ViewStyle;
+  rightIconstyle?: ViewStyle;
+}
+
+const FormInput: React.FC<FormInputProps> = ({
   placeholder,
   placeholderTextColor,
   onChangeText,
@@ -18,6 +31,7 @@ const FormInput = ({
   leftIconStyle,
   rightIconstyle,
   onBlur,
+  ...rest // spread the remaining TextInputProps
 }) => {
   return (
     <View style={{...styles.container, ...containerStyle}}>
@@ -40,6 +54,7 @@ const FormInput = ({
           fontFamily: FONTS.Nunito_Regular,
         }}
         onBlur={onBlur}
+        {...rest} // pass remaining TextInputProps
       />
       <TouchableOpacity style={{...rightIconstyle}}>
         {righIcon}

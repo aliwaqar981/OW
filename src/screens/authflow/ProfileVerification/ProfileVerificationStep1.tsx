@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import {
   SafeAreaView,
   StyleSheet,
@@ -12,7 +11,7 @@ import {Camera} from '../../../assets/svgicons';
 import {TextButton} from '../../../components';
 import {routes} from '../../../constants';
 
-const AddImage = ({navigation}) => {
+const ProfileVerificationStep1 = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -44,14 +43,14 @@ const AddImage = ({navigation}) => {
         <TextButton
           label={'Next'}
           containerStyle={styles.nextButton}
-          onPress={() => navigation.navigate(routes.DISCRIPTION)}
+          onPress={() => navigation.navigate(routes.PROFILEVERIFICATIONSTEP2)}
         />
       </View>
     </SafeAreaView>
   );
 };
 
-export default AddImage;
+export default ProfileVerificationStep1;
 
 const styles = StyleSheet.create({
   container: {

@@ -1,14 +1,12 @@
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, Text, View, SafeAreaView, TextBase} from 'react-native';
-import React, {useContext} from 'react';
+import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
+import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {ButtonwithIcon, TextButton} from '../../../components';
 import {Camera} from '../../../assets/svgicons';
-import {routes} from '../../../constants';
-import {AuthContext} from '../../../../App';
+import {useUser} from '../../../Hooks/UseContext';
 
-const Eligibility = ({navigation}) => {
-  const {setIsProfessional} = useContext(AuthContext);
+const ProfileVerificationStep7 = ({navigation}) => {
+  const {setIsProfessional} = useUser();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
@@ -23,7 +21,7 @@ const Eligibility = ({navigation}) => {
           />
         </View>
         {/* COUNTER */}
-        <Text style={[styles.heading, {marginTop: 3}]}>5/7</Text>
+        <Text style={[styles.heading, {marginTop: 3}]}>7/7</Text>
         {/* TITLE */}
         <Text style={styles.title}>Eligibility Confirmation</Text>
         {/* DISCRIPTION */}
@@ -71,7 +69,7 @@ const Eligibility = ({navigation}) => {
   );
 };
 
-export default Eligibility;
+export default ProfileVerificationStep7;
 
 const styles = StyleSheet.create({
   container: {
@@ -92,7 +90,7 @@ const styles = StyleSheet.create({
     fontFamily: FONTS.Nunito_Bold,
   },
   skip: {
-    backgroundColor: null,
+    backgroundColor: undefined,
     width: 40,
   },
   title: {

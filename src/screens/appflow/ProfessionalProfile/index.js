@@ -26,10 +26,11 @@ import {
   Logout,
 } from '../../../assets/svgicons';
 import {routes} from '../../../constants';
-import {AuthContext} from '../../../../App';
 import Modal from 'react-native-modal';
+import {useUser} from '../../../Hooks/UseContext';
 const ProfessionalProfile = ({navigation}) => {
-  const {setIsProfessional} = React.useContext(AuthContext);
+  const {setIsProfessional} = useUser();
+
   const [isLogoutModalVisible, setLogoutModalVisible] = React.useState(false);
 
   const toggleLogoutModal = () => {

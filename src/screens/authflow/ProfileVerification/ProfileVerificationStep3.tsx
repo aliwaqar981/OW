@@ -1,10 +1,7 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable react-native/no-inline-styles */
 import {
   SafeAreaView,
   StyleSheet,
   Text,
-  TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -13,7 +10,7 @@ import {COLORS, FONTS} from '../../../themes';
 import {BodyParts2, routes} from '../../../constants';
 import {TextButton, TextInputCmp} from '../../../components';
 
-const ProfileImage = ({navigation}) => {
+const ProfileVerificationStep3 = ({navigation}) => {
   const [bodyParts, setBodyParts] = useState(BodyParts2);
   const selectedBodyParts = index => {
     if (bodyParts[index].isSelected == true) {
@@ -30,7 +27,7 @@ const ProfileImage = ({navigation}) => {
         {/* HEADING */}
         <Text style={styles.heading}>Complete My Profile</Text>
         {/* COUNTER */}
-        <Text style={[styles.heading, {marginTop: 3}]}>1/7</Text>
+        <Text style={[styles.heading, {marginTop: 3}]}>3/7</Text>
         {/* TITLE */}
         <Text style={styles.title}>Work Experience</Text>
         {/* DISCRIPTION */}
@@ -87,14 +84,14 @@ const ProfileImage = ({navigation}) => {
         <TextButton
           label={'Next'}
           containerStyle={styles.nextButton}
-          onPress={() => navigation.navigate(routes.UPDATESCHEDULE)}
+          onPress={() => navigation.navigate(routes.PROFILEVERIFICATIONSTEP4)}
         />
       </View>
     </SafeAreaView>
   );
 };
 
-export default ProfileImage;
+export default ProfileVerificationStep3;
 
 const styles = StyleSheet.create({
   container: {

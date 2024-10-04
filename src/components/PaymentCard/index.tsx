@@ -1,11 +1,32 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+  ReactNode,
+} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../themes';
 
-const PaymentCard = ({label, containerStyle, selectedCard, logo, onPress}) => {
+interface PaymentCardProps {
+  label: string;
+  containerStyle?: ViewStyle;
+  selectedCard: ReactNode;
+  logo: ReactNode;
+  onPress: () => void;
+}
+
+const PaymentCard: React.FC<PaymentCardProps> = ({
+  label,
+  containerStyle,
+  selectedCard,
+  logo,
+  onPress,
+}) => {
   return (
     <TouchableOpacity
-      style={[styles.container, {...containerStyle}]}
+      style={[styles.container, containerStyle]}
       onPress={onPress}>
       {selectedCard}
       <Text style={styles.label}>{label}</Text>

@@ -1,11 +1,10 @@
-/* eslint-disable react-native/no-inline-styles */
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {TextButton, TextInputCmp} from '../../../components';
 import {routes} from '../../../constants';
 
-const AddServices = ({navigation}) => {
+const ProfileVerificationStep5 = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
@@ -22,7 +21,7 @@ const AddServices = ({navigation}) => {
         {/* COUNTER */}
         <Text style={[styles.heading, {marginTop: 3}]}>5/7</Text>
         {/* TITLE */}
-        <Text style={styles.title}>Update Schedule</Text>
+        <Text style={styles.title}>Add services you offer</Text>
         {/* DISCRIPTION */}
         <Text style={styles.discrption}>
           Let patient select what exactly they need
@@ -63,7 +62,7 @@ const AddServices = ({navigation}) => {
           <TextButton
             label={'Add'}
             containerStyle={styles.addButton}
-            onPress={() => navigation.navigate(routes.SERVICEDETAILS)}
+            onPress={() => navigation.navigate(routes.PROFILEVERIFICATIONSTEP6)}
           />
         </ScrollView>
       </View>
@@ -71,7 +70,7 @@ const AddServices = ({navigation}) => {
   );
 };
 
-export default AddServices;
+export default ProfileVerificationStep5;
 
 const styles = StyleSheet.create({
   container: {

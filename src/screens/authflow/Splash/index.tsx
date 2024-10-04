@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import {
   Image,
   SafeAreaView,
@@ -11,9 +10,11 @@ import React from 'react';
 import {Logo} from '../../../assets/images';
 import {COLORS, FONTS} from '../../../themes';
 import {TextButton} from '../../../components';
-import {routes} from '../../../constants/routes';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'Splash'>;
 
-const Splash = ({navigation}) => {
+const Splash: React.FC<Props> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* LOGO */}
@@ -29,18 +30,14 @@ const Splash = ({navigation}) => {
           {/* THERAPIST */}
           <TouchableOpacity
             style={styles.therapistrd}
-            onPress={() =>
-              navigation.navigate(routes.SIGNUP, {key: 'therapist'})
-            }>
+            onPress={() => navigation.navigate('SignUp', {key: 'therapist'})}>
             <Text style={styles.text}>Therapist</Text>
           </TouchableOpacity>
           {/* PATIENT */}
 
           <TouchableOpacity
             style={styles.patient}
-            onPress={() =>
-              navigation.navigate(routes.SIGNUP, {key: 'patient'})
-            }>
+            onPress={() => navigation.navigate('SignUp', {key: 'patient'})}>
             <Text style={{...styles.text, marginTop: 30}}>Patient</Text>
             <TextButton
               label={'Client'}

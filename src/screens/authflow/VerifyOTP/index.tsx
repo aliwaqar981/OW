@@ -1,13 +1,14 @@
-/* eslint-disable react-native/no-inline-styles */
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {OTP} from '../../../assets/images';
 import {COLORS, FONTS} from '../../../themes';
 import {TextButton} from '../../../components';
-import {routes} from '../../../constants/routes';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'VerifyOTP'>;
 
-const VerifyOTP = ({navigation, route}) => {
+const VerifyOTP: React.FC<Props> = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* BACKGROUND_IMAGE */}
@@ -40,7 +41,7 @@ const VerifyOTP = ({navigation, route}) => {
             label={'Submit'}
             containerStyle={styles.button}
             onPress={() =>
-              navigation.navigate(routes.CREATEPASSWORD, {
+              navigation.navigate('CreatePassword', {
                 key: route.params.key,
               })
             }

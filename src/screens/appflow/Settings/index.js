@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React, {useContext} from 'react';
 import {COLORS} from '../../../themes';
@@ -6,10 +5,10 @@ import {Bell1, DelProfile, User, User1} from '../../../assets/svgicons';
 import {SettingAction} from '../../../components';
 import {Language} from '../../../assets/images';
 import {routes} from '../../../constants';
-import {AuthContext} from '../../../../App';
+import {useUser} from '../../../Hooks/UseContext';
 
 const Settings = ({navigation}) => {
-  const {userId} = useContext(AuthContext);
+  const {userId} = useUser();
   return (
     <View style={styles.container}>
       {/* SETTINGS_ACTTIONS_LISST */}

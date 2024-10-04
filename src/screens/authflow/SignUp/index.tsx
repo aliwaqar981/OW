@@ -1,6 +1,3 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable react/no-unstable-nested-components */
-/* eslint-disable react-native/no-inline-styles */
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,6 +6,7 @@ import {
   View,
   Platform,
   ScrollView,
+  ViewStyle,
 } from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
@@ -32,13 +30,15 @@ import {
   TextButton,
   TextButtonwithIcon,
 } from '../../../components';
-import {routes} from '../../../constants/routes';
-const SignUp = ({navigation, route}) => {
-  // console.log('______)_)__', route.params.key);
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'SignUp'>;
+
+const SignUp: React.FC<Props> = ({navigation, route}) => {
   const onSignUpPress = () => {
     route.params.key == 'therapist'
-      ? navigation.navigate(routes.WELCOME)
-      : navigation.navigate(routes.SUBSCRIBE);
+      ? navigation.navigate('Welcome')
+      : navigation.navigate('Subscribe');
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -88,9 +88,7 @@ const SignUp = ({navigation, route}) => {
                 {label: 'Female', value: 'Female'},
               ]}
               useNativeAndroidPickerStyle={false}
-              Icon={() => {
-                return <DropDown />;
-              }}
+              Icon={() => <DropDown />}
               style={{
                 iconContainer: {
                   top: Platform.OS === 'ios' ? 5 : 22,
@@ -138,7 +136,9 @@ const SignUp = ({navigation, route}) => {
             />
             <ButtonwithIcon
               icon={<FB />}
-              containerStyle={[styles.button, {marginHorizontal: 20}]}
+              containerStyle={
+                [styles.button, {marginHorizontal: 20}] as ViewStyle
+              }
             />
             <ButtonwithIcon icon={<Apple />} containerStyle={styles.button} />
           </View>
@@ -163,7 +163,7 @@ const SignUp = ({navigation, route}) => {
               label={'Log In here'}
               labelStyle={styles.signUpButtonLabel}
               onPress={() =>
-                navigation.navigate(routes.LOGIN, {key: route.params.key})
+                navigation.navigate('Login', {key: route.params.key})
               }
             />
           </View>

@@ -1,6 +1,4 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable react-native/no-inline-styles */
-import {StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
 import React, {useState} from 'react';
 import {
   Circle,
@@ -10,8 +8,11 @@ import {
   Paypal,
 } from '../../../assets/svgicons';
 import {PaymentCard, TextButton} from '../../../components';
-import {routes} from '../../../constants';
-const PaymentMethod = ({navigation, route}) => {
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'PaymentMethod'>;
+
+const PaymentMethod: React.FC<Props> = ({navigation, route}) => {
   const [selectedCard, setSelectedCard] = useState('');
   return (
     <View style={styles.container}>
@@ -47,7 +48,7 @@ const PaymentMethod = ({navigation, route}) => {
             backgroundColor: selectedCard ? '#EB4E1F' : '#EB4E1F50',
           }}
           disabled={!selectedCard}
-          onPress={() => navigation.navigate(routes.CHECKOUT)}
+          onPress={() => navigation.navigate('CheckOut')}
         />
       </View>
     </View>

@@ -1,20 +1,20 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/no-unstable-nested-components */
 import {StyleSheet, Text, View} from 'react-native';
-import React, {useContext} from 'react';
+import React from 'react';
 import {Platform} from 'react-native';
 import {COLORS, FONTS} from '../../../themes';
 import RNPickerSelect from 'react-native-picker-select';
 import {Card, DropDown} from '../../../assets/svgicons';
 import FormInput from '../../../components/FormInput';
 import {TextButton} from '../../../components';
-import {AuthContext} from '../../../../App';
 import {routes} from '../../../constants';
 import Modal from 'react-native-modal';
+import {useUser} from '../../../Hooks/UseContext';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'CheckOut'>;
 
-const CheckOut = ({route, navigation}) => {
-  const {setUserId} = useContext(AuthContext);
+const CheckOut: React.FC<Props> = ({route, navigation}) => {
+  const {setUserId} = useUser();
   const [isModalVisible, setModalVisible] = React.useState(false);
 
   const toggleModal = () => {
@@ -57,9 +57,7 @@ const CheckOut = ({route, navigation}) => {
               {label: 'England', value: 'England'},
             ]}
             useNativeAndroidPickerStyle={false}
-            Icon={() => {
-              return <DropDown />;
-            }}
+            Icon={() => <DropDown />} // Change this line
             style={{
               iconContainer: {
                 top: Platform.OS === 'ios' ? 5 : 22,

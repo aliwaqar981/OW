@@ -1,20 +1,14 @@
-/* eslint-disable react-native/no-inline-styles */
-import {
-  Image,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {Forgotpassword} from '../../../assets/images';
 import {COLORS, FONTS} from '../../../themes';
 import {Forminput, TextButton} from '../../../components';
 import {Email} from '../../../assets/svgicons';
-import {routes} from '../../../constants/routes';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'ForgotPassword'>;
 
-const ForgotPassword = ({navigation, route}) => {
+const ForgotPassword: React.FC<Props> = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       {/* BACKGROUND_IMAGE */}
@@ -39,7 +33,7 @@ const ForgotPassword = ({navigation, route}) => {
           label={'Continue'}
           containerStyle={styles.button}
           onPress={() =>
-            navigation.navigate(routes.VERIFYOTP, {key: route.params.key})
+            navigation.navigate('VerifyOTP', {key: route.params.key})
           }
           labelStyle={{fontSize: 15}}
         />

@@ -1,15 +1,4 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable no-undef */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  ImageBackground,
-  View,
-  Platform,
-} from 'react-native';
+import {StyleSheet, ImageBackground, View} from 'react-native';
 import React, {useRef} from 'react';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {OnBoard1, OnBoard2, OnBoard3} from '../../../assets/images';
@@ -50,11 +39,11 @@ const OnBoard = ({navigation}) => {
       <AppIntroSlider
         data={slides}
         renderItem={renderItem}
-        ref={ref => {
+        ref={(ref: any) => {
           sliderRef = ref;
         }}
         renderPagination={index => (
-          <View style={styles.pageination}>
+          <View>
             {index === 0 && (
               <View style={styles.container}>
                 <View style={{flexDirection: 'row'}}>

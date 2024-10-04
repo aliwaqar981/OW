@@ -1,20 +1,15 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/no-unstable-nested-components */
 import {StyleSheet, Text, View} from 'react-native';
-import React, {useContext} from 'react';
+import React from 'react';
 import {Platform} from 'react-native';
 import {COLORS, FONTS} from '../../../themes';
 import RNPickerSelect from 'react-native-picker-select';
 import {Card, DropDown} from '../../../assets/svgicons';
 import FormInput from '../../../components/FormInput';
 import {TextButton} from '../../../components';
-import {AuthContext} from '../../../../App';
 import {routes} from '../../../constants';
 import Modal from 'react-native-modal';
 
 const HomeCheckOut = ({navigation}) => {
-  const {setUserId} = useContext(AuthContext);
   const [isModalVisible, setModalVisible] = React.useState(false);
 
   const toggleModal = () => {

@@ -1,18 +1,17 @@
-/* eslint-disable react-native/no-inline-styles */
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {TextButton} from '../../../components';
 import {routes} from '../../../constants';
 
-const Description = ({navigation}) => {
+const ProfileVerificationStep2 = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         {/* HEADING */}
         <Text style={styles.heading}>Complete My Profile</Text>
         {/* COUNTER */}
-        <Text style={[styles.heading, {marginTop: 3}]}>1/7</Text>
+        <Text style={[styles.heading, {marginTop: 3}]}>2/7</Text>
         {/* TITLE */}
         <Text style={styles.title}>Tell us a bit about yourself & Work</Text>
         {/* DISCRIPTION */}
@@ -32,14 +31,14 @@ const Description = ({navigation}) => {
         <TextButton
           label={'Next'}
           containerStyle={styles.nextButton}
-          onPress={() => navigation.navigate(routes.PROFILEIMAGE)}
+          onPress={() => navigation.navigate(routes.PROFILEVERIFICATIONSTEP3)}
         />
       </View>
     </SafeAreaView>
   );
 };
 
-export default Description;
+export default ProfileVerificationStep2;
 
 const styles = StyleSheet.create({
   container: {

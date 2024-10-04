@@ -19,11 +19,13 @@ import {
   TextButton,
   TextButtonwithIcon,
 } from '../../../components';
-import {routes} from '../../../constants/routes';
-import {AuthContext} from '../../../../App';
+import {useUser} from '../../../Hooks/UseContext';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'Login'>;
 
-const Login = ({navigation, route}) => {
-  const {setUserId, setIsProfessional} = useContext(AuthContext);
+const Login: React.FC<Props> = ({navigation, route}) => {
+  const {setUserId, setIsProfessional} = useUser();
   return (
     <SafeAreaView style={styles.container}>
       {/* LOGO */}
@@ -57,7 +59,7 @@ const Login = ({navigation, route}) => {
         labelStyle={styles.forgotPasswordLabel}
         containerStyle={styles.forgotPasswordButton}
         onPress={() =>
-          navigation.navigate(routes.FORGOTPASSWORD, {key: route.params.key})
+          navigation.navigate('ForgotPassword', {key: route.params.key})
         }
       />
       {/* LOGIN_IN_BUTTON */}
@@ -109,7 +111,7 @@ const Login = ({navigation, route}) => {
             label={'Sign up here'}
             labelStyle={styles.signInButtonLabel}
             onPress={() =>
-              navigation.navigate(routes.SIGNUP, {key: route.params.key})
+              navigation.navigate('SignUp', {key: route.params.key})
             }
           />
         </View>
