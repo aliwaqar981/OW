@@ -15,7 +15,7 @@ interface ProfileActionProps {
   LeftIcon?: ReactNode;
   labelStyle?: TextStyle;
   RightIcon?: ReactNode;
-  onPress: () => void;
+  onPress?: () => void;
   label: string;
   iconBackgroundColor?: string;
 }

@@ -13,7 +13,7 @@ import {ReactNode} from 'react';
 interface LanguageCardProps {
   flag: ReactNode;
   icon: ReactNode;
-  onPress?: () => void;
+  onPress?: (val: string) => void;
 }
 
 const LanguageCard: React.FC<LanguageCardProps> = ({flag, icon, onPress}) => {
