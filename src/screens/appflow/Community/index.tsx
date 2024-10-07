@@ -2,7 +2,7 @@ import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React, {FC} from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {CommunityCard} from '../../../components';
-import {CommunityList, routes} from '../../../constants';
+import {CommunityList} from '../../../constants';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {HomeStackParamList} from '../../../navigation/HomeStack';
 type Props = NativeStackScreenProps<HomeStackParamList, 'Community'>;
@@ -32,7 +32,7 @@ const Community: FC<Props> = ({navigation}) => {
                 title={'Topic Name'}
                 subTitle={'75 people are participating'}
                 containerStyle={{marginTop: 14}}
-                onPress={() => navigation.navigate(routes.CHATDETAILS)}
+                onPress={() => navigation.navigate('ChatDetails')}
               />
             );
           }}

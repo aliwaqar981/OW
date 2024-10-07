@@ -7,10 +7,16 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 import {COLORS, FONTS} from '../../../themes';
-import {BodyParts2, routes} from '../../../constants';
+import {BodyParts2} from '../../../constants';
 import {TextButton, TextInputCmp} from '../../../components';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<
+  AuthStackParamList,
+  'ProfileVerificationStep3'
+>;
 
-const ProfileVerificationStep3 = ({navigation}) => {
+const ProfileVerificationStep3: React.FC<Props> = ({navigation}) => {
   const [bodyParts, setBodyParts] = useState(BodyParts2);
   const selectedBodyParts = index => {
     if (bodyParts[index].isSelected == true) {
@@ -84,7 +90,7 @@ const ProfileVerificationStep3 = ({navigation}) => {
         <TextButton
           label={'Next'}
           containerStyle={styles.nextButton}
-          onPress={() => navigation.navigate(routes.PROFILEVERIFICATIONSTEP4)}
+          onPress={() => navigation.navigate('ProfileVerificationStep4')}
         />
       </View>
     </SafeAreaView>

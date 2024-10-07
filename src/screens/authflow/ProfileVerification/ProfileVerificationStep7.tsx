@@ -4,8 +4,14 @@ import {COLORS, FONTS} from '../../../themes';
 import {ButtonwithIcon, TextButton} from '../../../components';
 import {Camera} from '../../../assets/svgicons';
 import {useUser} from '../../../Hooks/UseContext';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<
+  AuthStackParamList,
+  'ProfileVerificationStep7'
+>;
 
-const ProfileVerificationStep7 = ({navigation}) => {
+const ProfileVerificationStep7: React.FC<Props> = () => {
   const {setIsProfessional} = useUser();
   return (
     <SafeAreaView style={styles.container}>

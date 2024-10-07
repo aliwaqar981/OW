@@ -6,15 +6,22 @@ import {
   Text,
   TouchableOpacity,
   View,
+  ViewStyle,
 } from 'react-native';
 import React, {useState} from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import {ChooseTime, TextButton, TextButtonwithIcon} from '../../../components';
 import {WhiteCheck} from '../../../assets/svgicons';
-import {routes, time} from '../../../constants';
+import {time} from '../../../constants';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<
+  AuthStackParamList,
+  'ProfileVerificationStep4'
+>;
 
-const ProfileVerificationStep4 = ({navigation}) => {
+const ProfileVerificationStep4: React.FC<Props> = ({navigation}) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [datePickerVisible, setDatePickerVisible] = useState(false);
   const [showAdvanceSchedule, setShowAdvanceSchedule] = useState(false);
@@ -93,10 +100,12 @@ const ProfileVerificationStep4 = ({navigation}) => {
         label={'Advance Schedule'}
         labelStyle={{fontSize: 14, fontFamily: FONTS.Nunito_SemiBold}}
         leftIcon={<WhiteCheck />}
-        leftIconContainer={[
-          styles.icon,
-          {backgroundColor: showAdvanceSchedule ? COLORS.red : '#D9D9D9'},
-        ]}
+        leftIconContainer={
+          [
+            styles.icon,
+            {backgroundColor: showAdvanceSchedule ? COLORS.red : '#D9D9D9'},
+          ] as ViewStyle
+        }
         containerStyle={{marginTop: 15}}
         onPress={() => setShowAdvanceSchedule(!showAdvanceSchedule)}
       />
@@ -133,9 +142,7 @@ const ProfileVerificationStep4 = ({navigation}) => {
             <TextButton
               label={'Next'}
               containerStyle={styles.nextButton}
-              onPress={() =>
-                navigation.navigate(routes.PROFILEVERIFICATIONSTEP5)
-              }
+              onPress={() => navigation.navigate('ProfileVerificationStep5')}
             />
           </View>
         </ScrollView>

@@ -9,9 +9,14 @@ import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {Camera} from '../../../assets/svgicons';
 import {TextButton} from '../../../components';
-import {routes} from '../../../constants';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<
+  AuthStackParamList,
+  'ProfileVerificationStep1'
+>;
 
-const ProfileVerificationStep1 = ({navigation}) => {
+const ProfileVerificationStep1: React.FC<Props> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -43,7 +48,7 @@ const ProfileVerificationStep1 = ({navigation}) => {
         <TextButton
           label={'Next'}
           containerStyle={styles.nextButton}
-          onPress={() => navigation.navigate(routes.PROFILEVERIFICATIONSTEP2)}
+          onPress={() => navigation.navigate('ProfileVerificationStep2')}
         />
       </View>
     </SafeAreaView>

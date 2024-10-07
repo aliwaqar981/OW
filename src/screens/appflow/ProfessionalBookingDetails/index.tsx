@@ -1,14 +1,17 @@
-/* eslint-disable eqeqeq */
-/* eslint-disable react-native/no-inline-styles */
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {Profile} from '../../../assets/images';
 import {ButtonwithIcon, Review, TextButton} from '../../../components';
 import {Call1, Message1, VideoCall} from '../../../assets/svgicons';
-import {routes} from '../../../constants';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {ProfessionalStackParamList} from '../../../navigation/ProfessionalStack';
+type Props = NativeStackScreenProps<
+  ProfessionalStackParamList,
+  'ProfessionalBookingDetails'
+>;
 
-const ProfessionalBookingDetails = ({navigation, route}) => {
+const ProfessionalBookingDetails: React.FC<Props> = ({navigation, route}) => {
   const {params} = route.params;
 
   return (
@@ -35,7 +38,7 @@ const ProfessionalBookingDetails = ({navigation, route}) => {
           {/* MESSAGE_BUTTON */}
           <ButtonwithIcon
             icon={<Message1 />}
-            onPress={() => navigation.navigate(routes.CHATDETAILS)}
+            onPress={() => navigation.navigate('ChatDetails')}
           />
         </View>
       </View>
@@ -97,7 +100,7 @@ const ProfessionalBookingDetails = ({navigation, route}) => {
           <TextButton
             label={'Start Session'}
             containerStyle={styles.startSessionButton}
-            // onPress={() => navigation.navigate(routes.SESSION)}
+            // onPress={() => navigation.navigate('Session')}
           />
         </View>
       )}

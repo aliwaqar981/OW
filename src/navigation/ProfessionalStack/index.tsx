@@ -23,7 +23,7 @@ import {ArrowLeft, Calendar4} from '../../assets/svgicons';
 import {COLORS, FONTS} from '../../themes';
 
 // Define type for the stack parameters
-type ProfessionalStackParamList = {
+export type ProfessionalStackParamList = {
   professionaltab: undefined;
   Settings: undefined;
   TermsAndConditions: undefined;

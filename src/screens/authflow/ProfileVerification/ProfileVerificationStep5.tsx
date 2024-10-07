@@ -2,9 +2,14 @@ import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {TextButton, TextInputCmp} from '../../../components';
-import {routes} from '../../../constants';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<
+  AuthStackParamList,
+  'ProfileVerificationStep5'
+>;
 
-const ProfileVerificationStep5 = ({navigation}) => {
+const ProfileVerificationStep5: React.FC<Props> = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.innerContainer}>
@@ -62,7 +67,7 @@ const ProfileVerificationStep5 = ({navigation}) => {
           <TextButton
             label={'Add'}
             containerStyle={styles.addButton}
-            onPress={() => navigation.navigate(routes.PROFILEVERIFICATIONSTEP6)}
+            onPress={() => navigation.navigate('ProfileVerificationStep6')}
           />
         </ScrollView>
       </View>

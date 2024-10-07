@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, ViewStyle} from 'react-native';
 import React from 'react';
 import {Platform} from 'react-native';
 import {COLORS, FONTS} from '../../../themes';
@@ -29,7 +29,9 @@ const CheckOut: React.FC<Props> = ({route, navigation}) => {
           </Text>
           <TextButton
             label={'View My Calendar'}
-            containerStyle={[styles.getStartedButton, {marginTop: 18}]}
+            containerStyle={
+              [styles.getStartedButton, {marginTop: 18}] as ViewStyle
+            }
             onPress={() => {
               toggleModal();
               setTimeout(() => {

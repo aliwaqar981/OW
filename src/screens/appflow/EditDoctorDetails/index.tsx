@@ -1,5 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/self-closing-comp */
 import {
   ImageBackground,
   SafeAreaView,
@@ -10,19 +8,18 @@ import {
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
 
-import {
-  AppointmentSchdule,
-  ButtonwithIcon,
-  ChooseAppointment,
-  TextButton,
-  TextButtonwithIcon,
-} from '../../../components';
+import {ButtonwithIcon, TextButtonwithIcon} from '../../../components';
 
 import {ArrowLeft1, Edit3, Location, Star1} from '../../../assets/svgicons';
-import Modal from 'react-native-modal';
-import {routes} from '../../../constants';
 import {Dr} from '../../../assets/images';
-const EditDoctorDetails = ({navigation}) => {
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {ProfessionalStackParamList} from '../../../navigation/ProfessionalStack';
+type Props = NativeStackScreenProps<
+  ProfessionalStackParamList,
+  'EditDoctorDetails'
+>;
+
+const EditDoctorDetails: React.FC<Props> = ({navigation}) => {
   const [isModalVisible, setModalVisible] = React.useState(false);
   const [isScheduleModalVisible, setIsScheduleModalVisible] =
     React.useState(false);

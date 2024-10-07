@@ -1,11 +1,16 @@
-/* eslint-disable react-native/no-inline-styles */
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {Chart, TextButton, TextButtonwithIcon} from '../../../components';
 import {DropDown1} from '../../../assets/svgicons';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {ProfessionalStackParamList} from '../../../navigation/ProfessionalStack';
+type Props = NativeStackScreenProps<
+  ProfessionalStackParamList,
+  'EarningsDetails'
+>;
 
-const EarningsDetails = () => {
+const EarningsDetails: React.FC<Props> = () => {
   return (
     <View style={styles.container}>
       {/* WITH_DRAW_REQUEST */}
