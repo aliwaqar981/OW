@@ -15,7 +15,7 @@ import {
   TextButton,
   TextButtonwithIcon,
 } from '../../../components';
-import {Doctors, routes} from '../../../constants';
+import {Doctors} from '../../../constants';
 import {ScrollView} from 'react-native';
 import {Logo} from '../../../assets/images';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -28,7 +28,7 @@ const TalktoDoctor: React.FC<Props> = ({navigation}) => {
       {/* HEADER */}
       <TouchableOpacity
         style={styles.headerContainer}
-        onPress={() => navigation.navigate(routes.BOOKINGLIST)}>
+        onPress={() => navigation.navigate('BookingList')}>
         <Doc2 />
         <Text style={styles.headerText}>View My Bookings</Text>
         <ArrowRight1 />
@@ -48,7 +48,7 @@ const TalktoDoctor: React.FC<Props> = ({navigation}) => {
                 item={item}
                 containerStyle={{marginRight: 20}}
                 onPress={() =>
-                  navigation.navigate(routes.DOCTORDETAILS, {params: item})
+                  navigation.navigate('DoctorDetails', {params: item})
                 }
               />
             );
@@ -89,6 +89,7 @@ const TalktoDoctor: React.FC<Props> = ({navigation}) => {
                 key={`doctors-${index}`}
                 item={item}
                 containerStyle={{marginBottom: 13}}
+                onPress={() => {}}
               />
             );
           })}

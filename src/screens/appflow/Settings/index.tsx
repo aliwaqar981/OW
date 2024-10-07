@@ -4,11 +4,15 @@ import {COLORS} from '../../../themes';
 import {Bell1, DelProfile, User, User1} from '../../../assets/svgicons';
 import {SettingAction} from '../../../components';
 import {Language} from '../../../assets/images';
-import {routes} from '../../../constants';
 import {useUser} from '../../../Hooks/UseContext';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {HomeStackParamList} from '../../../navigation/HomeStack';
-type Props = NativeStackScreenProps<HomeStackParamList, 'Settings'>;
+import {ProfessionalStackParamList} from '../../../navigation/ProfessionalStack';
+
+type Props = NativeStackScreenProps<
+  HomeStackParamList & ProfessionalStackParamList,
+  'Settings'
+>;
 
 const Settings: FC<Props> = ({navigation}) => {
   const {userId} = useUser();
@@ -43,7 +47,7 @@ const Settings: FC<Props> = ({navigation}) => {
           <SettingAction
             label="Edit Profile"
             icon={<User1 />}
-            onPress={() => navigation.navigate(routes.EDITDOCTORDETAILS)}
+            onPress={() => navigation.navigate('EditDoctorDetails')}
           />
 
           {/* PUSH_NOTIFICATIONS */}

@@ -5,9 +5,11 @@ import {OnBoard1, OnBoard2, OnBoard3} from '../../../assets/images';
 import {COLORS} from '../../../themes';
 import {TextButton, TextButtonwithIcon} from '../../../components';
 import {ForwardArrow} from '../../../assets/svgicons';
-import {routes} from '../../../constants';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AuthStackParamList} from '../../../navigation/AuthStack';
+type Props = NativeStackScreenProps<AuthStackParamList, 'OnBoard'>;
 
-const OnBoard = ({navigation}) => {
+const OnBoard: React.FC<Props> = ({navigation}) => {
   let sliderRef = useRef();
   const slides = [
     {
@@ -87,7 +89,7 @@ const OnBoard = ({navigation}) => {
                 <TextButton
                   label={'Get Started'}
                   containerStyle={styles.nextButton}
-                  onPress={() => navigation.replace(routes.SPLASH)}
+                  onPress={() => navigation.replace('Splash')}
                 />
               </View>
             )}

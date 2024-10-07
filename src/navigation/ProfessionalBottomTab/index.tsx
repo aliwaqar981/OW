@@ -22,6 +22,8 @@ export type ProfessionalTabParamList = {
   TermsAndConditions: undefined;
   PrivacyPolicy: undefined;
   AboutUs: undefined;
+  EarningsDetails: undefined;
+  ContactSupport: undefined;
 };
 
 const ProfessionalTab = createBottomTabNavigator<ProfessionalTabParamList>();

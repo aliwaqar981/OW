@@ -6,7 +6,6 @@ import RNPickerSelect from 'react-native-picker-select';
 import {Card, DropDown} from '../../../assets/svgicons';
 import FormInput from '../../../components/FormInput';
 import {TextButton} from '../../../components';
-import {routes} from '../../../constants';
 import Modal from 'react-native-modal';
 import {useUser} from '../../../Hooks/UseContext';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -35,7 +34,7 @@ const CheckOut: React.FC<Props> = ({route, navigation}) => {
             onPress={() => {
               toggleModal();
               setTimeout(() => {
-                navigation.navigate(routes.AGENDA);
+                navigation.navigate('Agenda');
               }, 500);
             }}
             labelStyle={{fontFamily: FONTS.Nunito_Regular}}

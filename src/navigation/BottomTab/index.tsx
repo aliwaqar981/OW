@@ -2,7 +2,6 @@ import {Image, StyleSheet} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Home, TalktoDoctor, VideoArena} from '../../screens/appflow';
-import {routes} from '../../constants';
 import {Doc1, Doc2, OW1, VideoIcon, VideoIcon1} from '../../assets/svgicons';
 import {OW2} from '../../assets/images';
 import {COLORS, FONTS} from '../../themes';
@@ -10,6 +9,14 @@ export type BottomStackParamList = {
   Home: undefined;
   TalktoDoctor: undefined;
   VideoArena: undefined;
+  Notification: undefined;
+  Profile: undefined;
+  ChooseDoctor: undefined;
+  Blogs: undefined;
+  VideoBlogs: undefined;
+  BookingList: {params: any};
+  EditDoctorDetails: undefined;
+  DoctorDetails: {doctorId: string};
 };
 
 const BottomTab = createBottomTabNavigator<BottomStackParamList>();

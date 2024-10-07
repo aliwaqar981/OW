@@ -8,7 +8,6 @@ import {
   ChooseAppointment,
   TextButton,
 } from '../../../components';
-import {routes} from '../../../constants';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {HomeStackParamList} from '../../../navigation/HomeStack';
 type Props = NativeStackScreenProps<HomeStackParamList, 'EditBookingDetails'>;

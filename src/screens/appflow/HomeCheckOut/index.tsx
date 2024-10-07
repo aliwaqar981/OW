@@ -6,7 +6,6 @@ import RNPickerSelect from 'react-native-picker-select';
 import {Card, DropDown} from '../../../assets/svgicons';
 import FormInput from '../../../components/FormInput';
 import {TextButton} from '../../../components';
-import {routes} from '../../../constants';
 import Modal from 'react-native-modal';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {HomeStackParamList} from '../../../navigation/HomeStack';

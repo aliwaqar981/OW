@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {
@@ -25,7 +24,6 @@ import {
   User1,
   Logout,
 } from '../../../assets/svgicons';
-import {routes} from '../../../constants';
 import Modal from 'react-native-modal';
 import {useUser} from '../../../Hooks/UseContext';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -121,7 +119,7 @@ const ProfessionalProfile: React.FC<Props> = ({navigation}) => {
           LeftIcon={<User1 />}
           label="Manage Profile"
           containerStyle={{marginTop: 7}}
-          // onPress={() => navigation.navigate(routes.COMMUNITY)}
+          // onPress={() => navigation.navigate('Community')}
         />
         {/* LOCATION */}
         <ProfileAction
@@ -134,14 +132,14 @@ const ProfessionalProfile: React.FC<Props> = ({navigation}) => {
           LeftIcon={<Image source={Dollar} style={{width: 14, height: 14}} />}
           label="Accounts"
           containerStyle={{marginTop: 7}}
-          onPress={() => navigation.navigate(routes.EARNINGSDETAILS)}
+          onPress={() => navigation.navigate('EarningsDetails')}
         />
         {/* CONTACK_SUPPORTT */}
         <ProfileAction
           LeftIcon={<Image source={Contact} style={{width: 12, height: 12}} />}
           label="Contact Support"
           containerStyle={{marginTop: 7}}
-          // onPress={() => navigation.navigate(routes.CONTACTSUPPORT)}
+          // onPress={() => navigation.navigate('ContactSupport')}
         />
         {/* PRIVACY_POLICY */}
         <ProfileAction

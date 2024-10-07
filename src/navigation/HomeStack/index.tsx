@@ -62,7 +62,7 @@ export type HomeStackParamList = {
   BookingList: undefined;
   BookingDetails: {bookingId: string};
   Session: {sessionId: string};
-  DoctorDetails: {doctorId: string};
+  DoctorDetails: {doctorId?: string};
   EditBookingDetails: {bookingId: string};
   Blogs: undefined;
   VideoBlogs: undefined;

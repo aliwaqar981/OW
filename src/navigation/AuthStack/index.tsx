@@ -42,6 +42,7 @@ export type AuthStackParamList = {
   ProfileVerificationStep5: undefined;
   ProfileVerificationStep6: undefined;
   ProfileVerificationStep7: undefined;
+  OnBoard: undefined;
 };
 // Create a typed stack navigator
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();

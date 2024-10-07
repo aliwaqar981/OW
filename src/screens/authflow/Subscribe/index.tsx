@@ -12,7 +12,6 @@ import {COLORS, FONTS} from '../../../themes';
 import {Gold, Platinum} from '../../../assets/images';
 import {TextButton, TextButtonwithIcon} from '../../../components';
 import {CrownCircle, GlowingStar} from '../../../assets/svgicons';
-import {routes} from '../../../constants';
 import {useUser} from '../../../Hooks/UseContext';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AuthStackParamList} from '../../../navigation/AuthStack';
@@ -140,7 +139,7 @@ const Subscribe: React.FC<Props> = ({navigation}) => {
                     containerStyle={styles.getStartedButton}
                     onPress={() =>
                       navigation.navigate('PaymentMethod', {
-                        screen: routes.CHECKOUT,
+                        screen: 'CheckOut',
                       })
                     }
                   />

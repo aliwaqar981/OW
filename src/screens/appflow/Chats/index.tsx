@@ -2,7 +2,7 @@ import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import React, {FC} from 'react';
 import {COLORS, FONTS} from '../../../themes';
 import {FlatList} from 'react-native';
-import {AllContacts, routes} from '../../../constants';
+import {AllContacts} from '../../../constants';
 import {ChatCard} from '../../../components';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {HomeStackParamList} from '../../../navigation/HomeStack';

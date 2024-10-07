@@ -16,7 +16,6 @@ import {
   KneeExercise,
   NeckExercise,
   BackExercise,
-  routes,
 } from '../../../constants';
 import {
   Body_Parts,
@@ -192,7 +191,7 @@ const VideoArena: React.FC<Props> = ({navigation}) => {
           </TouchableOpacity>
         </View>
         {/* BLOG */}
-        <BlogCard onPress={() => navigation.navigate(routes.BLOGS)} />
+        <BlogCard onPress={() => navigation.navigate()} />
         {/* TITLE */}
 
         <View style={styles.header}>
@@ -203,7 +202,7 @@ const VideoArena: React.FC<Props> = ({navigation}) => {
           </TouchableOpacity>
         </View>
         {/* TREAMENT_VIDEO */}
-        <Video onPress={() => navigation.navigate(routes.VIDEOBLOGS)} />
+        <Video onPress={() => navigation.navigate('VideoBlogs')} />
       </View>
     );
   };

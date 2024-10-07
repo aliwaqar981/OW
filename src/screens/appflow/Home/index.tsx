@@ -11,7 +11,7 @@ import {COLORS, FONTS} from '../../../themes';
 import {Bell, OW1} from '../../../assets/svgicons';
 import {MaleBack, MaleFront, Profile} from '../../../assets/images';
 import {ButtonwithIcon, Point, TextButton} from '../../../components';
-import {FrontBodyParts, routes, BackBodyParts} from '../../../constants';
+import {FrontBodyParts, BackBodyParts} from '../../../constants';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {BottomStackParamList} from '../../../navigation/BottomTab';
 type Props = NativeStackScreenProps<BottomStackParamList, 'Home'>;
@@ -62,14 +62,14 @@ const Home: React.FC<Props> = ({navigation}) => {
         {/* NOTIFICATION_ICON */}
         <ButtonwithIcon
           icon={<Bell />}
-          onPress={() => navigation.navigate(routes.NOTIFICATION)}
+          onPress={() => navigation.navigate('Notification')}
         />
         {/* LOGO */}
         <OW1 width={100} height={35} />
         {/* PROFILE_IMAGE_Button */}
         <ButtonwithIcon
           icon={<Image source={Profile} style={{width: 30, height: 30}} />}
-          onPress={() => navigation.navigate(routes.PROFILE)}
+          onPress={() => navigation.navigate('Profile')}
         />
       </View>
       {/* DIVIDER */}
@@ -156,7 +156,7 @@ const Home: React.FC<Props> = ({navigation}) => {
         <TextButton
           label={'Find a Doctor'}
           containerStyle={styles.button}
-          onPress={() => navigation.navigate(routes.CHOOSEDOCTOR)}
+          onPress={() => navigation.navigate('ChooseDoctor')}
         />
       </View>
     </SafeAreaView>
