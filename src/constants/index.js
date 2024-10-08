@@ -1,5 +1,4 @@
 import {Notifications_List} from './Notifications_List';
-import {routes} from './routes';
 import {SocialMediaButton} from './SocialMediaButton';
 import {
   ShoulderExercise,
@@ -19,7 +18,6 @@ import {time} from './time';
 import {afternoon, evening, morning} from './appointTime';
 
 export {
-  routes,
   Notifications_List,
   SocialMediaButton,
   BodyParts,
