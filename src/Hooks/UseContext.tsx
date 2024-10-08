@@ -37,9 +37,6 @@ export function UserProvider({children}: {children: React.ReactNode}) {
 
       if (storedUserId) setUserId(storedUserId);
       if (storedIsProfessional) setIsProfessional(storedIsProfessional);
-
-      // Hide splash screen after data is retrieved
-      SplashScreen.hide();
     };
 
     retrieveData();
@@ -76,7 +73,10 @@ export function UserProvider({children}: {children: React.ReactNode}) {
     SystemNavigationBar.setNavigationColor(COLORS.white);
   }, []);
 
-  // Provide context to child components
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <UserContext.Provider
       value={{userId, setUserId, isProfessional, setIsProfessional}}>
